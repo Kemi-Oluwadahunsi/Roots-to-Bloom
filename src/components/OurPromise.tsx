@@ -24,7 +24,7 @@ const OurPromise: React.FC = () => {
       initial="hidden"
       animate="visible"
       variants={staggerChildren}
-      className="py-20 bg-[#f0e6d2] dark:bg-[#2a2a2a]"
+      className="py-20 bg-[#f0e6d2] dark:bg-[#363636]"
     >
       <div className="container mx-auto px-4">
         <motion.h2

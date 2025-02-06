@@ -21,7 +21,7 @@ function App() {
     <Router>
       <ThemeProvider>
         <ProductProvider>
-          <div className=" flex flex-col min-h-screen bg-background dark:bg-background-dark text-text dark:text-text-dark">
+          <div className=" flex flex-col min-h-screen dark:bg-[#1a1a1a] text-text dark:text-text-dark">
             <Header />
             <main className="flex-grow">
               <AnimatePresence mode="wait">

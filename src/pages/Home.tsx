@@ -85,9 +85,7 @@ const Home: React.FC = () => {
       {/* Hero Section with Carousel */}
       <section className="relative overflow-hidden bg-[#f0e6d2] dark:bg-[#2a2a2a]">
         <div className="container mx-auto px-4 lg:px-[5rem] py-10 lg:py-20 h-full">
-          <p className="text-xl text-[#48392e] dark:text-[#e0e0e0] italic text-center mb-8">
-            Rooted in Nature, Bloom in Beauty
-          </p>
+          
           <div className="relative">
             {carouselItems.map((item, index) => (
               <motion.div
@@ -380,15 +378,23 @@ const BlogCard: React.FC<{
 }> = ({ title, excerpt, image, slug }) => {
   return (
     <Link to={`/blog/${slug}`} className="block">
-      <div className="bg-white dark:bg-[#3a3a3a] rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-xl">
-        <img src={image || "/placeholder.svg"} alt={title} className="w-full h-48 object-cover" />
+      <div className="bg-white dark:bg-[#3a3a3a] rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-xl ">
+        <img
+          src={image || "/placeholder.svg"}
+          alt={title}
+          className="w-full h-48 object-cover"
+        />
         <div className="p-6">
-          <h3 className="text-xl font-semibold text-[#48392e] dark:text-[#e0e0e0] mb-2">{title}</h3>
-          <p className="text-[#4b774a] dark:text-[#6a9e69]">{excerpt}</p>
+          <h3 className="text-base lg:text-xl font-semibold text-[#48392e] dark:text-[#e0e0e0] mb-2 truncate">
+            {title}
+          </h3>
+          <p className="text-[#4b774a] dark:text-[#6a9e69] line-clamp-2 text-ellipsis">
+            {excerpt}
+          </p>
         </div>
       </div>
     </Link>
-  )
+  );
 }
 
 export default Home

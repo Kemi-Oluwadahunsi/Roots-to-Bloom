@@ -1,112 +1,158 @@
-import type React from "react";
-import { useState } from "react";
-import { useParams } from "react-router-dom";
-import { motion } from "framer-motion";
-import { useProductContext } from "../context/ProductContext";
-import ProductPopup from "../components/ProductPopup";
-import CurrencyConverter from "../components/CurrencyConverter";
+import { useState } from "react"
+import { useParams } from "react-router-dom"
+import { motion } from "framer-motion"
+import { useProductContext } from "../context/ProductContext"
+import ProductPopup from "../components/ProductPopup"
+import CurrencyConverter from "../components/CurrencyConverter"
+import ImageGallery from "../components/ImageGallery"
+import ProductFAQ from "../components/ProductFAQ"
 
 const ProductDetails: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
-  const { getProduct } = useProductContext();
-  const [showPopup, setShowPopup] = useState(false);
-  const [selectedSize, setSelectedSize] = useState("");
-  const [currency, setCurrency] = useState("MYR");
+  const { id } = useParams<{ id: string }>()
+  const { getProduct } = useProductContext()
+  const [showPopup, setShowPopup] = useState(false)
+  const [selectedSize, setSelectedSize] = useState("")
+  const [currency, setCurrency] = useState("MYR")
 
-  const product = getProduct(id || "");
+  const product = getProduct(id || "")
 
   if (!product) {
-    return <div>Product not found</div>;
+    return <div>Product not found</div>
   }
 
-  const selectedSizePrice = product.sizePrices.find(
-    (sp) => sp.size === selectedSize
-  );
+  const selectedSizePrice = product.sizePrices.find((sp) => sp.size === selectedSize)
 
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="container mx-auto px-4 py-8"
+      className="container mx-auto px-4 lg:px-16 py-8"
     >
-      <div className="flex flex-col md:flex-row gap-8">
-        <div className="md:w-1/2">
-          <img
-            src={product.image || "/placeholder.svg"}
+      <div className="grid gap-8 lg:gap-20 md:grid-cols-2">
+        <div className="md:sticky md:top-24">
+          <ImageGallery
+            images={product.images || []}
+            mainImage={product.image}
             alt={product.name}
-            className="w-full h-auto rounded-lg shadow-md"
           />
         </div>
-        <div className="md:w-1/2">
-          <h1 className="text-3xl font-bold text-[#48392e] mb-4">
-            {product.name}
-          </h1>
-          <p className="text-lg text-[#4b774a] mb-4">
-            {product.category} - {product.subCategory}
-          </p>
-          <div className="mb-4">
-            <label
-              htmlFor="size-select"
-              className="block text-sm font-medium text-[#48392e] mb-2"
+
+        <div className="space-y-6 w-[70%]">
+          <div>
+            <motion.h1
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-3xl font-bold text-[#48392e] dark:text-[#e0e0e0] mb-4"
             >
-              Select Size:
-            </label>
-            <select
-              id="size-select"
-              value={selectedSize}
-              onChange={(e) => setSelectedSize(e.target.value)}
-              className="w-full p-2 border border-gray-300 rounded-md"
+              {product.name}
+            </motion.h1>
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="flex items-center gap-2 mb-4"
             >
-              <option value="">Choose a size</option>
-              {product.sizePrices.map((sp) => (
-                <option key={sp.size} value={sp.size}>
-                  {sp.size}
-                </option>
-              ))}
-            </select>
+              <span className="text-lg text-[#4b774a] dark:text-[#6a9e69]">
+                {product.category} - {product.subCategory}
+              </span>
+              <div className="flex items-center">
+                <span className="text-[#d79f63] dark:text-[#b58552]">★</span>
+                <span className="ml-1 text-[#48392e] dark:text-[#e0e0e0]">
+                  {product.rating}
+                </span>
+              </div>
+            </motion.div>
           </div>
-          {selectedSizePrice && (
-            <div className="mb-4">
-              <p className="text-xl font-semibold text-[#d79f63]">
+
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="space-y-4"
+          >
+            <div>
+              <label
+                htmlFor="size-select"
+                className="block font-medium text-[#48392e] dark:text-[#e0e0e0] mb-2"
+              >
+                Select Size:
+              </label>
+              <select
+                id="size-select"
+                value={selectedSize}
+                onChange={(e) => setSelectedSize(e.target.value)}
+                className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0]"
+              >
+                <option value="">
+                  Choose a size
+                </option>
+                {product.sizePrices.map((sp) => (
+                  <option key={sp.size} value={sp.size}>
+                    {sp.size}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {selectedSizePrice && (
+              <div className="text-xl font-semibold text-[#d79f63] dark:text-[#b58552]">
                 Price:{" "}
                 <CurrencyConverter
                   amount={selectedSizePrice.price}
                   from="MYR"
                   to={currency}
                 />
-              </p>
+              </div>
+            )}
+
+            <div>
+              <label
+                htmlFor="currency-select"
+                className="block text-sm font-medium text-[#48392e] dark:text-[#e0e0e0] mb-2"
+              >
+                Select Currency:
+              </label>
+              <select
+                id="currency-select"
+                value={currency}
+                onChange={(e) => setCurrency(e.target.value)}
+                className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0]"
+              >
+                <option value="MYR">MYR</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+              </select>
             </div>
-          )}
-          <div className="mb-4">
-            <label
-              htmlFor="currency-select"
-              className="block text-sm font-medium text-[#48392e] mb-2"
+
+            <p className="text-[#48392e] dark:text-[#e0e0e0]">
+              {product.description}
+            </p>
+
+            <button
+              onClick={() => setShowPopup(true)}
+              className="w-full bg-[#4b774a] dark:bg-[#6a9e69] text-white py-2 px-6 rounded-full hover:bg-opacity-80 transition duration-300 disabled:opacity-50"
+              disabled={!selectedSize}
             >
-              Select Currency:
-            </label>
-            <select
-              id="currency-select"
-              value={currency}
-              onChange={(e) => setCurrency(e.target.value)}
-              className="w-full p-2 border border-gray-300 rounded-md"
-            >
-              <option value="MYR">MYR</option>
-              <option value="USD">USD</option>
-              <option value="EUR">EUR</option>
-              <option value="GBP">GBP</option>
-            </select>
-          </div>
-          <p className="text-[#48392e] mb-6">{product.description}</p>
-          <button
-            onClick={() => setShowPopup(true)}
-            className="bg-[#4b774a] text-white py-2 px-6 rounded-full hover:bg-[#3a6639] transition duration-300"
-            disabled={!selectedSize}
+              Shop Now
+            </button>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="mt-8"
           >
-            Shop Now
-          </button>
+            <h2 className="text-2xl font-bold text-[#48392e] dark:text-[#e0e0e0] mb-4">
+              Product Information
+            </h2>
+            <ProductFAQ product={product} />
+          </motion.div>
         </div>
       </div>
+
       {showPopup && (
         <ProductPopup
           shopeeLink={product.shopeeLink}
@@ -116,6 +162,7 @@ const ProductDetails: React.FC = () => {
       )}
     </motion.div>
   );
-};
+}
 
-export default ProductDetails;
+export default ProductDetails
+

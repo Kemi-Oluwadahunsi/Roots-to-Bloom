@@ -31,7 +31,7 @@ const ProductComparison: React.FC = () => {
         <select
           id="product-select"
           onChange={(e) => handleProductSelect(e.target.value)}
-          className="w-full p-2 border border-gray-300 rounded-md"
+          className="w-full lg:w-1/3 p-2 border border-gray-300 rounded-md"
         >
           <option value="">Choose a product</option>
           {products.map((product) => (
@@ -52,7 +52,7 @@ const ProductComparison: React.FC = () => {
           id="currency-select"
           value={currency}
           onChange={(e) => setCurrency(e.target.value)}
-          className="w-full p-2 border border-gray-300 rounded-md"
+          className="w-full lg:w-1/3 p-2 border border-gray-300 rounded-md"
         >
           <option value="MYR">MYR</option>
           <option value="USD">USD</option>

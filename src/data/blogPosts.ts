@@ -36,7 +36,7 @@ export const blogPosts: BlogPost[] = [
       
       <p>Once you've identified your skin type, you can choose products that address your specific needs, helping you achieve healthier, more radiant skin.</p>
     `,
-    image: "/images/blog-skin-type.jpg",
+    image: "/images/skin-type-blog.jpg",
     slug: "understanding-your-skin-type",
     date: "2023-05-15",
     categories: ["Skincare"],
@@ -67,7 +67,7 @@ export const blogPosts: BlogPost[] = [
       
       <p>Remember, everyone's hair is different. Experiment with these tips to find what works best for your unique hair type and texture.</p>
     `,
-    image: "/images/blog-hair-care.jpg",
+    image: "/images/hair-care-tip.webp",
     slug: "natural-hair-care-tips",
     date: "2023-05-10",
     categories: ["Hair Care"],
@@ -98,7 +98,7 @@ export const blogPosts: BlogPost[] = [
       
       <p>When incorporating botanical ingredients into your routine, always patch test first and introduce new products gradually to ensure your skin responds well.</p>
     `,
-    image: "/images/blog-botanical.jpg",
+    image: "/images/herbs-care.jpg",
     slug: "power-of-botanical-ingredients",
     date: "2023-05-05",
     categories: ["Skincare", "Hair Care"],
@@ -134,7 +134,7 @@ export const blogPosts: BlogPost[] = [
       
       <p>Remember, while double cleansing can be beneficial, it's not necessary for everyone. If you have very dry or sensitive skin, you might want to stick to a single, gentle cleanser.</p>
     `,
-    image: "/images/blog-double-cleansing.jpg",
+    image: "/images/double-cleansing.webp",
     slug: "benefits-of-double-cleansing",
     date: "2023-05-20",
     categories: ["Skincare"],
@@ -163,7 +163,7 @@ export const blogPosts: BlogPost[] = [
       
       <p>By understanding your hair's porosity, you can better tailor your hair care routine to your specific needs.</p>
     `,
-    image: "/images/blog-hair-porosity.jpg",
+    image: "/images/porosity.webp",
     slug: "understanding-hair-porosity",
     date: "2023-05-25",
     categories: ["Hair Care"],
@@ -195,7 +195,7 @@ export const blogPosts: BlogPost[] = [
       
       <p>Remember, sunscreen should be applied every day, even when it's cloudy or you're indoors. Reapply every two hours when outdoors or after swimming or sweating.</p>
     `,
-    image: "/images/blog-sunscreen.jpg",
+    image: "/images/sunscreen.jpeg",
     slug: "importance-of-sunscreen",
     date: "2023-05-30",
     categories: ["Skincare"],
@@ -226,7 +226,7 @@ export const blogPosts: BlogPost[] = [
       
       <p>Remember, while these natural remedies can be effective, severe or persistent acne may require professional treatment. Always patch test new remedies and discontinue use if irritation occurs.</p>
     `,
-    image: "/images/blog-acne-remedies.jpg",
+    image: "/images/acne-remedy.jpg",
     slug: "natural-remedies-for-acne",
     date: "2023-06-04",
     categories: ["Skincare"],
@@ -263,7 +263,7 @@ export const blogPosts: BlogPost[] = [
       
       <p>Remember, it's important to wait a few minutes between layers to allow each product to absorb properly. Also, not every step is necessary for everyone - tailor your routine to your skin's needs.</p>
     `,
-    image: "/images/blog-skincare-layering.jpg",
+    image: "/images/layering.webp",
     slug: "art-of-layering-skincare-products",
     date: "2023-06-09",
     categories: ["Skincare"],
@@ -304,7 +304,7 @@ export const blogPosts: BlogPost[] = [
 
       <p>Remember, not all hair needs protein treatments. If your hair feels strong and healthy, focus on maintaining that balance with regular conditioning and minimal heat styling.</p>
     `,
-    image: "/images/blog-protein-treatments.jpg",
+    image: "/images/protein-treatment.webp",
     slug: "understanding-hair-protein-treatments",
     date: "2023-06-14",
     categories: ["Hair Care"],
@@ -348,7 +348,7 @@ export const blogPosts: BlogPost[] = [
 
       <p>Remember to be gentle with your skin. Facial massage should feel pleasant, not painful. If you have any skin conditions or concerns, consult with a dermatologist before incorporating facial massage into your routine.</p>
     `,
-    image: "/images/blog-facial-massage.jpg",
+    image: "/images/facial-massage.jpg",
     slug: "benefits-of-facial-massage",
     date: "2023-06-19",
     categories: ["Skincare", "Wellness"],

@@ -21,6 +21,10 @@ export interface Product {
   description: string;
   sizePrices: SizePrice[];
   image: string;
+  images: string[];
+  howToUse: string;
+  keyIngredients: string;
+  ingredients: string;
   shopeeLink: string;
   lazadaLink: string;
   rating: number;

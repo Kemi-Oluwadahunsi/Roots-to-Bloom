@@ -12,15 +12,24 @@ const Header = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <header className="bg-[#f8f7f2] dark:bg-[#1a1a1a] shadow-md">
+    <header className="bg-[#f0e6d2] dark:bg-[#2a2a2a] shadow-lg z-10">
       <nav className="container mx-auto px-4 py-2 flex justify-between items-center">
         <Link to="/" className="flex items-center">
           <img
-            src="/images/RootsBig.png"
+            src="/images/logo3.png"
             alt="Roots to Bloom Logo"
-            className="h-16 mr-2"
+            className="h-12 mr-2"
           />
-         
+          <div>
+            <strong className="flex gap-1 text-lg text-[#48392e] dark:text-[#b58552]">
+              <p>Roots</p>
+              <p className="text-[#4b774a]">to</p>
+              <p>Bloom</p>
+            </strong>
+            <p className="text-xs text-[#48392e] dark:text-[#e0e0e0] italic text-center">
+              Rooted in Nature, Bloom in Beauty
+            </p>
+          </div>
         </Link>
         <div className="hidden md:flex space-x-4 items-center">
           <NavLink to="/">Home</NavLink>
@@ -92,4 +101,3 @@ const NavLink = ({
 );
 
 export default Header;
-

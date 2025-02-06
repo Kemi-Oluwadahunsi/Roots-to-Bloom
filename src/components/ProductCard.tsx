@@ -32,7 +32,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
         <img
           src={image || "/placeholder.svg"}
           alt={name}
-          className="w-full h-48 object-cover mb-4 rounded"
+          className="w-full h-48 object-contain mb-4 rounded"
         />
         <h3 className="text-xl font-semibold text-[#48392e] mb-2">{name}</h3>
         <p className="text-[#4b774a] mb-2">{category}</p>
