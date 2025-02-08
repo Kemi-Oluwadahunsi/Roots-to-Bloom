@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
 import { ArrowRight, Leaf, Sun, Droplet, Star, ChevronLeft, ChevronRight } from "lucide-react"
 import { useProductContext } from "../context/ProductContext"
+import "animate.css";
 
 import ProductCard from "../components/ProductCard"
 import { blogPosts } from "../data/blogPosts"
@@ -84,13 +85,14 @@ const Home: React.FC = () => {
     >
       {/* Hero Section with Carousel */}
       <section className="relative overflow-hidden bg-[#f0e6d2] dark:bg-[#2a2a2a]">
-        <div className="container mx-auto px-4 lg:px-[5rem] py-10 lg:py-20 h-full">
-          
+        <div className="container mx-auto px-4 lg:px-[5rem] py-10 lg:py-24 h-full">
           <div className="relative">
             {carouselItems.map((item, index) => (
               <motion.div
                 key={index}
-                className={`${index === currentSlide ? "block" : "hidden"} flex flex-col lg:flex-row items-center lg:items-start`}
+                className={`${
+                  index === currentSlide ? "block" : "hidden"
+                } flex flex-col lg:flex-row items-center lg:items-start`}
                 initial={{ opacity: 0, x: 100 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -100 }}
@@ -135,7 +137,7 @@ const Home: React.FC = () => {
                   <img
                     src={item.image || "/placeholder.svg"}
                     alt={item.title}
-                    className="rounded-lg object-cover w-full h-[32rem]"
+                    className="rounded-lg object-cover w-full h-[32rem] animate__animated animate__zoomIn"
                   />
                 </motion.div>
               </motion.div>
@@ -172,22 +174,30 @@ const Home: React.FC = () => {
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <FeatureCard
-              icon={<Leaf className="w-12 h-12 text-[#4b774a] dark:text-[#6a9e69]" />}
+              icon={
+                <Leaf className="w-12 h-12 text-[#4b774a] dark:text-[#6a9e69]" />
+              }
               title="100% Organic"
               description="Our products are made with certified organic ingredients, ensuring the purest form of nature's goodness."
             />
             <FeatureCard
-              icon={<Sun className="w-12 h-12 text-[#d79f63] dark:text-[#b58552]" />}
+              icon={
+                <Sun className="w-12 h-12 text-[#d79f63] dark:text-[#b58552]" />
+              }
               title="Eco-Friendly"
               description="We're committed to sustainable practices and eco-friendly packaging to reduce our environmental impact."
             />
             <FeatureCard
-              icon={<Droplet className="w-12 h-12 text-[#4b774a] dark:text-[#6a9e69]" />}
+              icon={
+                <Droplet className="w-12 h-12 text-[#4b774a] dark:text-[#6a9e69]" />
+              }
               title="Cruelty-Free"
               description="All our products are cruelty-free. We never test on animals and respect all forms of life."
             />
             <FeatureCard
-              icon={<Star className="w-12 h-12 text-[#d79f63] dark:text-[#b58552]" />}
+              icon={
+                <Star className="w-12 h-12 text-[#d79f63] dark:text-[#b58552]" />
+              }
               title="Effective Results"
               description="Our formulas are backed by science and proven to deliver visible results for your skin and hair."
             />
@@ -213,9 +223,15 @@ const Home: React.FC = () => {
             <motion.div variants={fadeInUp}>
               <Link to="/products?category=skin" className="block">
                 <div className="bg-white dark:bg-[#3a3a3a] rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-xl">
-                  <img src="/images/products/skin-care.jpg" alt="Skin Care Products" className="w-full h-72 object-contain" />
+                  <img
+                    src="/images/products/skin-care.jpg"
+                    alt="Skin Care Products"
+                    className="w-full h-72 object-contain"
+                  />
                   <div className="p-6">
-                    <h3 className="text-2xl font-semibold text-[#48392e] dark:text-[#e0e0e0] mb-2">Skin Care</h3>
+                    <h3 className="text-2xl font-semibold text-[#48392e] dark:text-[#e0e0e0] mb-2">
+                      Skin Care
+                    </h3>
                     <p className="text-[#4b774a] dark:text-[#6a9e69]">
                       Discover our range of natural skin care products
                     </p>
@@ -226,9 +242,15 @@ const Home: React.FC = () => {
             <motion.div variants={fadeInUp}>
               <Link to="/products?category=hair" className="block">
                 <div className="bg-white dark:bg-[#3a3a3a] rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-xl">
-                  <img src="/images/products/hair-care.webp" alt="Hair Care Products" className="w-full h-72 object-contain" />
+                  <img
+                    src="/images/products/hair-care.webp"
+                    alt="Hair Care Products"
+                    className="w-full h-72 object-contain"
+                  />
                   <div className="p-6">
-                    <h3 className="text-2xl font-semibold text-[#48392e] dark:text-[#e0e0e0] mb-2">Hair Care</h3>
+                    <h3 className="text-2xl font-semibold text-[#48392e] dark:text-[#e0e0e0] mb-2">
+                      Hair Care
+                    </h3>
                     <p className="text-[#4b774a] dark:text-[#6a9e69]">
                       Explore our collection of natural hair care solutions
                     </p>
@@ -296,11 +318,16 @@ const Home: React.FC = () => {
           >
             Latest from Our Blog
           </motion.h2>
-         
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredBlogPosts.map((post) => (
               <motion.div key={post.id} variants={fadeInUp}>
-                <BlogCard title={post.title} excerpt={post.excerpt} image={post.image} slug={post.slug} />
+                <BlogCard
+                  title={post.title}
+                  excerpt={post.excerpt}
+                  image={post.image}
+                  slug={post.slug}
+                />
               </motion.div>
             ))}
           </div>
@@ -319,9 +346,12 @@ const Home: React.FC = () => {
       <section className="py-20 bg-gradient-to-r from-[#4b774a] via-[#d79f63] to-[#4b774a] dark:from-[#3a5a3a] dark:via-[#8f6b42] dark:to-[#3a5a3a]">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl lg:text-4xl font-bold text-[#f8f7f2] mb-6">Stay Connected</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-[#f8f7f2] mb-6">
+              Stay Connected
+            </h2>
             <p className="text-lg text-[#f8f7f2] mb-8">
-              Subscribe to our newsletter for exclusive offers, beauty tips, and new product announcements.
+              Subscribe to our newsletter for exclusive offers, beauty tips, and
+              new product announcements.
             </p>
             <form className="flex flex-col sm:flex-row gap-4">
               <input
@@ -340,7 +370,7 @@ const Home: React.FC = () => {
         </div>
       </section>
     </motion.div>
-  )
+  );
 }
 
 const FeatureCard: React.FC<{

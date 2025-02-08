@@ -14,7 +14,7 @@ const Blog: React.FC = () => {
   const [page, setPage] = useState(1);
 
   const postsPerPage = 6;
-  const loadMoreIncrement = 5;
+  const loadMoreIncrement = 3;
 
   const categories = [
     "All",
@@ -64,7 +64,7 @@ const Blog: React.FC = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="min-h-screen bg-[#f8f7f2] py-20"
+      className="min-h-screen bg-[#f8f7f2] py-8 lg:py-12"
     >
       <div className="container mx-auto px-4">
         <h1 className="text-4xl font-bold text-center text-[#48392e] mb-12">
