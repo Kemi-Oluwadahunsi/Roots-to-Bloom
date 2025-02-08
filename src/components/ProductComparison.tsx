@@ -2,11 +2,12 @@ import type React from "react";
 import { useState } from "react";
 import { useProductContext } from "../context/ProductContext";
 import CurrencyConverter from "./CurrencyConverter";
+import { Currency } from "../data/products"
 
 const ProductComparison: React.FC = () => {
   const { products } = useProductContext();
   const [selectedProducts, setSelectedProducts] = useState<string[]>([]);
-  const [currency, setCurrency] = useState("MYR");
+const [currency, setCurrency] = useState<Currency>(Currency.MYR);
 
   const handleProductSelect = (productId: string) => {
     if (selectedProducts.includes(productId)) {
@@ -51,13 +52,14 @@ const ProductComparison: React.FC = () => {
         <select
           id="currency-select"
           value={currency}
-          onChange={(e) => setCurrency(e.target.value)}
+          onChange={(e) => setCurrency(e.target.value as Currency)}
           className="w-full lg:w-1/3 p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0]"
         >
-          <option value="MYR">MYR</option>
-          <option value="USD">USD</option>
-          <option value="EUR">EUR</option>
-          <option value="GBP">GBP</option>
+          {Object.values(Currency).map((cur) => (
+            <option key={cur} value={cur}>
+              {cur}
+            </option>
+          ))}
         </select>
       </div>
       <div className="overflow-x-auto">
@@ -89,7 +91,7 @@ const ProductComparison: React.FC = () => {
                         {sp.size}:{" "}
                         <CurrencyConverter
                           amount={sp.price}
-                          from="MYR"
+                          from={Currency.MYR}
                           to={currency}
                         />
                       </div>

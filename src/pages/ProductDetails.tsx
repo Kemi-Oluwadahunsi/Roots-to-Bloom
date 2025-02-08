@@ -1,26 +1,29 @@
-import { useState } from "react"
-import { useParams } from "react-router-dom"
-import { motion } from "framer-motion"
-import { useProductContext } from "../context/ProductContext"
-import ProductPopup from "../components/ProductPopup"
-import CurrencyConverter from "../components/CurrencyConverter"
-import ImageGallery from "../components/ImageGallery"
-import ProductFAQ from "../components/ProductFAQ"
+import { useState } from "react";
+import { useParams } from "react-router-dom";
+import { motion } from "framer-motion";
+import { useProductContext } from "../context/ProductContext";
+import ProductPopup from "../components/ProductPopup";
+import CurrencyConverter from "../components/CurrencyConverter";
+import ImageGallery from "../components/ImageGallery";
+import ProductFAQ from "../components/ProductFAQ";
+import { Currency } from "../data/products";
 
 const ProductDetails: React.FC = () => {
-  const { id } = useParams<{ id: string }>()
-  const { getProduct } = useProductContext()
-  const [showPopup, setShowPopup] = useState(false)
-  const [selectedSize, setSelectedSize] = useState("")
-  const [currency, setCurrency] = useState("MYR")
+  const { id } = useParams<{ id: string }>();
+  const { getProduct } = useProductContext();
+  const [showPopup, setShowPopup] = useState(false);
+  const [selectedSize, setSelectedSize] = useState("");
+  const [currency, setCurrency] = useState<Currency>(Currency.MYR);
 
-  const product = getProduct(id || "")
+  const product = getProduct(id || "");
 
   if (!product) {
-    return <div>Product not found</div>
+    return <div>Product not found</div>;
   }
 
-  const selectedSizePrice = product.sizePrices.find((sp) => sp.size === selectedSize)
+  const selectedSizePrice = product.sizePrices.find(
+    (sp) => sp.size === selectedSize
+  );
 
   return (
     <motion.div
@@ -99,7 +102,7 @@ const ProductDetails: React.FC = () => {
                 Price:{" "}
                 <CurrencyConverter
                   amount={selectedSizePrice.price}
-                  from="MYR"
+                  from={Currency.MYR}
                   to={currency}
                 />
               </div>
@@ -115,13 +118,15 @@ const ProductDetails: React.FC = () => {
               <select
                 id="currency-select"
                 value={currency}
-                onChange={(e) => setCurrency(e.target.value)}
+                onChange={(e) => setCurrency(e.target.value as Currency)}
                 className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0]"
               >
-                <option value="MYR">MYR</option>
-                <option value="USD">USD</option>
-                <option value="EUR">EUR</option>
-                <option value="GBP">GBP</option>
+                {Object.values(Currency).map((cur) => (
+                  <option key={cur} value={cur}>
+                    {cur}
+                  </option>
+                ))}
+                ;
               </select>
             </div>
 
@@ -161,7 +166,6 @@ const ProductDetails: React.FC = () => {
       )}
     </motion.div>
   );
-}
+};
 
-export default ProductDetails
-
+export default ProductDetails;

@@ -28,8 +28,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
       whileHover={{ scale: 1.05 }}
       className="bg-[#f8f7f2] p-6 rounded-lg shadow-md transition duration-300 hover:shadow-xl relative"
     >
-      <div className="bg-transparent dark:bg-black/20 absolute inset-0"></div>
       <Link to={`/products/${id}`}>
+        <div className="bg-transparent dark:bg-black/20 absolute inset-0"></div>
         <img
           src={image || "/placeholder.svg"}
           alt={name}

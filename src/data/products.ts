@@ -1,5 +1,13 @@
 import type { Product } from "../context/ProductContext";
 
+
+  export enum Currency {
+    MYR = "MYR",
+    USD = "USD",
+    EUR = "EUR",
+    GBP = "GBP",
+  }
+
 export const products: Product[] = [
   {
     id: "1",
