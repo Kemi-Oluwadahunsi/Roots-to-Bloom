@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { blogPosts, type BlogPost } from "../data/blogPosts";
-import { Search, ChevronDown } from "lucide-react";
+import { Search } from "lucide-react";
 import LoadingSpinner from "../components/LoadingSpinner";
 
 const Blog: React.FC = () => {
@@ -64,10 +64,10 @@ const Blog: React.FC = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="min-h-screen bg-[#f8f7f2] py-8 lg:py-12"
+      className="min-h-screen bg-[#f8f7f2] dark:bg-[#1a1a1a] py-8 lg:py-12"
     >
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold text-center text-[#48392e] mb-12">
+        <h1 className="text-4xl font-bold text-center text-[#48392e] dark:text-[#e0e0e0] mb-16">
           Roots to Bloom Blog
         </h1>
         <div className="mb-8 flex flex-col md:flex-row justify-between items-center">
@@ -77,7 +77,7 @@ const Blog: React.FC = () => {
               placeholder="Search blog posts..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full p-2 pl-10 rounded-md border border-[#d79f63] focus:outline-none focus:ring-2 focus:ring-[#4b774a]"
+              className="w-full lg:w-2/3 p-2 pl-10 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0]"
             />
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#d79f63]" />
           </div>
@@ -85,7 +85,7 @@ const Blog: React.FC = () => {
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="w-full p-2 rounded-md border border-[#d79f63] appearance-none focus:outline-none focus:ring-2 focus:ring-[#4b774a]"
+              className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0]"
             >
               {categories.map((category) => (
                 <option key={category} value={category}>
@@ -93,7 +93,6 @@ const Blog: React.FC = () => {
                 </option>
               ))}
             </select>
-            <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#d79f63]" />
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -125,18 +124,23 @@ const BlogCard: React.FC<{ post: BlogPost }> = ({ post }) => {
     <Link to={`/blog/${post.slug}`} className="block">
       <motion.div
         whileHover={{ scale: 1.05 }}
-        className="bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-xl"
+        className=" bg-white dark:bg-[#3a3a3a] rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-xl"
       >
-        <img
-          src={post.image || "/placeholder.svg"}
-          alt={post.title}
-          className="w-full h-48 object-cover"
-        />
+        <div className="relative">
+          <div className="bg-transparent dark:bg-black/20 absolute inset-0"></div>
+          <img
+            src={post.image || "/placeholder.svg"}
+            alt={post.title}
+            className="w-full h-48 object-cover"
+          />
+        </div>
         <div className="p-6">
-          <h3 className="text-xl font-semibold text-[#48392e] mb-2">
+          <h3 className="text-xl font-semibold text-[#48392e] dark:text-[#e0e0e0] mb-2">
             {post.title}
           </h3>
-          <p className="text-[#4b774a] mb-4">{post.excerpt}</p>
+          <p className="text-[#4b774a] dark:text-[#6a9e69] mb-4">
+            {post.excerpt}
+          </p>
           <p className="text-sm text-[#d79f63]">
             {new Date(post.date).toLocaleDateString()}
           </p>

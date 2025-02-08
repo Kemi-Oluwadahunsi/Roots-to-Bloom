@@ -18,20 +18,20 @@ const ProductComparison: React.FC = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h2 className="text-2xl font-bold text-[#48392e] mb-4">
+      <h2 className="text-2xl font-bold text-[#48392e] dark:text-[#e0e0e0] mb-4">
         Product Comparison
       </h2>
       <div className="mb-4">
         <label
           htmlFor="product-select"
-          className="block text-sm font-medium text-[#48392e] mb-2"
+          className="block text-sm font-medium text-[#48392e] dark:text-[#f8f7f2] mb-2"
         >
           Select up to 3 products to compare:
         </label>
         <select
           id="product-select"
           onChange={(e) => handleProductSelect(e.target.value)}
-          className="w-full lg:w-1/3 p-2 border border-gray-300 rounded-md"
+          className="w-full lg:w-1/3 p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0]"
         >
           <option value="">Choose a product</option>
           {products.map((product) => (
@@ -44,7 +44,7 @@ const ProductComparison: React.FC = () => {
       <div className="mb-4">
         <label
           htmlFor="currency-select"
-          className="block text-sm font-medium text-[#48392e] mb-2"
+          className="block text-sm font-medium text-[#48392e] dark:text-[#f8f7f2] mb-2"
         >
           Select Currency:
         </label>
@@ -52,7 +52,7 @@ const ProductComparison: React.FC = () => {
           id="currency-select"
           value={currency}
           onChange={(e) => setCurrency(e.target.value)}
-          className="w-full lg:w-1/3 p-2 border border-gray-300 rounded-md"
+          className="w-full lg:w-1/3 p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0]"
         >
           <option value="MYR">MYR</option>
           <option value="USD">USD</option>
@@ -63,7 +63,7 @@ const ProductComparison: React.FC = () => {
       <div className="overflow-x-auto">
         <table className="w-full border-collapse border border-gray-300">
           <thead>
-            <tr className="bg-[#4b774a] text-white">
+            <tr className="bg-[#4b774a] text-white dark:text-[#e0e0e0]">
               <th className="p-2 border border-gray-300">Product</th>
               <th className="p-2 border border-gray-300">Category</th>
               <th className="p-2 border border-gray-300">Sizes</th>

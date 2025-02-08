@@ -1,103 +1,12 @@
-"use client";
-
+import type React from "react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ingredients, type Ingredient } from "../data/ingredients";
+import "animate.css";
 
-interface Ingredient {
-  name: string;
-  image: string;
-  description: string;
-  category: "skin" | "hair";
-}
-
-const ingredients: Ingredient[] = [
-  {
-    name: "Amla",
-    image: "/images/ingredients/amla.jpg",
-    description:
-      "Rich in Vitamin C, Amla strengthens hair follicles and promotes hair growth.",
-    category: "hair",
-  },
-  {
-    name: "Neem",
-    image: "/images/ingredients/neem.jpg",
-    description:
-      "Known for its antibacterial properties, Neem helps combat dandruff and scalp infections.",
-    category: "hair",
-  },
-  {
-    name: "Bhringraj",
-    image: "/images/ingredients/bhringraj.jpg",
-    description:
-      "Often called the 'king of herbs', Bhringraj is known to prevent hair fall and premature graying.",
-    category: "hair",
-  },
-  {
-    name: "Brahmi",
-    image: "/images/ingredients/brahmi.jpg",
-    description:
-      "Brahmi strengthens hair roots and promotes thicker, healthier hair growth.",
-    category: "hair",
-  },
-  {
-    name: "Aloe Vera",
-    image: "/images/ingredients/aloe-vera.jpg",
-    description:
-      "Aloe Vera moisturizes the scalp, reduces dandruff, and conditions hair.",
-    category: "hair",
-  },
-  {
-    name: "Hibiscus",
-    image: "/images/ingredients/hibiscus.jpg",
-    description:
-      "Hibiscus promotes hair growth, prevents hair loss, and adds natural shine.",
-    category: "hair",
-  },
-  {
-    name: "Ashwagandha",
-    image: "/images/ingredients/ashwagandha.jpg",
-    description:
-      "Ashwagandha improves scalp circulation and helps strengthen hair.",
-    category: "hair",
-  },
-  {
-    name: "Shikakai",
-    image: "/images/ingredients/shikakai.jpg",
-    description:
-      "Shikakai cleanses the hair and scalp while promoting hair growth.",
-    category: "hair",
-  },
-  {
-    name: "Turmeric",
-    image: "/images/ingredients/turmeric.jpg",
-    description:
-      "Turmeric has anti-inflammatory properties that help soothe and brighten the skin.",
-    category: "skin",
-  },
-  {
-    name: "Sandalwood",
-    image: "/images/ingredients/sandalwood.jpg",
-    description:
-      "Sandalwood helps to soothe and cool the skin, reducing redness and irritation.",
-    category: "skin",
-  },
-  {
-    name: "Rose",
-    image: "/images/ingredients/rose.jpg",
-    description:
-      "Rose has hydrating properties and helps to balance the skin's pH levels.",
-    category: "skin",
-  },
-  {
-    name: "Saffron",
-    image: "/images/ingredients/saffron.jpg",
-    description:
-      "Saffron is known for its skin-brightening and anti-aging properties.",
-    category: "skin",
-  },
-];
-
-const IngredientCard = ({ ingredient }: { ingredient: Ingredient }) => {
+const IngredientCard: React.FC<{ ingredient: Ingredient }> = ({
+  ingredient,
+}) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -111,11 +20,16 @@ const IngredientCard = ({ ingredient }: { ingredient: Ingredient }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <img
-        src={ingredient.image || "/placeholder.svg"}
-        alt={ingredient.name}
-        className="w-full h-full object-cover"
-      />
+      <div className="h-full">
+        <img
+          src={ingredient.image || "/placeholder.svg"}
+          alt={ingredient.name}
+          className="w-full h-full object-cover relative"
+        />
+        <p className="absolute bottom-0 w-full py-2 text-white font-bold text-lg bg-[#4b774a] bg-opacity-40 dark:bg-[#6a9e69] dark:bg-opacity-60 text-center">
+          {ingredient.name}
+        </p>
+      </div>
       <motion.div
         className="absolute inset-0 bg-[#4b774a] bg-opacity-90 dark:bg-[#6a9e69] dark:bg-opacity-90 flex items-center justify-center p-4"
         initial={{ opacity: 0 }}
@@ -133,18 +47,28 @@ const IngredientCard = ({ ingredient }: { ingredient: Ingredient }) => {
   );
 };
 
-const Ingredients = () => {
+const Ingredients: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<"hair" | "skin">(
     "hair"
   );
   const [filteredIngredients, setFilteredIngredients] = useState<Ingredient[]>(
     []
   );
+  const [medicalIngredients, setMedicalIngredients] = useState<Ingredient[]>(
+    []
+  );
 
   useEffect(() => {
     setFilteredIngredients(
       ingredients.filter(
-        (ingredient) => ingredient.category === selectedCategory
+        (ingredient) =>
+          ingredient.category.includes(selectedCategory) &&
+          !ingredient.category.includes("medical")
+      )
+    );
+    setMedicalIngredients(
+      ingredients.filter((ingredient) =>
+        ingredient.category.includes("medical")
       )
     );
   }, [selectedCategory]);
@@ -154,17 +78,61 @@ const Ingredients = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="min-h-screen bg-[#f8f7f2] dark:bg-[#1a1a1a] py-16"
+      className="min-h-screen bg-[#f8f7f2] dark:bg-[#1a1a1a] py-16 px-4 lg:px-0"
     >
-      <div className="container mx-auto px-4">
-        <h1 className="text-4xl md:text-6xl font-bold text-[#4b774a] dark:text-[#6a9e69] mb-8 text-center">
-          Our Ayurvedic Ingredients
-        </h1>
+      <div className="flex flex-col lg:flex-row justify-between items-center mb-[5rem] lg:w-[70%] h-[36rem] mx-auto animate_animate animate__fadeIn">
+        <div className="flex flex-col ">
+          <h2 className="text-4xl md:text-6xl font-bold text-[#4b774a] dark:text-[#6a9e69] mb-4 lg:mb-8 text-center ">
+            Inside Our Ingredients
+          </h2>
+          <p className="lg:text-lg w-[85%] lg:w-[70%] mx-auto text-[#48392e] dark:text-[#e0e0e0] mb-8 text-center ">
+            Learn about the nutrient-rich botanicals and molecular ingredients
+            in our luxurious, high-performance formulas.
+          </p>
+        </div>
+
+        <div className="w-full h-full">
+          <img
+            src="/images/ingredients/ingredientsMain.webp"
+            alt="Ingredient-image"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+
+      {/* Medical-grade Ingredients */}
+      <div className="container mx-auto px-4 mb-16 border-t border-t-[#4b774a] dark:border-t-[#6a9e69] pt-16">
+        <div>
+          <h2 className="text-4xl md:text-5xl font-bold text-[#4b774a] dark:text-[#6a9e69] mb-4 text-center">
+            Medical-Grade Efficacy Ingredients
+          </h2>
+          <p className="lg:text-lg w-[85%] lg:w-[70%] mx-auto text-[#48392e] dark:text-[#e0e0e0] mb-12 text-center ">
+            Roots to Bloom uses the best of molecular science and high quality
+            ingredients to create high-performing products.
+          </p>
+        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
+        >
+          {medicalIngredients.map((ingredient) => (
+            <IngredientCard key={ingredient.name} ingredient={ingredient} />
+          ))}
+        </motion.div>
+      </div>
+
+      {/* Ayurvedic Ingredients */}
+      <div className="container mx-auto px-4 border-t border-t-[#4b774a] dark:border-t-[#6a9e69] pt-16">
+        <h2 className="text-4xl md:text-5xl font-bold text-[#4b774a] dark:text-[#6a9e69] mb-8 text-center">
+          Active Ayurvedic Ingredients
+        </h2>
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="max-w-3xl mx-auto mb-12 text-center"
+          className="max-w-6xl mx-auto mb-12 text-center"
         >
           <p className="text-lg text-[#48392e] dark:text-[#e0e0e0] mb-8">
             At Roots to Bloom, we've chosen Ayurvedic ingredients for our skin
@@ -197,13 +165,13 @@ const Ingredients = () => {
             </button>
           </div>
         </motion.section>
-        <AnimatePresence>
+        <AnimatePresence mode="wait">
           <motion.div
             key={selectedCategory}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
           >
             {filteredIngredients.map((ingredient) => (
@@ -217,3 +185,4 @@ const Ingredients = () => {
 };
 
 export default Ingredients;
+

@@ -20,7 +20,7 @@ const BlogPost: React.FC = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="min-h-screen bg-[#f8f7f2] py-20"
+      className="min-h-screen max-w-[800px] mx-auto bg-[#f8f7f2] dark:bg-[#1a1a1a] py-20"
     >
       <div className="container mx-auto px-4">
         <Link
@@ -30,11 +30,11 @@ const BlogPost: React.FC = () => {
           <ArrowLeft className="mr-2" />
           Back to Blog
         </Link>
-        <article className="bg-white rounded-lg shadow-md overflow-hidden">
+        <article className="bg-white rounded-lg shadow-md overflow-hidden ">
           <img
             src={post.image || "/placeholder.svg"}
             alt={post.title}
-            className="w-full h-64 object-cover"
+            className="w-full h-[30rem] object-cover"
           />
           <div className="p-8">
             <h1 className="text-4xl font-bold text-[#48392e] mb-4">
@@ -54,7 +54,7 @@ const BlogPost: React.FC = () => {
               ))}
             </div>
             <div
-              className="prose prose-lg max-w-none text-[#48392e]"
+              className="prose prose-lg max-w-none text-[#48392e] blog-content"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
             <div className="mt-8">

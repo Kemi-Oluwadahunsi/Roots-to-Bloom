@@ -30,7 +30,8 @@ const ProductDetails: React.FC = () => {
       className="container mx-auto px-4 lg:px-16 py-8"
     >
       <div className="grid gap-8 lg:gap-20 md:grid-cols-2">
-        <div className="md:sticky md:top-24">
+        <div className="md:sticky md:top-24 relative">
+          <div className="bg-transparent dark:bg-black/30 absolute inset-0"></div>
           <ImageGallery
             images={product.images || []}
             mainImage={product.image}
@@ -84,9 +85,7 @@ const ProductDetails: React.FC = () => {
                 onChange={(e) => setSelectedSize(e.target.value)}
                 className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0]"
               >
-                <option value="">
-                  Choose a size
-                </option>
+                <option value="">Choose a size</option>
                 {product.sizePrices.map((sp) => (
                   <option key={sp.size} value={sp.size}>
                     {sp.size}

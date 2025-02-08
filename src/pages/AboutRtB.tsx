@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Leaf, Heart, Droplet, Sun } from "lucide-react";
 import type React from "react"; // Import React
-// bg-[#f8f7f2] bg-opacity-90 dark:bg-[#1a1a1a] dark:bg-opacity-90
+
 const AboutRtB = () => {
   return (
     <motion.div
@@ -26,7 +26,7 @@ const AboutRtB = () => {
                 Our Story
               </h2>
               <p className="text-lg">
-                Roots to Bloom is more than just a beauty brand; it's a
+                Roots to Bloom (RtB) is more than just a beauty brand; it's a
                 celebration of nature's wisdom and the power of Ayurvedic
                 traditions. Founded in 2020, our mission is to bring the
                 time-tested benefits of natural ingredients to modern skincare
@@ -108,8 +108,8 @@ const AboutRtB = () => {
                   </h3>
                   <p className="text-lg mb-4">
                     Kemi is the heart and soul behind Roots to Bloom. With over
-                    15 years of experience in Ayurvedic medicine and a Ph.D. in
-                    Herbal Sciences, she brings a wealth of knowledge and
+                    5 years of experience in Ayurvedic medicine and a BSc. in
+                    Biochemical Sciences, she brings a wealth of knowledge and
                     passion to our product formulations.
                   </p>
                   <p className="text-lg">
@@ -144,7 +144,7 @@ const FeatureCard: React.FC<{ icon: React.ReactNode; title: string }> = ({
   icon,
   title,
 }) => (
-  <div className="flex flex-col items-center text-center p-4 bg-white dark:bg-[#2a2a2a] rounded-lg shadow-md">
+  <div className="flex flex-col items-center text-center p-4 bg-white dark:bg-[#2a2a2a] border-[0.1em] border-black/10 rounded-lg shadow-2xl">
     <div className="text-[#4b774a] dark:text-[#6a9e69] mb-2">{icon}</div>
     <h3 className="font-semibold">{title}</h3>
   </div>
