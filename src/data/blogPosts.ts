@@ -111,7 +111,7 @@ export const blogPosts: BlogPost[] = [
       "Skin Health",
       "Hair Health",
     ],
-    delay: 0.4,
+    delay: 0.3,
   },
   {
     id: 4,
