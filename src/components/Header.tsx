@@ -150,7 +150,7 @@ const Header = () => {
 
   return (
     <header className="bg-[#f8f7f2] dark:bg-[#1a1a1a] shadow-md fixed top-0 left-0 right-0 z-50">
-      <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
+      <nav className="container mx-auto px-4 sm:px-8 lg:px-4 py-4 flex justify-between items-center">
         <Link to="/" className="flex items-center">
           <img
             src="/images/logo3.png"
@@ -168,7 +168,7 @@ const Header = () => {
             </p>
           </div>
         </Link>
-        <div className="hidden md:flex space-x-4 items-center">
+        <div className="hidden lg:flex space-x-2 xl:space-x-4 items-center">
           <NavLink to="/">Home</NavLink>
           <div
             className="relative"
@@ -206,10 +206,10 @@ const Header = () => {
             {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
           </button>
         </div>
-        <div className="md:hidden flex items-center">
+        <div className="lg:hidden flex items-center">
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full bg-[#d79f63] dark:bg-[#b58552] text-[#48392e] dark:text-[#f8f7f2] mr-2"
+            className="p-2 rounded-full bg-[#d79f63] dark:bg-[#b58552] text-[#48392e] dark:text-[#f8f7f2] mr-2 sm:mr-6"
           >
             {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
           </button>
@@ -221,7 +221,7 @@ const Header = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="md:hidden bg-[#f8f7f2] dark:bg-[#1a1a1a] py-2"
+          className="lg:hidden bg-[#f8f7f2] dark:bg-[#1a1a1a] py-4 sm:text-lg sm:pl-4"
         >
           <NavLink to="/" onClick={toggleMenu}>
             Home

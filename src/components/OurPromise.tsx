@@ -36,25 +36,25 @@ const OurPromise: React.FC = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <PromiseItem
             icon={
-              <Ban className="w-16 h-16 mx-auto text-[#4b774a] dark:text-[#6a9e69]" />
+              <Ban className="w-8 h-8 sm:w-12 sm:h-12 lg:w-16 lg:h-16 mx-auto text-[#4b774a] dark:text-[#6a9e69]" />
             }
             title="Paraben & GMO Free"
           />
           <PromiseItem
             icon={
-              <Leaf className="w-16 h-16 mx-auto text-[#d79f63] dark:text-[#b58552]" />
+              <Leaf className="w-8 h-8 sm:w-12 sm:h-12 lg:w-16 lg:h-16 mx-auto text-[#d79f63] dark:text-[#b58552]" />
             }
             title="Holistic Formulas"
           />
           <PromiseItem
             icon={
-              <Heart className="w-16 h-16 mx-auto text-[#4b774a] dark:text-[#6a9e69]" />
+              <Heart className="w-8 h-8 sm:w-12 sm:h-12 lg:w-16 lg:h-16 mx-auto text-[#4b774a] dark:text-[#6a9e69]" />
             }
             title="Cruelty Free"
           />
           <PromiseItem
             icon={
-              <Droplet className="w-16 h-16 mx-auto text-[#d79f63] dark:text-[#b58552]" />
+              <Droplet className="w-8 h-8 sm:w-12 sm:h-12 lg:w-16 lg:h-16 mx-auto text-[#d79f63] dark:text-[#b58552]" />
             }
             title="Phthalate & Sulfate Free"
           />

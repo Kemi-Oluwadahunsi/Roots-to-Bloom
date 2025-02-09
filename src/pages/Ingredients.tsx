@@ -11,7 +11,7 @@ const IngredientCard: React.FC<{ ingredient: Ingredient }> = ({
 
   return (
     <motion.div
-      className="relative w-full h-64 rounded-lg overflow-hidden cursor-pointer"
+      className="relative w-full h-50 lg:h-64 rounded-lg overflow-hidden cursor-pointer "
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       whileHover={{ scale: 1.05 }}
@@ -24,9 +24,9 @@ const IngredientCard: React.FC<{ ingredient: Ingredient }> = ({
         <img
           src={ingredient.image || "/placeholder.svg"}
           alt={ingredient.name}
-          className="w-full h-full object-cover relative"
+          className="w-full h-full object-contain sm:object-cover relative"
         />
-        <p className="absolute bottom-0 w-full py-2 text-white font-bold text-lg bg-[#4b774a] bg-opacity-40 dark:bg-[#6a9e69] dark:bg-opacity-60 text-center">
+        <p className="absolute bottom-0 w-full py-2 text-white font-bold xl:text-lg bg-[#4b774a] bg-opacity-40 dark:bg-[#6a9e69] dark:bg-opacity-60 text-center">
           {ingredient.name}
         </p>
       </div>
@@ -40,7 +40,9 @@ const IngredientCard: React.FC<{ ingredient: Ingredient }> = ({
           <h3 className="text-white text-xl font-semibold mb-2">
             {ingredient.name}
           </h3>
-          <p className="text-white text-sm">{ingredient.description}</p>
+          <p className="text-white text-xs sm:text-sm">
+            {ingredient.description}
+          </p>
         </div>
       </motion.div>
     </motion.div>
@@ -78,20 +80,20 @@ const Ingredients: React.FC = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="min-h-screen bg-[#f8f7f2] dark:bg-[#1a1a1a] py-16 px-4 lg:px-0"
+      className="min-h-screen bg-[#f8f7f2] dark:bg-[#1a1a1a] py-16 sm:px-4 lg:px-0 "
     >
-      <div className="flex flex-col lg:flex-row justify-between items-center mb-[5rem] lg:w-[70%] h-[36rem] mx-auto animate_animate animate__fadeIn">
+      <div className="flex flex-col lg:flex-row justify-around lg:justify-between items-center mb-[3rem] lg:mb-[5rem] lg:w-[90%] xl:w-[70%] sm:h-[36rem] lg:h-[30rem] lg:pt-16 xl:pt-0 mx-auto animate_animate animate__fadeIn">
         <div className="flex flex-col ">
-          <h2 className="text-4xl md:text-6xl font-bold text-[#4b774a] dark:text-[#6a9e69] mb-4 lg:mb-8 text-center ">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#4b774a] dark:text-[#6a9e69] mb-4 lg:mb-8 text-center ">
             Inside Our Ingredients
           </h2>
-          <p className="lg:text-lg w-[85%] lg:w-[70%] mx-auto text-[#48392e] dark:text-[#e0e0e0] mb-8 text-center ">
+          <p className="text-sm sm:text-base lg:text-lg w-[85%] sm:w-[70%] lg:[w-80%] xl:w-[70%] mx-auto text-[#48392e] dark:text-[#e0e0e0] mb-6 sm:mb-0 lg:mb-8 text-center">
             Learn about the nutrient-rich botanicals and molecular ingredients
             in our luxurious, high-performance formulas.
           </p>
         </div>
 
-        <div className="w-full h-full">
+        <div className="w-[90%] h-full sm:w-[70%] sm:h-[70%] lg:w-full lg:h-full">
           <img
             src="/images/ingredients/ingredientsMain.webp"
             alt="Ingredient-image"
@@ -101,12 +103,12 @@ const Ingredients: React.FC = () => {
       </div>
 
       {/* Medical-grade Ingredients */}
-      <div className="container mx-auto px-4 mb-16 border-t border-t-[#4b774a] dark:border-t-[#6a9e69] pt-16">
+      <div className="container mx-auto px-4 mb-8 lg:mb-16 border-t border-t-[#4b774a] dark:border-t-[#6a9e69] pt-8 lg:pt-16">
         <div>
-          <h2 className="text-4xl md:text-5xl font-bold text-[#4b774a] dark:text-[#6a9e69] mb-4 text-center">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#4b774a] dark:text-[#6a9e69] mb-4 text-center">
             Medical-Grade Efficacy Ingredients
           </h2>
-          <p className="lg:text-lg w-[85%] lg:w-[70%] mx-auto text-[#48392e] dark:text-[#e0e0e0] mb-12 text-center ">
+          <p className="text-sm sm:text-base lg:text-lg w-[85%] lg:w-[70%] mx-auto text-[#48392e] dark:text-[#e0e0e0] mb-12 text-center ">
             Roots to Bloom uses the best of molecular science and high quality
             ingredients to create high-performing products.
           </p>
@@ -115,7 +117,7 @@ const Ingredients: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-4 mx-4"
         >
           {medicalIngredients.map((ingredient) => (
             <IngredientCard key={ingredient.name} ingredient={ingredient} />
@@ -124,8 +126,8 @@ const Ingredients: React.FC = () => {
       </div>
 
       {/* Ayurvedic Ingredients */}
-      <div className="container mx-auto px-4 border-t border-t-[#4b774a] dark:border-t-[#6a9e69] pt-16">
-        <h2 className="text-4xl md:text-5xl font-bold text-[#4b774a] dark:text-[#6a9e69] mb-8 text-center">
+      <div className="container mx-auto px-4 border-t border-t-[#4b774a] dark:border-t-[#6a9e69] pt-8 lg:pt-16">
+        <h2 className="text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#4b774a] dark:text-[#6a9e69] mb-6 lg:mb-8 text-center">
           Active Ayurvedic Ingredients
         </h2>
         <motion.section
@@ -134,7 +136,7 @@ const Ingredients: React.FC = () => {
           transition={{ delay: 0.2 }}
           className="max-w-6xl mx-auto mb-12 text-center"
         >
-          <p className="text-lg text-[#48392e] dark:text-[#e0e0e0] mb-8">
+          <p className="text-sm sm:text-base lg:text-lg text-[#48392e] dark:text-[#e0e0e0] mb-8">
             At Roots to Bloom, we've chosen Ayurvedic ingredients for our skin
             and hair care products because of their time-tested efficacy and
             holistic approach to beauty. Ayurveda, the ancient Indian system of
@@ -172,7 +174,7 @@ const Ingredients: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8"
           >
             {filteredIngredients.map((ingredient) => (
               <IngredientCard key={ingredient.name} ingredient={ingredient} />

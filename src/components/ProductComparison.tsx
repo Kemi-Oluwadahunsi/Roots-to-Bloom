@@ -18,7 +18,7 @@ const [currency, setCurrency] = useState<Currency>(Currency.MYR);
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto py-8">
       <h2 className="text-2xl font-bold text-[#48392e] dark:text-[#e0e0e0] mb-4">
         Product Comparison
       </h2>
@@ -77,7 +77,7 @@ const [currency, setCurrency] = useState<Currency>(Currency.MYR);
               const product = products.find((p) => p.id === productId);
               if (!product) return null;
               return (
-                <tr key={product.id}>
+                <tr key={product.id} className="text-xs sm:text-base">
                   <td className="p-2 border border-gray-300">{product.name}</td>
                   <td className="p-2 border border-gray-300">
                     {product.category}

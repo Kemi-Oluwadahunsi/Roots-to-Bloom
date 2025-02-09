@@ -8,6 +8,7 @@ export interface BlogPost {
   date: string;
   categories: string[];
   tags: string[];
+  delay: number;
 }
 
 export const blogPosts: BlogPost[] = [
@@ -41,6 +42,7 @@ export const blogPosts: BlogPost[] = [
     date: "2023-05-15",
     categories: ["Skincare"],
     tags: ["Skin Types", "Skincare Routine", "Skin Health"],
+    delay: 0,
   },
   {
     id: 2,
@@ -72,6 +74,7 @@ export const blogPosts: BlogPost[] = [
     date: "2023-05-10",
     categories: ["Hair Care"],
     tags: ["Natural Ingredients", "Hair Health", "DIY"],
+    delay: 0.2,
   },
   {
     id: 3,
@@ -108,6 +111,7 @@ export const blogPosts: BlogPost[] = [
       "Skin Health",
       "Hair Health",
     ],
+    delay: 0.4,
   },
   {
     id: 4,
@@ -139,6 +143,7 @@ export const blogPosts: BlogPost[] = [
     date: "2023-05-20",
     categories: ["Skincare"],
     tags: ["Double Cleansing", "Skincare Routine", "Cleanse"],
+    delay: 0,
   },
   {
     id: 5,
@@ -168,6 +173,7 @@ export const blogPosts: BlogPost[] = [
     date: "2023-05-25",
     categories: ["Hair Care"],
     tags: ["Hair Porosity", "Hair Health", "Hair Care Routine"],
+    delay: 0,
   },
   {
     id: 6,
@@ -200,6 +206,7 @@ export const blogPosts: BlogPost[] = [
     date: "2023-05-30",
     categories: ["Skincare"],
     tags: ["Sunscreen", "Sun Protection", "Skin Health"],
+    delay: 0,
   },
   {
     id: 7,
@@ -231,6 +238,7 @@ export const blogPosts: BlogPost[] = [
     date: "2023-06-04",
     categories: ["Skincare"],
     tags: ["Acne", "Natural Remedies", "Skincare Tips"],
+    delay: 0,
   },
   {
     id: 8,
@@ -268,6 +276,7 @@ export const blogPosts: BlogPost[] = [
     date: "2023-06-09",
     categories: ["Skincare"],
     tags: ["Skincare Routine", "Skincare Tips", "Layering"],
+    delay: 0,
   },
   {
     id: 9,
@@ -309,6 +318,7 @@ export const blogPosts: BlogPost[] = [
     date: "2023-06-14",
     categories: ["Hair Care"],
     tags: ["Protein Treatments", "Hair Health", "Hair Care Tips"],
+    delay: 0,
   },
   {
     id: 10,
@@ -353,5 +363,6 @@ export const blogPosts: BlogPost[] = [
     date: "2023-06-19",
     categories: ["Skincare", "Wellness"],
     tags: ["Facial Massage", "Skin Health", "Self-Care"],
+    delay: 0,
   },
 ];

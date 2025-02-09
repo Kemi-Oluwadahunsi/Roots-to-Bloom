@@ -29,7 +29,7 @@ function App() {
       <ProductProvider>
         <div className="flex flex-col min-h-screen bg-background dark:bg-[#1a1a1a] dark:text-[#e0e0e0]">
           <Header />
-          <main className="flex-grow pt-20">
+          <main className="flex-grow pt-10 xl:pt-20">
             <AnimatePresence mode="wait">
               <Suspense fallback={<LoadingSpinner />}>
                 <Routes location={location} key={location.pathname}>

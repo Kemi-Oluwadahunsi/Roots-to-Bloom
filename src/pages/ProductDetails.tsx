@@ -30,11 +30,11 @@ const ProductDetails: React.FC = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="container mx-auto px-4 lg:px-16 py-8"
+      className="container mx-auto px-4 sm:px-8 lg:px-[3rem] xl:px-[5rem] pb-16 lg:py-24 pt-20 lg:pt-24"
     >
       <div className="grid gap-8 lg:gap-20 md:grid-cols-2">
         <div className="md:sticky md:top-24 relative">
-          <div className="bg-transparent dark:bg-black/30 absolute inset-0"></div>
+          <div className="bg-transparent absolute inset-0"></div>
           <ImageGallery
             images={product.images || []}
             mainImage={product.image}

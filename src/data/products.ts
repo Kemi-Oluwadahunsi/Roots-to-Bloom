@@ -26,6 +26,8 @@ export const products: Product[] = [
       "/images/products/shampoo-2.jpg",
       "/images/products/shampoo-3.jpg",
       "/images/products/shampoo-4.jpg",
+      "/images/products/shampoo-5.jpg",
+      "/images/products/shampoo-6.jpg",
     ],
     shopeeLink: "https://shopee.com/nourishing-shampoo",
     lazadaLink: "https://www.lazada.com/nourishing-shampoo",
