@@ -9,6 +9,8 @@ import "animate.css";
 import ProductCard from "../components/ProductCard"
 import { blogPosts } from "../data/blogPosts"
 import OurPromise from "../components/OurPromise"
+import SubscriptionForm from "../components/SubscriptionForm"
+import FeedbackCard from "../components/FeedbackCard"
 
 const carouselItems = [
   {
@@ -40,6 +42,7 @@ const carouselItems = [
 const Home: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const { products } = useProductContext()
+   const [showFeedback, setShowFeedback] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -363,22 +366,11 @@ const Home: React.FC = () => {
               Subscribe to our newsletter for exclusive offers, beauty tips, and
               new product announcements.
             </p>
-            <form className="flex flex-col sm:flex-row gap-4">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-grow px-4 py-3 w-full border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0] focus:outline-none focus:ring-2 focus:ring-[#d79f63] dark:focus:ring-[#b58552]"
-              />
-              <button
-                type="submit"
-                className=" px-6 py-3 bg-[#d79f63] dark:bg-[#b58552] text-[#48392e] dark:text-[#e0e0e0] rounded-full hover:bg-opacity-80 transition duration-300"
-              >
-                Subscribe
-              </button>
-            </form>
+            <SubscriptionForm onSuccess={() => setShowFeedback(true)} />
           </div>
         </div>
       </section>
+      {showFeedback && <FeedbackCard onClose={() => setShowFeedback(false)} />}
     </motion.div>
   );
 }

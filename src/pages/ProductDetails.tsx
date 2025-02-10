@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useProductContext } from "../context/ProductContext";
 import ProductPopup from "../components/ProductPopup";
@@ -7,6 +7,7 @@ import CurrencyConverter from "../components/CurrencyConverter";
 import ImageGallery from "../components/ImageGallery";
 import ProductFAQ from "../components/ProductFAQ";
 import { Currency } from "../data/products";
+import { ArrowLeft } from "lucide-react";
 
 const ProductDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -30,10 +31,18 @@ const ProductDetails: React.FC = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="container mx-auto px-4 sm:px-8 lg:px-[3rem] xl:px-[5rem] pb-16 lg:py-24 pt-20 lg:pt-24"
+      // className="container mx-auto px-4 sm:px-8 lg:px-[3rem] xl:px-[5rem] pb-16 lg:py-24 pt-20 lg:pt-24"
+      className="container mx-auto w-[90%] xl:w-[60%] pb-16 lg:py-24 pt-20 lg:pt-24"
     >
-      <div className="grid gap-8 lg:gap-20 md:grid-cols-2">
-        <div className="md:sticky md:top-24 relative">
+      <Link
+        to="/products"
+        className="inline-flex items-center text-[#4b774a] hover:text-[#3a6639] mb-4"
+      >
+        <ArrowLeft className="mr-2" />
+        Shop More Products
+      </Link>
+      <div className="grid gap-8 lg:gap-20 md:grid-cols-2 ">
+        <div className="md:sticky md:top-24 relative ">
           <div className="bg-transparent absolute inset-0"></div>
           <ImageGallery
             images={product.images || []}
@@ -42,12 +51,12 @@ const ProductDetails: React.FC = () => {
           />
         </div>
 
-        <div className="space-y-6 w-[70%]">
+        <div className="space-y-6">
           <div>
             <motion.h1
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-3xl font-bold text-[#48392e] dark:text-[#e0e0e0] mb-4"
+              className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#48392e] dark:text-[#e0e0e0] mb-4"
             >
               {product.name}
             </motion.h1>
@@ -57,7 +66,7 @@ const ProductDetails: React.FC = () => {
               transition={{ delay: 0.1 }}
               className="flex items-center gap-2 mb-4"
             >
-              <span className="text-lg text-[#4b774a] dark:text-[#6a9e69]">
+              <span className="sm:text-lg text-[#4b774a] dark:text-[#6a9e69]">
                 {product.category} - {product.subCategory}
               </span>
               <div className="flex items-center">
@@ -75,7 +84,7 @@ const ProductDetails: React.FC = () => {
             transition={{ delay: 0.2 }}
             className="space-y-4"
           >
-            <div>
+            <div className="w-[80%] xl:w-full">
               <label
                 htmlFor="size-select"
                 className="block font-medium text-[#48392e] dark:text-[#e0e0e0] mb-2"
@@ -108,7 +117,7 @@ const ProductDetails: React.FC = () => {
               </div>
             )}
 
-            <div>
+            <div className="w-[80%] xl:w-full">
               <label
                 htmlFor="currency-select"
                 className="block text-sm font-medium text-[#48392e] dark:text-[#e0e0e0] mb-2"
@@ -130,17 +139,19 @@ const ProductDetails: React.FC = () => {
               </select>
             </div>
 
-            <p className="text-[#48392e] dark:text-[#e0e0e0]">
+            <p className="text-[#48392e] dark:text-[#e0e0e0] text-sm sm:text-base">
               {product.description}
             </p>
 
-            <button
-              onClick={() => setShowPopup(true)}
-              className="w-full bg-[#4b774a] dark:bg-[#6a9e69] text-white py-2 px-6 rounded-full hover:bg-opacity-80 transition duration-300 disabled:opacity-50"
-              disabled={!selectedSize}
-            >
-              Shop Now
-            </button>
+            <div className="w-3/4 mx-auto ">
+              <button
+                onClick={() => setShowPopup(true)}
+                className="w-full bg-[#4b774a] dark:bg-[#6a9e69] text-white py-2 px-6 rounded-full hover:bg-opacity-80 transition duration-300 disabled:opacity-50"
+                disabled={!selectedSize}
+              >
+                Shop Now
+              </button>
+            </div>
           </motion.div>
 
           <motion.div

@@ -47,20 +47,21 @@ export default function ImageGallery({
   }, []);
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 px-4 sm:px-0">
       <AnimatePresence mode="wait">
         <motion.div
           key={displayedImage}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="aspect-square overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800 max-w-md mx-auto"
+          className="relative aspect-square overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800 max-w-md w-[80%] sm:w-[90%] lg:w-full mx-auto"
         >
           <img
             src={displayedImage || "/placeholder.svg"}
             alt={alt}
             className="h-full w-full object-cover object-center"
           />
+          <div className="bg-transparent dark:bg-black/20 absolute inset-0"></div>
         </motion.div>
       </AnimatePresence>
 
@@ -78,7 +79,7 @@ export default function ImageGallery({
               onClick={() => setSelectedImage(image)}
               onMouseEnter={() => setHoveredImage(image)}
               onMouseLeave={() => setHoveredImage(null)}
-              className={`flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800 
+              className={`relative flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800 
                 ${
                   selectedImage === image
                     ? "ring-2 ring-[#4b774a] dark:ring-[#6a9e69]"
@@ -91,6 +92,7 @@ export default function ImageGallery({
                 alt={`${alt} - View ${index + 1}`}
                 className="h-full w-full object-cover object-center"
               />
+              <div className="bg-transparent dark:bg-black/20 absolute inset-0"></div>
             </motion.button>
           ))}
         </div>

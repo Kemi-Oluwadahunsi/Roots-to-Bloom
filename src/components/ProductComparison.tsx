@@ -32,7 +32,7 @@ const [currency, setCurrency] = useState<Currency>(Currency.MYR);
         <select
           id="product-select"
           onChange={(e) => handleProductSelect(e.target.value)}
-          className="w-full lg:w-1/3 p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0]"
+          className="w-full sm:w-2/4 lg:w-1/3 p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0]"
         >
           <option value="">Choose a product</option>
           {products.map((product) => (
@@ -53,7 +53,7 @@ const [currency, setCurrency] = useState<Currency>(Currency.MYR);
           id="currency-select"
           value={currency}
           onChange={(e) => setCurrency(e.target.value as Currency)}
-          className="w-full lg:w-1/3 p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0]"
+          className="w-full sm:w-2/4  lg:w-1/3 p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0]"
         >
           {Object.values(Currency).map((cur) => (
             <option key={cur} value={cur}>

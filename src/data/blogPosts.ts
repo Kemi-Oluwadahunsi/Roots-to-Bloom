@@ -18,7 +18,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Learn how to identify your skin type and choose the right products for your skincare routine.",
     content: `
-      <p>Understanding your skin type is crucial for maintaining healthy, glowing skin. There are five main skin types: normal, dry, oily, combination, and sensitive. Here's how to identify yours:</p>
+      <p>Understanding your skin type is crucial for maintaining healthy, glowing skin. There are four main skin types: normal, dry, oily, and combination. Here's how to identify yours:</p>
       
       <h2>Normal Skin</h2>
       <p>Normal skin is well-balanced, neither too oily nor too dry. It has a smooth texture, small pores, and few imperfections.</p>
@@ -78,7 +78,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 3,
-    title: "The Power of Botanical Ingredients",
+    title: "Botanical Ingredient's Power",
     excerpt:
       "Explore the benefits of plant-based ingredients in your beauty routine.",
     content: `
@@ -115,7 +115,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 4,
-    title: "The Benefits of Double Cleansing",
+    title: "Benefits of Double Cleansing",
     excerpt:
       "Learn why double cleansing could be the game-changer in your skincare routine.",
     content: `
@@ -322,7 +322,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 10,
-    title: "The Benefits of Facial Massage",
+    title: "Benefits of Facial Massage",
     excerpt:
       "Discover how incorporating facial massage into your skincare routine can improve your skin's health and appearance.",
     content: `

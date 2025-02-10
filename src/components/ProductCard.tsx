@@ -26,7 +26,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   return (
     <motion.article
       whileHover={{ scale: 1.05 }}
-      className="bg-[#f8f7f2] p-3 sm:p-6 rounded-lg shadow-md transition duration-300 hover:shadow-xl relative"
+      className="bg-[#f8f7f2] p-3 lg:p-6 rounded-lg shadow-md transition duration-300 hover:shadow-xl relative"
     >
       <Link to={`/products/${id}`}>
         <div className="bg-transparent dark:bg-black/20 absolute inset-0"></div>
@@ -35,7 +35,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
           alt={name}
           className="w-full h-32 lg:h-48 object-contain mb-4 rounded"
         />
-        <h3 className="text-sm sm:text-lg lg:text-xl font-semibold text-[#48392e] mb-2">{name}</h3>
+        <h3 className="text-sm sm:text-base lg:text-xl font-semibold text-[#48392e] mb-2">{name}</h3>
         <p className="text-[#4b774a] mb-2">{category}</p>
         <div className="flex justify-between items-center text-xs sm:text-sm lg:text-base">
           <span className="text-[#4b774a] font-bold">

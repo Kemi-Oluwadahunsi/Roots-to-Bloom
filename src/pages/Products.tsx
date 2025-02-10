@@ -112,7 +112,7 @@ const Products: React.FC = () => {
       )}
 
       <nav className="mb-8">
-        <h2 className="text-2xl font-semibold text-[#4b774a] dark:text-[#6a9e69] mb-4">
+        <h2 className="text-lg sm:text-xl lg:text-2xl font-semibold text-[#4b774a] dark:text-[#6a9e69] mb-4">
           Sizes
         </h2>
         <ul className="flex flex-wrap gap-2 sm:gap-4">

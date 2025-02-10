@@ -20,27 +20,31 @@ const BlogPost: React.FC = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="min-h-screen max-w-[800px] mx-auto bg-[#f8f7f2] dark:bg-[#1a1a1a] py-20"
+      className="min-h-screen max-w-[800px] w-full sm:w-[80%] lg:w-full mx-auto bg-[#f8f7f2] dark:bg-[#1a1a1a] py-20 "
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <Link
           to="/blog"
-          className="inline-flex items-center text-[#4b774a] hover:text-[#3a6639] mb-8"
+          className="inline-flex items-center text-[#4b774a] hover:text-[#3a6639] mb-8 pl-4"
         >
           <ArrowLeft className="mr-2" />
           Back to Blog
         </Link>
-        <article className="bg-white rounded-lg shadow-md overflow-hidden ">
-          <img
-            src={post.image || "/placeholder.svg"}
-            alt={post.title}
-            className="w-full h-[30rem] object-cover"
-          />
+        <article className="rounded-lg shadow-md overflow-hidden dark:bg-opacity-50 text-[#48392e] dark:text-[#e0e0e0]">
+          <div className="relative">
+            <img
+              src={post.image || "/placeholder.svg"}
+              alt={post.title}
+              className=" w-[90%] sm:w-full h-[14rem] sm:h-[18rem] lg:h-[27rem] xl:h-[30rem] mx-auto object-cover rounded-t-2xl"
+            />
+            <div className="bg-transparent dark:bg-black/20 absolute inset-0"></div>
+          </div>
+
           <div className="p-8">
-            <h1 className="text-4xl font-bold text-[#48392e] mb-4">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold  mb-4">
               {post.title}
             </h1>
-            <p className="text-[#d79f63] mb-6">
+            <p className="text-[#d79f63] mb-4">
               {new Date(post.date).toLocaleDateString()}
             </p>
             <div className="flex flex-wrap gap-2 mb-6">
@@ -54,13 +58,11 @@ const BlogPost: React.FC = () => {
               ))}
             </div>
             <div
-              className="prose prose-lg max-w-none text-[#48392e] blog-content"
+              className="prose prose-lg max-w-none blog-content"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
             <div className="mt-8">
-              <h3 className="text-xl font-semibold text-[#48392e] mb-4">
-                Share this post
-              </h3>
+              <h3 className="text-xl font-semibold mb-4">Share this post</h3>
               <div className="flex space-x-4">
                 <a
                   href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}

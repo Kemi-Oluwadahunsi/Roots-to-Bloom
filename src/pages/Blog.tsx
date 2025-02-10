@@ -64,20 +64,20 @@ const Blog: React.FC = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="min-h-screen bg-[#f8f7f2] dark:bg-[#1a1a1a] py-8 lg:py-12"
+      className="min-h-screen bg-[#f8f7f2] dark:bg-[#1a1a1a] mx-auto px-4 xl:px-[5rem] pb-16 lg:py-24 pt-20"
     >
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold text-center text-[#48392e] dark:text-[#e0e0e0] mb-16">
+        <h1 className="text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-center text-[#48392e] dark:text-[#e0e0e0] mb-8 sm:mb-10 xl:mb-16">
           Roots to Bloom Blog
         </h1>
         <div className="mb-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="relative w-full md:w-1/2 mb-4 md:mb-0">
+          <div className="relative w-full lg:w-2/3 xl:w-1/2 mb-4 md:mb-0">
             <input
               type="text"
               placeholder="Search blog posts..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full lg:w-2/3 p-2 pl-10 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0]"
+              className="w-full sm:w-2/3 p-2 pl-10 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0]"
             />
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#d79f63]" />
           </div>
@@ -131,14 +131,14 @@ const BlogCard: React.FC<{ post: BlogPost }> = ({ post }) => {
           <img
             src={post.image || "/placeholder.svg"}
             alt={post.title}
-            className="w-full h-48 object-cover"
+            className="w-full h-32 lg:h-48 object-cover"
           />
         </div>
-        <div className="p-6">
-          <h3 className="text-xl font-semibold text-[#48392e] dark:text-[#e0e0e0] mb-2">
+        <div className="px-3 py-6 xl:p-6">
+          <h3 className="text-base lg:text-xl font-semibold text-[#48392e] dark:text-[#e0e0e0] mb-2 line-clamp-1">
             {post.title}
           </h3>
-          <p className="text-[#4b774a] dark:text-[#6a9e69] mb-4">
+          <p className="text-[#4b774a] dark:text-[#6a9e69] mb-4 line-clamp-2 text-sm lg:text-base">
             {post.excerpt}
           </p>
           <p className="text-sm text-[#d79f63]">
