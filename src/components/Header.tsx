@@ -84,7 +84,7 @@ const Header = () => {
           <NavLink to="/contact">Contact</NavLink>
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full bg-[#d79f63] dark:bg-[#b58552] text-[#48392e] dark:text-[#f8f7f2]"
+            className="p-2 rounded-full bg-[#d79f63] dark:bg-[#b58552] text-[#48392e] dark:text-[#f8f7f2] cursor-pointer"
           >
             {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
           </button>
