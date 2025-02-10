@@ -35,7 +35,8 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-  .blog-content p {
+  .blog-content p,
+.blog-content ul {
   margin-bottom: 5px;
   font-size: 0.9rem;
 }
