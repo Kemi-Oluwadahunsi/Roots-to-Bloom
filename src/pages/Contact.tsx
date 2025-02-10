@@ -38,7 +38,7 @@ const Contact: React.FC = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="container mx-auto px-4 sm:px-8 lg:px-[3rem] xl:px-[5rem] pb-16 lg:py-24 pt-20 lg:pt-24 min-h-screen"
+      className="container mx-auto px-4 sm:px-8 lg:px-[3rem] xl:px-[5rem] pb-16 lg:pb-24 lg:pt-16 pt-20 min-h-screen"
     >
       <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#48392e] dark:text-[#e0e0e0] mb-8 text-center">
         Contact Us

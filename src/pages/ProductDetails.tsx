@@ -31,8 +31,7 @@ const ProductDetails: React.FC = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      // className="container mx-auto px-4 sm:px-8 lg:px-[3rem] xl:px-[5rem] pb-16 lg:py-24 pt-20 lg:pt-24"
-      className="container mx-auto w-[90%] xl:w-[60%] pb-16 lg:py-24 pt-20 lg:pt-24"
+      className="container mx-auto w-[90%] xl:w-[60%] pb-16 lg:pb-24 lg:pt-16 pt-20"
     >
       <Link
         to="/products"
@@ -146,7 +145,7 @@ const ProductDetails: React.FC = () => {
             <div className="w-3/4 mx-auto ">
               <button
                 onClick={() => setShowPopup(true)}
-                className="w-full bg-[#4b774a] dark:bg-[#6a9e69] text-white py-2 px-6 rounded-full hover:bg-opacity-80 transition duration-300 disabled:opacity-50"
+                className="w-full bg-[#4b774a] dark:bg-[#6a9e69] text-white py-2 px-6 rounded-full hover:bg-opacity-80 transition duration-300 disabled:opacity-50 cursor-pointer"
                 disabled={!selectedSize}
               >
                 Shop Now

@@ -64,10 +64,10 @@ const Blog: React.FC = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="min-h-screen bg-[#f8f7f2] dark:bg-[#1a1a1a] mx-auto px-4 xl:px-[5rem] pb-16 lg:py-24 pt-20"
+      className="min-h-screen bg-[#f8f7f2] dark:bg-[#1a1a1a] mx-auto px-4 xl:px-[5rem] pb-16 lg:pb-24 lg:pt-16 pt-20"
     >
       <div className="container mx-auto px-4">
-        <h1 className="text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-center text-[#48392e] dark:text-[#e0e0e0] mb-8 sm:mb-10 xl:mb-16">
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-[#48392e] dark:text-[#e0e0e0] mb-8 sm:mb-10 xl:mb-16">
           Roots to Bloom Blog
         </h1>
         <div className="mb-8 flex flex-col md:flex-row justify-between items-center">

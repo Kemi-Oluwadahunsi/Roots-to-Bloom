@@ -79,7 +79,7 @@ export default function ImageGallery({
               onClick={() => setSelectedImage(image)}
               onMouseEnter={() => setHoveredImage(image)}
               onMouseLeave={() => setHoveredImage(null)}
-              className={`relative flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800 
+              className={`relative flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800 cursor-pointer
                 ${
                   selectedImage === image
                     ? "ring-2 ring-[#4b774a] dark:ring-[#6a9e69]"

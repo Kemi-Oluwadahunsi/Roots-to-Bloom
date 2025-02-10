@@ -37,7 +37,7 @@ export const blogPosts: BlogPost[] = [
       
       <p>Once you've identified your skin type, you can choose products that address your specific needs, helping you achieve healthier, more radiant skin.</p>
     `,
-    image: "/images/skin-type-blog.jpg",
+    image: "/images/skin-type-blog.webp",
     slug: "understanding-your-skin-type",
     date: "2023-05-15",
     categories: ["Skincare"],
@@ -101,7 +101,7 @@ export const blogPosts: BlogPost[] = [
       
       <p>When incorporating botanical ingredients into your routine, always patch test first and introduce new products gradually to ensure your skin responds well.</p>
     `,
-    image: "/images/herbs-care.jpg",
+    image: "/images/herbs-care.webp",
     slug: "power-of-botanical-ingredients",
     date: "2023-05-05",
     categories: ["Skincare", "Hair Care"],
@@ -201,7 +201,7 @@ export const blogPosts: BlogPost[] = [
       
       <p>Remember, sunscreen should be applied every day, even when it's cloudy or you're indoors. Reapply every two hours when outdoors or after swimming or sweating.</p>
     `,
-    image: "/images/sunscreen.jpeg",
+    image: "/images/sunscreen.webp",
     slug: "importance-of-sunscreen",
     date: "2023-05-30",
     categories: ["Skincare"],
@@ -233,7 +233,7 @@ export const blogPosts: BlogPost[] = [
       
       <p>Remember, while these natural remedies can be effective, severe or persistent acne may require professional treatment. Always patch test new remedies and discontinue use if irritation occurs.</p>
     `,
-    image: "/images/acne-remedy.jpg",
+    image: "/images/acne-remedy.webp",
     slug: "natural-remedies-for-acne",
     date: "2023-06-04",
     categories: ["Skincare"],
@@ -358,7 +358,7 @@ export const blogPosts: BlogPost[] = [
 
       <p>Remember to be gentle with your skin. Facial massage should feel pleasant, not painful. If you have any skin conditions or concerns, consult with a dermatologist before incorporating facial massage into your routine.</p>
     `,
-    image: "/images/facial-massage.jpg",
+    image: "/images/facial-massage.webp",
     slug: "benefits-of-facial-massage",
     date: "2023-06-19",
     categories: ["Skincare", "Wellness"],

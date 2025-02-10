@@ -11,7 +11,7 @@ const AboutRtB = () => {
       className="min-h-screen dark:bg-[#1a1a1a] bg-[#f8f7f2]  dark:bg-opacity-90  "
     >
       {/* <div className="absolute inset-0 min-h-screen bg-white/60 dark:bg-black/50"></div> */}
-      <div className=" min-h-screen bg-contain bg-center bg-fixed bg-no-repeat bg-[url('/images/logo-faded2.png')] dark:bg-[url('/images/logo-faded-dark.png')]">
+      <div className=" min-h-screen bg-contain bg-center bg-fixed bg-no-repeat bg-[url('/images/logo-faded2.webp')] dark:bg-[url('/images/logo-faded-dark.webp')]">
         <div className="container mx-auto px-4 py-16">
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#4b774a] dark:text-[#6a9e69] mb-8 text-center">
             About Roots to Bloom
@@ -98,7 +98,7 @@ const AboutRtB = () => {
               </h2>
               <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
                 <img
-                  src="/images/formulator.png"
+                  src="/images/formulator.webp"
                   alt="Roots to Bloom Formulator"
                   className="w-40 h-40 sm:w-52 sm:h-52 lg:w-64 lg:h-64 object-cover rounded-full"
                 />

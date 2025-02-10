@@ -17,25 +17,25 @@ const carouselItems = [
     title: "Experience Botanical Glow",
     description:
       "Gentle yet powerful, our botanical-rich formulations are crafted to deeply hydrate, repair, and enhance your natural glow without irritation. Balanced for all skin and hair types, because beauty should feel as good as it looks.",
-    image: "/images/Natural-ingredients.png",
+    image: "/images/Natural-ingredients.webp",
   },
   {
     title: "Effective Visible Results",
     description:
       "Made with nutrient-rich butters, herbal extracts, and lightweight oils, our products deliver deep moisture and lasting strength—free from parabens, sulfates, and harsh chemicals. Just nature's best, designed for your best.",
-    image: "/images/result4.png",
+    image: "/images/result4.webp",
   },
   {
     title: "Strengthen, Restore, Flourish",
     description:
       "Experience the power of deep moisture with our highly hydrating, non-greasy formulations. Designed to replenish, restore balance, and lock in hydration without clogging pores or weighing hair down.",
-    image: "/images/grreen-nature.png",
+    image: "/images/grreen-nature.webp",
   },
   {
     title: "Made For Every YOU ~",
     description:
       "For every skin and hair type; dry, oily, or sensitive, curly, coily, or straight. Our formulas are crafted to work in harmony with all textures and skin types. Nature's care, tailored for everyone.",
-    image: "/images/allTypes.png",
+    image: "/images/allTypes.webp",
   },
 ]
 
@@ -231,7 +231,7 @@ const Home: React.FC = () => {
               <Link to="/products?category=skin" className="block">
                 <div className="bg-white dark:bg-[#3a3a3a] rounded-lg shadow-2xl lg:shadow-md overflow-hidden transition duration-300 hover:shadow-xl">
                   <img
-                    src="/images/products/skin-care.jpg"
+                    src="/images/products/skin-care.webp"
                     alt="Skin Care Products"
                     className="w-full h-60 lg:h-72 object-contain"
                   />

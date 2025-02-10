@@ -8,28 +8,28 @@ export interface Ingredient {
 export const ingredients: Ingredient[] = [
   {
     name: "Plant butters",
-    image: "/images/ingredients/plant-butters.jpg",
+    image: "/images/ingredients/plant-butters.webp",
     description:
       "Plant butters, are rich in essential fatty acids, vitamins, and antioxidants that deeply nourish, hydrate, and protect hair and skin.",
     category: ["hair", "skin"],
   },
   {
     name: "Amla",
-    image: "/images/ingredients/amla.jpg",
+    image: "/images/ingredients/amla.webp",
     description:
       "Rich in Vitamin C, Amla strengthens hair follicles, prevents greying, promotes hair growth, and adds shine.",
     category: ["hair"],
   },
   {
     name: "Neem",
-    image: "/images/ingredients/neem.jpeg",
+    image: "/images/ingredients/neem.webp",
     description:
       "Known for its antibacterial properties, Neem helps combat dandruff and scalp infections, purifies the skin, fights acne, and reduces inflammation.",
     category: ["hair"],
   },
   {
     name: "Fenugreek",
-    image: "/images/ingredients/fenugreek.png",
+    image: "/images/ingredients/fenugreek.webp",
     description:
       "Fenugreek is known for promoting hair growth, reducing hair fall, and improving scalp health. Rich in proteins, nicotinic acid, and lecithin, it strengthens hair follicles, prevents dandruff, and adds shine. ",
     category: ["hair"],
@@ -51,7 +51,7 @@ export const ingredients: Ingredient[] = [
   {
     name: "Argan Oil",
     description: "Nourishes and moisturizes hair, leaving it soft and shiny.",
-    image: "/images/ingredients/argan.jpg",
+    image: "/images/ingredients/argan.webp",
     category: ["hair"],
   },
   {
@@ -85,49 +85,49 @@ export const ingredients: Ingredient[] = [
   },
   {
     name: "Rosehip oil",
-    image: "/images/ingredients/rosehip.jpg",
+    image: "/images/ingredients/rosehip.webp",
     description:
       "A lightweight oil rich in vitamins A and C that helps reduce scars, fine lines, and hyperpigmentation.",
     category: ["skin", "hair"],
   },
   {
     name: "Ashwagandha",
-    image: "/images/ingredients/ashwaganda.png",
+    image: "/images/ingredients/ashwaganda.webp",
     description:
       "Ashwagandha improves scalp circulation and helps strengthen hair.",
     category: ["hair"],
   },
   {
     name: "Shikakai",
-    image: "/images/ingredients/shikaikai.jpg",
+    image: "/images/ingredients/shikaikai.webp",
     description:
       "Shikakai cleanses the hair and scalp while promoting hair growth.",
     category: ["hair"],
   },
   {
     name: "Turmeric",
-    image: "/images/ingredients/turmeric.jpg",
+    image: "/images/ingredients/turmeric.webp",
     description:
       "A spice with anti-inflammatory and antioxidant properties that helps brighten skin, reduce acne, and even out skin tone.",
     category: ["skin"],
   },
   {
     name: "Sandalwood",
-    image: "/images/ingredients/sandalwood.jpg",
+    image: "/images/ingredients/sandalwood.webp",
     description:
       "Sandalwood helps to soothe and cool the skin, reducing redness and irritation.",
     category: ["skin"],
   },
   {
     name: "Oatmeal",
-    image: "/images/ingredients/oatmeal.jpg",
+    image: "/images/ingredients/oatmeal.webp",
     description:
       "A gentle exfoliant that soothes irritated skin, relieves itching, and is ideal for sensitive or eczema-prone skin.",
     category: ["skin"],
   },
   {
     name: "Jojoba oil",
-    image: "/images/ingredients/jojoba-oil.jpg",
+    image: "/images/ingredients/jojoba-oil.webp",
     description:
       "Jojoba oil is similar to the natural oils in the skin, moisturize the skin, scalp and hair, which can help prevent dryness and breakage",
     category: ["skin", "hair"],
@@ -149,7 +149,7 @@ export const ingredients: Ingredient[] = [
   },
   {
     name: "Peppermint",
-    image: "/images/ingredients/peppermint.jpg",
+    image: "/images/ingredients/peppermint.webp",
     description:
       "Stimulates the scalp, improves circulation, and promotes hair growth.",
     category: ["skin"],
@@ -158,27 +158,27 @@ export const ingredients: Ingredient[] = [
     name: "D-Panthenol (Provitamin B5)",
     description:
       "Moisturizes and promotes skin healing, improves hair strength and shine.",
-    image: "/images/ingredients/panthenol.png",
+    image: "/images/ingredients/panthenol.webp",
     category: ["hair", "skin", "medical"],
   },
   {
     name: "Hyaluronic Acid",
     description:
       "Hydrates and plumps skin, reducing the appearance of fine lines and wrinkles.",
-    image: "/images/ingredients/hyaluronic-acid.png",
+    image: "/images/ingredients/hyaluronic-acid.webp",
     category: ["skin", "medical"],
   },
   {
     name: "Vitamin E",
     description: "Antioxidant that protects skin and hair from damage.",
-    image: "/images/ingredients/vitamine-e.png",
+    image: "/images/ingredients/vitamine-e.webp",
     category: ["skin", "hair", "medical"],
   },
   {
     name: "Glycerin",
     description:
       "Attracts moisture to the skin and hair, providing deep hydration and softness.",
-    image: "/images/ingredients/glycerin.png",
+    image: "/images/ingredients/glycerin.webp",
     category: ["hair", "skin", "medical"],
   },
 ];

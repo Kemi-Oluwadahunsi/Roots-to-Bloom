@@ -12,7 +12,7 @@ const Footer = () => {
               className="flex sm:flex-col items-center sm:items-start gap-2 sm:gap-0"
             >
               <img
-                src="/images/logo3.png"
+                src="/images/logo3.webp"
                 alt="Roots to Bloom Logo"
                 className="h-16 sm:h-20 object-contain"
               />
@@ -52,7 +52,7 @@ const Footer = () => {
                   to="/products"
                   className="hover:text-[#d79f63] transition duration-300"
                 >
-                  Products
+                  Shop
                 </Link>
               </li>
               <li>
