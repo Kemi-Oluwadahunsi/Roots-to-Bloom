@@ -24,7 +24,7 @@ const IngredientCard: React.FC<{ ingredient: Ingredient }> = ({
         <img
           src={ingredient.image || "/placeholder.svg"}
           alt={ingredient.name}
-          className="w-full h-full object-contain sm:object-cover relative"
+          className="w-full h-full object-cover relative"
         />
         <p className="absolute bottom-0 w-full py-2 text-white font-bold xl:text-lg bg-[#4b774a] bg-opacity-40 dark:bg-[#6a9e69] dark:bg-opacity-60 text-center">
           {ingredient.name}
