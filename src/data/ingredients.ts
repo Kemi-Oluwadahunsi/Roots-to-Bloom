@@ -31,7 +31,7 @@ export const ingredients: Ingredient[] = [
     name: "Fenugreek",
     image: "/images/ingredients/fenugreek.png",
     description:
-      "Fenugreek is known for promoting hair growth, reducing hair fall, and improving scalp health. Rich in proteins, nicotinic acid, and lecithin, it strengthens hair follicles, prevents dandruff, and adds shine and moisture to hair. ",
+      "Fenugreek is known for promoting hair growth, reducing hair fall, and improving scalp health. Rich in proteins, nicotinic acid, and lecithin, it strengthens hair follicles, prevents dandruff, and adds shine. ",
     category: ["hair"],
   },
   {
