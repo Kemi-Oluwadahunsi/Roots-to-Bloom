@@ -10,7 +10,7 @@ export const ingredients: Ingredient[] = [
     name: "Plant butters",
     image: "/images/ingredients/plant-butters.jpg",
     description:
-      "Plant butters, such as shea, cocoa, and mango butter, are rich in essential fatty acids, vitamins, and antioxidants that deeply nourish and protect hair and skin. They provide intense hydration, improve elasticity, and help repair dryness and damage.",
+      "Plant butters, are rich in essential fatty acids, vitamins, and antioxidants that deeply nourish and protect hair and skin. They provide intense hydration, improve elasticity, and help repair dryness and damage.",
     category: ["hair", "skin"],
   },
   {
