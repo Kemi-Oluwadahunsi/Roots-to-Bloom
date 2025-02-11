@@ -72,7 +72,7 @@ const Products: React.FC = () => {
                   setActiveCategory(category);
                   setActiveSubCategory("all");
                 }}
-                className={`px-4 py-2 rounded-full ${
+                className={`px-4 py-2 rounded-full cursor-pointer ${
                   activeCategory === category
                     ? "bg-[#d79f63] text-white dark:bg-[#b58552] dark:text-[#1a1a1a]"
                     : "bg-[#ececea] text-[#48392e] dark:bg-[#2a2a2a] dark:text-[#e0e0e0]"
@@ -96,7 +96,7 @@ const Products: React.FC = () => {
                 <li key={subCategory}>
                   <button
                     onClick={() => setActiveSubCategory(subCategory)}
-                    className={`px-4 py-2 rounded-full ${
+                    className={`px-4 py-2 rounded-full cursor-pointer ${
                       activeSubCategory === subCategory
                         ? "bg-[#4b774a] text-white dark:bg-[#6a9e69] dark:text-[#1a1a1a]"
                         : "bg-[#ececea] text-[#48392e] dark:bg-[#2a2a2a] dark:text-[#e0e0e0]"
@@ -120,7 +120,7 @@ const Products: React.FC = () => {
             <li key={size}>
               <button
                 onClick={() => setActiveSize(size)}
-                className={`px-4 py-2 rounded-full ${
+                className={`px-4 py-2 rounded-full cursor-pointer ${
                   activeSize === size
                     ? "bg-[#4b774a] text-white dark:bg-[#6a9e69] dark:text-[#1a1a1a]"
                     : "bg-[#ececea] text-[#48392e] dark:bg-[#2a2a2a] dark:text-[#e0e0e0]"
