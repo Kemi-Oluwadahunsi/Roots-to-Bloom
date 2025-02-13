@@ -35,9 +35,9 @@ const ProductDetails: React.FC = () => {
     >
       <Link
         to="/products"
-        className="inline-flex items-center text-[#4b774a] hover:text-[#3a6639] mb-4"
+        className="inline-flex items-center text-[#4b774a] hover:text-[#3a6639] text-sm lg:text-base mb-4"
       >
-        <ArrowLeft className="mr-2" />
+        <ArrowLeft className="mr-2 text-sm lg:text-base" />
         Shop More Products
       </Link>
       <div className="grid gap-8 lg:gap-20 md:grid-cols-2 ">

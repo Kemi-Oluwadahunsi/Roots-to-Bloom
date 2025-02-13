@@ -68,7 +68,7 @@ export default function ImageGallery({
       <div className="relative max-w-md mx-auto overflow-hidden">
         <div
           ref={carouselRef}
-          className="flex gap-2 overflow-x-hidden scrollbar-hide py-2"
+          className="flex gap-2 overflow-x-hidden scrollbar-hide py-2 px-4"
           style={{ scrollSnapType: "x mandatory" }}
         >
           {allImages.map((image, index) => (
