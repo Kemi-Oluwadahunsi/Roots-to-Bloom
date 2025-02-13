@@ -28,6 +28,7 @@ export interface Product {
   shopeeLink: string;
   lazadaLink: string;
   rating: number;
+  status: string;
 }
 
 interface ProductContextType {

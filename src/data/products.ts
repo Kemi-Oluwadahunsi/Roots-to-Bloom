@@ -35,6 +35,7 @@ export const products: Product[] = [
     keyIngredients:
       "Aloe Vera, Jojoba Oil, Vitamin E, Panthenol, Chamomile Extract",
     ingredients: "Aqua, ......",
+    status: "Available",
   },
   {
     id: "2",
@@ -48,7 +49,10 @@ export const products: Product[] = [
       { size: "300ml", price: 59.99 },
     ],
     image: "/images/products/scrub2.webp",
-    images: [ "/images/products/coffee-scrub.webp", "/images/products/scrub.webp"],
+    images: [
+      "/images/products/coffee-scrub.webp",
+      "/images/products/scrub.webp",
+    ],
     shopeeLink: "https://shopee.com/exfoliating-body-scrub",
     lazadaLink: "https://www.lazada.com/exfoliating-body-scrub",
     rating: 4.5,
@@ -57,6 +61,7 @@ export const products: Product[] = [
     keyIngredients:
       "Sugar, Coconut Oil, Shea Butter, Vitamin E, Lavender Essential Oil",
     ingredients: "Aqua, ......",
+    status: "Available",
   },
   {
     id: "3",
@@ -82,6 +87,7 @@ export const products: Product[] = [
       "After shampooing, apply a generous amount to wet hair, focusing on mid-lengths and ends. Leave for 2-3 minutes, then rinse thoroughly with cool water.",
     keyIngredients: "Argan Oil, Keratin, Aloe Vera, Biotin, Silk Protein",
     ingredients: "Aqua, ......",
+    status: "Unavailable",
   },
   {
     id: "4",
@@ -96,7 +102,7 @@ export const products: Product[] = [
       { size: "300ml", price: 99.99 },
     ],
     image: "/images/products/body-butter.webp",
-    images: [ "/images/products/whippedBodyButter.webp"],
+    images: ["/images/products/whippedBodyButter.webp"],
     shopeeLink: "https://shopee.com/moisturizing-body-butter",
     lazadaLink: "https://www.lazada.com/moisturizing-body-butter",
     rating: 4.5,
@@ -105,6 +111,7 @@ export const products: Product[] = [
     keyIngredients:
       "Shea Butter, Cocoa Butter, Jojoba Oil, Vitamin E, Aloe Vera",
     ingredients: "Aqua, ......",
+    status: "Unavailable",
   },
   {
     id: "5",
@@ -127,6 +134,7 @@ export const products: Product[] = [
       "After shampooing, apply generously to damp hair from roots to ends. Leave on for 10-15 minutes, then rinse thoroughly. Use once a week or as needed for intense hydration.",
     keyIngredients: "Argan Oil, Keratin, Shea Butter, Biotin, Avocado Oil",
     ingredients: "Aqua, ......",
+    status: "Unavailable",
   },
   {
     id: "6",
@@ -153,6 +161,7 @@ export const products: Product[] = [
     keyIngredients:
       "Argan Oil, Jojoba Oil, Vitamin E, Grapeseed Oil, Rosemary Extract",
     ingredients: "Oils, ......",
+    status: "Unavailable",
   },
   {
     id: "7",
@@ -176,5 +185,6 @@ export const products: Product[] = [
     keyIngredients:
       "Glycerin, Shea Butter, Aloe Vera, Chamomile Extract, Vitamin E",
     ingredients: "Aqua, ......",
+    status: "Unavailable",
   },
 ];

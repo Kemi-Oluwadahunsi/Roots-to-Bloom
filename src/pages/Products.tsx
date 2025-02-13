@@ -44,7 +44,7 @@ const Products: React.FC = () => {
 
   const categories = ["all", "hair", "skin"];
   const subCategories = {
-    hair: ["all", "shampoos", "conditioners", "masks", "oils", "creams"],
+    hair: ["all", "Butters", "shampoos", "conditioners", "masks", "oils" ],
     skin: ["all", "butter creams", "bar soaps", "body scrubs"],
   };
   const sizes = ["all", "100ml", "250ml", "500ml"];
@@ -143,6 +143,7 @@ const Products: React.FC = () => {
             image={product.image}
             sizePrices={product.sizePrices}
             rating={product.rating}
+            status={product.status}
           />
         ))}
       </section>

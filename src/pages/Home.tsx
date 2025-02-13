@@ -296,6 +296,7 @@ const Home: React.FC = () => {
                   image={product.image}
                   sizePrices={product.sizePrices}
                   rating={product.rating}
+                  status={product.status}
                 />
               </motion.div>
             ))}
