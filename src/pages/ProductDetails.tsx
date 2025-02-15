@@ -170,7 +170,7 @@ const ProductDetails: React.FC = () => {
       {showPopup && (
         <ProductPopup
           shopeeLink={product.shopeeLink}
-          lazadaLink={product.lazadaLink}
+          carousellLink={product.carousellLink}
           onClose={() => setShowPopup(false)}
         />
       )}

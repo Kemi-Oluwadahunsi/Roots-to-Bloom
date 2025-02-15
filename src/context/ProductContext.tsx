@@ -26,7 +26,7 @@ export interface Product {
   keyIngredients: string;
   ingredients: string;
   shopeeLink: string;
-  lazadaLink: string;
+  carousellLink: string;
   rating: number;
   status: string;
 }
