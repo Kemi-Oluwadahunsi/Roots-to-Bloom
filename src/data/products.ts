@@ -58,7 +58,7 @@ export const products: Product[] = [
     ],
     shopeeLink: "https://shopee.com/exfoliating-body-scrub",
     carousellLink: "https://www.lazada.com/exfoliating-body-scrub",
-    rating: 4.5,
+    rating: 0,
     howToUse:
       "Apply to damp skin in circular motions, focusing on rough areas. Rinse thoroughly with warm water. Use 2-3 times a week for best results.",
     keyIngredients:
@@ -86,7 +86,7 @@ export const products: Product[] = [
     ],
     shopeeLink: "https://shopee.com/nourishing-shampoo",
     carousellLink: "https://www.lazada.com/nourishing-shampoo",
-    rating: 4.5,
+    rating: 0,
     howToUse:
       "Wet hair thoroughly. Apply a small amount of shampoo to your palm and massage into your scalp and hair. Rinse thoroughly with warm water. For best results, follow with our Hydrating Conditioner.",
     keyIngredients:
@@ -112,7 +112,7 @@ export const products: Product[] = [
     ],
     shopeeLink: "https://shopee.com/exfoliating-body-scrub",
     carousellLink: "https://www.lazada.com/exfoliating-body-scrub",
-    rating: 4.5,
+    rating: 0,
     howToUse:
       "Apply to damp skin in circular motions, focusing on rough areas. Rinse thoroughly with warm water. Use 2-3 times a week for best results.",
     keyIngredients:
@@ -162,7 +162,7 @@ export const products: Product[] = [
     images: ["/images/products/whippedBodyButter.webp"],
     shopeeLink: "https://shopee.com/moisturizing-body-butter",
     carousellLink: "https://www.lazada.com/moisturizing-body-butter",
-    rating: 4.5,
+    rating: 0,
     howToUse:
       "Apply generously to clean, dry skin, massaging in circular motions until fully absorbed. Use daily for best results, especially after bathing or showering.",
     keyIngredients:
@@ -186,7 +186,7 @@ export const products: Product[] = [
     images: ["/images/products/hair-mask-2.jpg"],
     shopeeLink: "https://shopee.com/revitalizing-Hair-mask",
     carousellLink: "https://www.lazada.com/revitalizing-Hair-mask",
-    rating: 4.5,
+    rating: 0,
     howToUse:
       "After shampooing, apply generously to damp hair from roots to ends. Leave on for 10-15 minutes, then rinse thoroughly. Use once a week or as needed for intense hydration.",
     keyIngredients: "Argan Oil, Keratin, Shea Butter, Biotin, Avocado Oil",
@@ -212,7 +212,7 @@ export const products: Product[] = [
     ],
     shopeeLink: "https://shopee.com/nourishing-Hair-oil",
     carousellLink: "https://www.lazada.com/nourishing-Hair-oil",
-    rating: 4.5,
+    rating: 0,
     howToUse:
       "Apply a small amount to damp or dry hair, focusing on mid-lengths and ends. Use before heat styling for protection or as a finishing touch for added shine.",
     keyIngredients:
@@ -236,7 +236,7 @@ export const products: Product[] = [
     images: ["/images/products/cleansing-bar-2.jpg"],
     shopeeLink: "https://shopee.com/gentle-cleansing-bar",
     carousellLink: "https://www.lazada.com/gentle-cleansing-bar",
-    rating: 4.5,
+    rating: 0,
     howToUse:
       "Wet the bar and work into a lather. Gently massage onto face or body, then rinse thoroughly with warm water. Suitable for daily use.",
     keyIngredients:
