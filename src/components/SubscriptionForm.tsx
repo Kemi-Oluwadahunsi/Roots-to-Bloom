@@ -3,8 +3,9 @@ import { useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { collection, addDoc } from "firebase/firestore";
-import { db } from "../firebase/config";
+// import { collection, addDoc } from "firebase/firestore";
+// import { db } from "../firebase/config";
+import emailjs from "@emailjs/browser";
 
 const schema = yup.object().shape({
   firstName: yup.string().required("First name is required"),
@@ -47,18 +48,41 @@ const SubscriptionForm: React.FC<SubscriptionFormProps> = ({ onSuccess }) => {
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     setIsLoading(true);
     try {
-      await addDoc(collection(db, "subscribers"), {
-        ...data,
-        timestamp: new Date(),
-      });
+      // Send email using EmailJS with the new account credentials
+      await emailjs.send(
+        import.meta.env.VITE_SERVICE_ID_SUB, // Use the service ID from the new EmailJS account
+        import.meta.env.VITE_TEMPLATE_ID_SUB, // Use the template ID from the new EmailJS account
+        {
+          name: `${data.firstName} ${data.lastName}`,
+          email: data.email,
+          interests: data.interests.join(", "),
+        },
+        import.meta.env.VITE_PUBLIC_KEY_SUB // Use the user ID from the new EmailJS account
+      );
       reset();
       onSuccess();
     } catch (error) {
-      console.error("Error adding subscriber: ", error);
+      console.error("Error sending email: ", error);
     } finally {
       setIsLoading(false);
     }
   };
+
+  // const onSubmit: SubmitHandler<FormData> = async (data) => {
+  //   setIsLoading(true);
+  //   try {
+  //     await addDoc(collection(db, "subscribers"), {
+  //       ...data,
+  //       timestamp: new Date(),
+  //     });
+  //     reset();
+  //     onSuccess();
+  //   } catch (error) {
+  //     console.error("Error adding subscriber: ", error);
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">

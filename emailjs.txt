@@ -1,0 +1,80 @@
+// sending email using emailjs
+
+
+// Auto-reponse
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f7f2;
+      padding: 20px;
+      color: #48392e;
+    }
+    .container {
+      max-width: 600px;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    h2 {
+      color: #4b774a;
+    }
+    p {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.6;
+    }
+    .summary {
+      text-align: left;
+      margin-top: 20px;
+      background: #f3f3f3;
+      padding: 15px;
+      border-radius: 5px;
+    }
+    .summary p {
+      margin: 5px 0;
+    }
+    .footer {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #555;
+    }
+    .contact {
+      font-weight: bold;
+      color: #4b774a;
+    }
+
+    .tagline {
+      font-size: 12px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Thank You, {{name}}! 💚</h2>
+    <p>We appreciate you reaching out to <strong>Roots to Bloom Beauty</strong>. Your message is important to us, and we’ll get back to you within <strong>24-48 hours</strong>.</p>
+    
+    <div class="summary">
+      <h3>📌 Your Inquiry Details:</h3>
+      <p><strong>Name:</strong> {{name}}</p>
+      <p><strong>Email:</strong> {{email}}</p>
+      <p><strong>Message:</strong> <br> {{message}}</p>
+    </div>
+
+    <p>If your inquiry is urgent, feel free to email us at <a class="contact" href="mailto:rootstobloom@gmail.com">rootstobloom@gmail.com</a> or call us at <strong class="contact">+60 1113 21 9046</strong>.</p>
+
+    <p class="footer">🌿 We’re excited to assist you on your beauty journey! Stay radiant, and we’ll talk soon. 💫</p>
+
+    <p class="footer">Warm regards, <br><strong>Roots <span style="color:#4b774a;">to</span> Bloom Beauty Team</strong> <br> <span class="tagline">Rooted in Nature, Bloom in Beauty</span></p>
+    
+  </div>
+</body>
+</html>
+
+
+
