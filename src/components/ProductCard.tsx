@@ -47,7 +47,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
             <span className="text-[#4b774a] font-bold">
               ${lowestPrice.toFixed(2)} - ${highestPrice.toFixed(2)}
             </span>
-            <span className="text-[#d79f63]">★ {rating.toFixed(1)}</span>
+{rating > 0 && 
+            <span className="text-[#d79f63]">★ {rating.toFixed(1)}</span>}
           </div>
         </Link>
       ) : (
