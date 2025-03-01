@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Twitter } from "lucide-react";
+import { Facebook, Instagram} from "lucide-react";
 
 const Footer = () => {
   return (
@@ -75,22 +75,38 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
             <div className="flex space-x-4">
               <a
-                href="#"
+                href="https://www.facebook.com/share/14z5dzf6Tb/"
                 className="hover:text-[#d79f63] transition duration-300"
               >
                 <Facebook />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/rtbloombeauty?igsh=MXE4aDQwc2RxOGppeQ=="
                 className="hover:text-[#d79f63] transition duration-300"
               >
                 <Instagram />
               </a>
               <a
-                href="#"
+                href="https://my.shp.ee/HwAFMcx"
                 className="hover:text-[#d79f63] transition duration-300"
               >
-                <Twitter />
+                <img
+                  src="/images/shopee-icon.svg"
+                  alt="Shopee-icon"
+                  width={22}
+                  className="flex items-center justify-center"
+                />
+              </a>
+              <a
+                href="https://my.shp.ee/HwAFMcx"
+                className="hover:text-[#d79f63] transition duration-300"
+              >
+                <img
+                  src="/images/carousell.webp"
+                  alt="Shopee-icon"
+                  width={22}
+                  className="flex items-center justify-center"
+                />
               </a>
             </div>
           </div>
