@@ -74,8 +74,8 @@ export const products: Product[] = [
     description:
       "A powerful botanical blend designed to nourish the scalp, reduce breakage, and stimulate rapid hair growth. Formulated with a rich infusion of herbal extracts, vitamins, and essential nutrients, this shampoo deeply cleanses while fortifying hair from root to tip, leaving it soft, shiny, and resilient.  ",
     sizePrices: [
-      { size: "120ml", price: 25.0 },
-      { size: "250ml", price: 45.0 },
+      { size: "120ml", price: 18.0 },
+      { size: "250ml", price: 32.9 },
     ],
     image: "/images/products/strength-shampoo/5.webp",
     images: [
@@ -103,8 +103,8 @@ export const products: Product[] = [
     description:
       "Herbal Tresses Leave-In Conditioner - Pure Botanicals for Stronger and Nourished Strands.Experience the power of nature with Herbal Tresses Leave-In Conditioner, a luxurious herbal infusion designed to deeply nourish, hydrate, and strengthen your strands. Infused with a potent blend of flaxseed, fenugreek, rosemary, slippery elm, and oat milk, this lightweight formula delivers intense moisture, superior slip, and long-lasting strength without weighing your hair down.",
     sizePrices: [
-      { size: "120ml", price: 22.0 },
-      { size: "250ml", price: 42.0 },
+      { size: "120ml", price: 19.9 },
+      { size: "250ml", price: 37.9 },
     ],
     image: "/images/products/leave-in/7.webp",
     images: [
