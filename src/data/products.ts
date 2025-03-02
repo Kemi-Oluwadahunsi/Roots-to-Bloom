@@ -28,9 +28,8 @@ export const products: Product[] = [
       "/images/products/botanic/Ayurvedic-ing.png",
     ],
     shopeeLink:
-      "https://shopee.com.my/Roos-to-Bloom-Botanic-Hydrating-Hair-Growth-Butter-i.723006657.26626260012?sp_atk=1576c31e-5ba6-47f6-8cbc-d5488125aaae&xptdk=1576c31e-5ba6-47f6-8cbc-d5488125aaae",
-    carousellLink:
-      "https://www.carousell.com.my/p/botanic-hydrating-hair-growth-butter-1353084844/",
+      "https://my.shp.ee/J9C63Lf",
+    carousellLink: "https://carousell.app.link/FNRwCDPDpRb",
     rating: 4.9,
     howToUse:
       "Take a small amount and melt between palms. Apply to damp or dry hair, focusing on ends and scalp, massage gently to boost absorption and stimulate circulation. Use as a daily moisturizer or sealant after leave-in conditioner. For best results, use consistently as part of your hair care routine.",
@@ -85,7 +84,7 @@ export const products: Product[] = [
       "/images/products/strength-shampoo/4.webp",
     ],
     shopeeLink: "https://my.shp.ee/k5Bxee4",
-    carousellLink: "https://www.lazada.com/nourishing-shampoo",
+    carousellLink: "https://carousell.app.link/ibB7mdMDpRb",
     rating: 0,
     howToUse:
       "Wet hair thoroughly. Apply a small amount of shampoo to your palm and massage into your scalp and hair. Rinse thoroughly with warm water. For best results, follow with our SilkyGlow Hydrating Deep Conditioner.",
@@ -113,7 +112,7 @@ export const products: Product[] = [
       "/images/products/leave-in/10.webp",
     ],
     shopeeLink: "https://my.shp.ee/3oHiFSa",
-    carousellLink: "https://www.lazada.com/exfoliating-body-scrub",
+    carousellLink: "https://carousell.app.link/s8zeHpIDpRb",
     rating: 0,
     howToUse:
       "1. Apply a generous amount to damp or freshly washed hair. 2. Work through strands with fingers or a wide-tooth comb. 3. Style as desired, perfect for wash-and-go, twist-outs, or protective styles. 4. No need to rinse, just let your hair absorb the nourishing benefits.",
@@ -143,7 +142,7 @@ export const products: Product[] = [
       "/images/products/hibiscus-butter/16.webp",
     ],
     shopeeLink: "https://my.shp.ee/pHKW2GB",
-    carousellLink: "https://www.lazada.com/hydrating-conditioner",
+    carousellLink: "https://carousell.app.link/yjQrroEDpRb",
     rating: 4.5,
     howToUse:
       "After shampooing, apply a generous amount to wet hair, focusing on mid-lengths and ends. Leave for 2-3 minutes, then rinse thoroughly with cool water.",
@@ -173,7 +172,7 @@ export const products: Product[] = [
       "/images/products/Oil/23.webp",
     ],
     shopeeLink: "https://my.shp.ee/5pB6KvY",
-    carousellLink: "https://www.lazada.com/moisturizing-body-butter",
+    carousellLink: "https://carousell.app.link/JJsqtTvDpRb",
     rating: 0,
     howToUse:
       "Directions For Use: 1. Scalp Treatment: Apply a few drops to the scalp, massage for 5-10 minutes, and leave overnight or for at least 2 hours before washing. 2. Moisturizing Oil: Apply a small amount to damp or dry hair, focusing on the ends. 3. Sealant: Apply a small amount to the ends of damp or dry hair to lock in moisture and prevent breakage.",
