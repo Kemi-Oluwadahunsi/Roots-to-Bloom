@@ -47,7 +47,7 @@ const Products: React.FC = () => {
     hair: ["all", "butters", "shampoos", "conditioners", "masks", "oils" ],
     skin: ["all", "butter creams", "bar soaps", "body scrubs"],
   };
-  const sizes = ["all", "100g", "250g", "500g"];
+  const sizes = ["all", "100ml/g", "120ml/g", "150ml/g", "200ml/g", "250ml/g", "500ml/g"];
 
   return (
     <motion.section
@@ -133,7 +133,29 @@ const Products: React.FC = () => {
         </ul>
       </nav>
 
-      <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8">
+      {/* Product Display */}
+      {filteredProducts.length > 0 ? (
+        <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8">
+          {filteredProducts.map((product) => (
+            <ProductCard
+              key={product.id}
+              id={product.id}
+              name={product.name}
+              category={product.category}
+              image={product.image}
+              sizePrices={product.sizePrices}
+              rating={product.rating}
+              status={product.status}
+            />
+          ))}
+        </section>
+      ) : (
+        <p className="text-red-500 font-semibold mt-4 text-center">
+          Products not found
+        </p>
+      )}
+
+      {/* <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8">
         {filteredProducts.map((product) => (
           <ProductCard
             key={product.id}
@@ -146,7 +168,7 @@ const Products: React.FC = () => {
             status={product.status}
           />
         ))}
-      </section>
+      </section> */}
 
       <ProductComparison />
     </motion.section>

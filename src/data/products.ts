@@ -17,9 +17,9 @@ export const products: Product[] = [
     description:
       "Experience the power of nature with Botanic Hydrating Hair Growth Butter. Infused with D-Panthenol, Batana Oil, and Rosemary Extract, this lightweight, non-greasy butter seals in moisture and stimulates hair growth for lush,  thicker, healthier, and vibrant hair.",
     sizePrices: [
-      { size: "100g", price: 19.0 },
-      { size: "150g", price: 26.0 },
-      { size: "200g", price: 35.0 },
+      { size: "100ml/g", price: 19.0 },
+      { size: "150ml/g", price: 26.0 },
+      { size: "200ml/g", price: 35.0 },
     ],
     image: "/images/products/botanic/Main-photo.png",
     images: [
@@ -48,8 +48,8 @@ export const products: Product[] = [
   //   description:
   //     "A gentle exfoliating scrub that removes dead skin cells and leaves your skin smooth and radiant.",
   //   sizePrices: [
-  //     { size: "150ml", price: 29.99 },
-  //     { size: "300ml", price: 59.99 },
+  //     { size: "150ml/g/g", price: 29.99 },
+  //     { size: "300ml/g", price: 59.99 },
   //   ],
   //   image: "/images/products/scrub2.webp",
   //   images: [
@@ -74,8 +74,8 @@ export const products: Product[] = [
     description:
       "A powerful botanical blend designed to nourish the scalp, reduce breakage, and stimulate rapid hair growth. Formulated with a rich infusion of herbal extracts, vitamins, and essential nutrients, this shampoo deeply cleanses while fortifying hair from root to tip, leaving it soft, shiny, and resilient.  ",
     sizePrices: [
-      { size: "120ml", price: 18.0 },
-      { size: "250ml", price: 32.9 },
+      { size: "120ml/g", price: 18.0 },
+      { size: "250ml/g/g", price: 32.9 },
     ],
     image: "/images/products/strength-shampoo/5.webp",
     images: [
@@ -99,12 +99,12 @@ export const products: Product[] = [
     id: "9",
     name: "Herbal Tresses Leave-In Conditioner",
     category: "hair",
-    subCategory: "conditioner",
+    subCategory: "conditioners",
     description:
       "Herbal Tresses Leave-In Conditioner - Pure Botanicals for Stronger and Nourished Strands.Experience the power of nature with Herbal Tresses Leave-In Conditioner, a luxurious herbal infusion designed to deeply nourish, hydrate, and strengthen your strands. Infused with a potent blend of flaxseed, fenugreek, rosemary, slippery elm, and oat milk, this lightweight formula delivers intense moisture, superior slip, and long-lasting strength without weighing your hair down.",
     sizePrices: [
-      { size: "120ml", price: 19.9 },
-      { size: "250ml", price: 37.9 },
+      { size: "120ml/g", price: 19.9 },
+      { size: "250ml/g/g", price: 37.9 },
     ],
     image: "/images/products/leave-in/7.webp",
     images: [
@@ -131,9 +131,9 @@ export const products: Product[] = [
     description:
       "Flora Luxe Whipped Hair Butter – Nourish, strengthen, and hydrate with hibiscus and rosemary. Flora Luxe Whipped Hair Butter is a rich, velvety blend of nature’s most powerful botanicals, designed to deeply nourish, hydrate, and strengthen your hair. Infused with hibiscus and rosemary extracts, this lightweight yet ultra-moisturizing butter melts effortlessly into your strands, sealing in hydration without leaving a greasy feel.",
     sizePrices: [
-      { size: "100ml", price: 18.0 },
-      { size: "150ml", price: 25.0 },
-      { size: "200ml", price: 34.0 },
+      { size: "100ml/g", price: 18.0 },
+      { size: "150ml/g", price: 25.0 },
+      { size: "200ml/g", price: 34.0 },
     ],
     image: "/images/products/hibiscus-butter/front.webp",
     images: [
@@ -192,8 +192,8 @@ export const products: Product[] = [
       "An intensive treatment mask that deeply nourishes and repairs damaged Hair.",
     sizePrices: [
       { size: "50ml", price: 29.99 },
-      { size: "150ml", price: 74.99 },
-      { size: "250ml", price: 119.99 },
+      { size: "150ml/g", price: 74.99 },
+      { size: "250ml/g/g", price: 119.99 },
     ],
     image: "/images/products/jar-open.webp",
     images: ["/images/products/hair-mask-2.jpg"],
@@ -216,7 +216,7 @@ export const products: Product[] = [
     sizePrices: [
       { size: "30ml", price: 34.99 },
       { size: "60ml", price: 64.99 },
-      { size: "100ml", price: 99.99 },
+      { size: "100ml/g", price: 99.99 },
     ],
     image: "/images/products/oil-bottle.webp",
     images: [
@@ -242,8 +242,8 @@ export const products: Product[] = [
       "A mild, fragrance-free cleansing bar suitable for all skin types.",
     sizePrices: [
       { size: "50g", price: 12.99 },
-      { size: "100g", price: 20.99 },
-      { size: "150g", price: 29.99 },
+      { size: "100ml/g", price: 20.99 },
+      { size: "150ml/g", price: 29.99 },
     ],
     image: "/images/products/bar-soap.avif",
     images: ["/images/products/cleansing-bar-2.jpg"],
