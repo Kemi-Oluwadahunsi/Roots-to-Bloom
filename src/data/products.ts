@@ -1,12 +1,11 @@
 import type { Product } from "../context/ProductContext";
 
-
-  export enum Currency {
-    MYR = "MYR",
-    USD = "USD",
-    EUR = "EUR",
-    GBP = "GBP",
-  }
+export enum Currency {
+  MYR = "MYR",
+  USD = "USD",
+  EUR = "EUR",
+  GBP = "GBP",
+}
 
 export const products: Product[] = [
   {
@@ -27,8 +26,7 @@ export const products: Product[] = [
       "/images/products/botanic/butters.png",
       "/images/products/botanic/Ayurvedic-ing.png",
     ],
-    shopeeLink:
-      "https://my.shp.ee/J9C63Lf",
+    shopeeLink: "https://my.shp.ee/J9C63Lf",
     carousellLink: "https://carousell.app.link/FNRwCDPDpRb",
     rating: 4.9,
     howToUse:
@@ -184,26 +182,28 @@ export const products: Product[] = [
   },
   {
     id: "5",
-    name: "Revitalizing Hair Mask",
+    name: "SilkyGlow Hydrating Deep Conditioner",
     category: "hair",
-    subCategory: "masks",
+    subCategory: "conditioners",
     description:
-      "An intensive treatment mask that deeply nourishes and repairs damaged Hair.",
-    sizePrices: [
-      { size: "50ml", price: 29.99 },
-      { size: "150ml/g", price: 74.99 },
-      { size: "250ml/g/g", price: 119.99 },
+      "Give your hair the ultimate nourishment with our SilkyGlow Hydrating Deep Conditioner, for Intense Hydration & Repair, formulated with a powerful blend of plant-based milks, proteins, and botanical extracts to restore, strengthen, and deeply hydrate your hair.  This luxurious deep conditioner penetrates every strand, repairing damage, enhancing elasticity, and locking in moisture for long-lasting softness and shine.",
+    sizePrices: [{ size: "250ml/g", price: 25.0 }],
+    image: "/images/products/deep-conditioner/34.webp",
+    images: [
+      "/images/products/deep-conditioner/35.webp",
+      "/images/products/deep-conditioner/36.webp",
+      "/images/products/deep-conditioner/37.webp",
+      "/images/products/deep-conditioner/38.webp",
     ],
-    image: "/images/products/jar-open.webp",
-    images: ["/images/products/hair-mask-2.jpg"],
-    shopeeLink: "https://shopee.com/revitalizing-Hair-mask",
-    carousellLink: "https://www.lazada.com/revitalizing-Hair-mask",
+    shopeeLink: "https://my.shp.ee/Wy3SXhU",
+    carousellLink: "https://carousell.app.link/AE3YCw46qRb",
     rating: 0,
     howToUse:
-      "After shampooing, apply generously to damp hair from roots to ends. Leave on for 10-15 minutes, then rinse thoroughly. Use once a week or as needed for intense hydration.",
-    keyIngredients: "Argan Oil, Keratin, Shea Butter, Biotin, Avocado Oil",
-    ingredients: "Aqua, ......",
-    status: "Unavailable",
+      "1. Apply generously to clean, damp hair, focusing on mid-lengths to ends. 2. Massage gently and detangle with fingers or a wide-tooth comb. 3. Leave on for 15 to 30 minutes for deep penetration. 4. Rinse thoroughly with cool water to seal in moisture.  ",
+    keyIngredients: "Rice Milk, Oats Milk, Coconut Milk, Honey, Proteins",
+    ingredients:
+      "Aqua (Water), Rice Milk, Oat Milk, Coconut Milk, Aloe Vera Juice, Hydrolyzed Silk Protein, Glycerin, Panthenol (Pro-Vitamin B5), Mango Seed Butter, Castor Seed Oil, Grape Seed Oil, Cetearyl Alcohol, BTMS-50, Honey, Hydrolyzed Wheat Protein, Baobab Extract, Green Tea Extract, Vitamin E Oil, NipaGuard, Essential Oil Blend (Lavender, Rosemary, or Peppermint), Citric Acid.",
+    status: "Available",
   },
   {
     id: "6",
