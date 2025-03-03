@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import { Facebook, Instagram} from "lucide-react";
-
 const Footer = () => {
   return (
     <footer className="bg-[#48392e] text-[#f8f7f2] py-8">
@@ -73,18 +71,28 @@ const Footer = () => {
           </div>
           <div className="w-full lg:w-1/4">
             <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
-            <div className="flex space-x-4">
+            <div className="flex items-center space-x-4">
               <a
                 href="https://www.facebook.com/share/14z5dzf6Tb/"
                 className="hover:text-[#d79f63] transition duration-300"
               >
-                <Facebook />
+                <img
+                  src="/images/facebook.webp"
+                  alt="facebook-icon"
+                  width={28}
+                  //className="flex items-center justify-center"
+                />
               </a>
               <a
                 href="https://www.instagram.com/rtbloombeauty?igsh=MXE4aDQwc2RxOGppeQ=="
                 className="hover:text-[#d79f63] transition duration-300"
               >
-                <Instagram />
+                <img
+                  src="/images/instagram.webp"
+                  alt="instagram-icon"
+                  width={28}
+                  // className="flex items-center justify-center"
+                />
               </a>
               <a
                 href="https://my.shp.ee/HwAFMcx"
@@ -93,19 +101,19 @@ const Footer = () => {
                 <img
                   src="/images/shopee-icon.svg"
                   alt="Shopee-icon"
-                  width={22}
-                  className="flex items-center justify-center"
+                  width={25}
+                  // className="flex items-center justify-center"
                 />
               </a>
               <a
                 href="https://my.shp.ee/HwAFMcx"
-                className="hover:text-[#d79f63] transition duration-300"
+                 className="hover:text-[#d79f63] transition duration-300"
               >
                 <img
                   src="/images/carousell.webp"
                   alt="Shopee-icon"
-                  width={22}
-                  className="flex items-center justify-center"
+                  width={26}
+                  // className="flex items-center justify-center"
                 />
               </a>
             </div>
