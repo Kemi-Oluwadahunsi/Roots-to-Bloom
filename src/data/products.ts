@@ -207,30 +207,32 @@ export const products: Product[] = [
   },
   {
     id: "6",
-    name: "Nourishing Hair Oil",
+    name: "Anti-Dandruff & Scalp Therapy Shampoo",
     category: "hair",
-    subCategory: "oils",
+    subCategory: "Shampoo",
     description:
-      "A lightweight Hair oil that adds shine and protects against heat damage.",
+      "This herbal anti-dandruff shampoo is a powerful yet gentle solution designed to combat dandruff, soothe the scalp, and restore hair health. Infused with natural botanicals, purifying agents, and scalp-nourishing ingredients, it effectively removes flakes, reduces itchiness, and prevents future dandruff outbreaks. The advanced formula detoxifies the scalp, regulates excess oil production, and provides long-lasting hydration to maintain a balanced scalp environment.",
     sizePrices: [
-      { size: "30ml", price: 34.99 },
-      { size: "60ml", price: 64.99 },
-      { size: "100ml/g", price: 99.99 },
+      { size: "120ml", price: 29.0 },
+      { size: "250ml/g", price: 54.0 },
     ],
-    image: "/images/products/oil-bottle.webp",
+    image: "/images/products/antidandruff/front.webp",
     images: [
-      "/images/products/hair-oil-2.jpg",
-      "/images/products/hair-oil-3.jpg",
+      "/images/products/antidandruff/10.webp",
+      "/images/products/antidandruff/11.webp",
+      "/images/products/antidandruff/12.webp",
+      "/images/products/antidandruff/13.webp",
     ],
-    shopeeLink: "https://shopee.com/nourishing-Hair-oil",
-    carousellLink: "https://www.lazada.com/nourishing-Hair-oil",
+    shopeeLink: "https://my.shp.ee/FRko7CW",
+    carousellLink: "https://carousell.app.link/mQc0PwhMsRb",
     rating: 0,
     howToUse:
-      "Apply a small amount to damp or dry hair, focusing on mid-lengths and ends. Use before heat styling for protection or as a finishing touch for added shine.",
+      "Apply a generous amount to wet hair and scalp. Massage gently for two to three minutes, allowing the active ingredients to penetrate. Rinse thoroughly and repeat if necessary. For best results, use consistently and follow up with a lightweight conditioner.",
     keyIngredients:
-      "Argan Oil, Jojoba Oil, Vitamin E, Grapeseed Oil, Rosemary Extract",
-    ingredients: "Oils, ......",
-    status: "Unavailable",
+      "Activated Charcoal, Piroctone Olamine, Zinc PCA, Salicylic Acid, Provitamin B5, Tea Tree Oil, Neem Oil, Peppermint Oil",
+    ingredients:
+      "Purified Water, Aloe Vera Juice, Hydrolyzed Oat Protein, Piroctone Olamine, Salicylic Acid (BHA), Zinc PCA, Activated Charcoal, Sodium Cocoyl Isethionate (SCI), Coco Glucoside, Decyl Glucoside, Cocamidopropyl Betaine, Neem Extract, Tea Tree Oil, Black Cumin Seed Oil, Peppermint Oil, Menthol Crystals, Panthenol (Provitamin B5), Guar Hydroxypropyltrimonium Chloride, Eco-Cert Preservative (Geogard ECT), Citric Acid.",
+    status: "Available",
   },
   {
     id: "7",
