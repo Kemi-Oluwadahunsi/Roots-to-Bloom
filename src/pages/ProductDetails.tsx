@@ -35,7 +35,7 @@ const ProductDetails: React.FC = () => {
     >
       <Link
         to="/products"
-        className="inline-flex items-center text-[#4b774a] hover:text-[#3a6639] text-sm lg:text-base mb-4"
+        className="inline-flex items-center text-[#4b774a] hover:text-[#3a6639] text-sm lg:text-base mb-4 pl-4 lg:pl-0"
       >
         <ArrowLeft className="mr-2 text-sm lg:text-base" />
         Shop More Products
@@ -50,7 +50,7 @@ const ProductDetails: React.FC = () => {
           />
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-6 px-4 lg:px-0">
           <div>
             <motion.h1
               initial={{ opacity: 0, y: -20 }}

@@ -26,7 +26,7 @@ export const products: Product[] = [
       "/images/products/botanic/54.webp",
       "/images/products/botanic/50.webp",
       "/images/products/botanic/58.webp",
-      "/images/products/botanic/51.webp",
+      // "/images/products/botanic/51.webp",
     ],
     shopeeLink: "https://my.shp.ee/J9C63Lf",
     carousellLink: "https://carousell.app.link/FNRwCDPDpRb",
@@ -108,7 +108,7 @@ export const products: Product[] = [
     image: "/images/products/leave-in/7.webp",
     images: [
       "/images/products/leave-in/8.webp",
-      "/images/products/9.webp",
+      "/images/products/leave-in/9.webp",
       "/images/products/leave-in/10.webp",
     ],
     shopeeLink: "https://my.shp.ee/3oHiFSa",
