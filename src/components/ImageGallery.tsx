@@ -47,7 +47,7 @@ export default function ImageGallery({
   }, []);
 
   return (
-    <div className="space-y-4 px-4 sm:px-0">
+    <div className="space-y-4 sm:px-0">
       <AnimatePresence mode="wait">
         <motion.div
           key={displayedImage}
@@ -59,16 +59,16 @@ export default function ImageGallery({
           <img
             src={displayedImage || "/placeholder.svg"}
             alt={alt}
-            className="h-full w-full object-cover object-center"
+            className="h-full w-full object-contain sm:object-cover object-center"
           />
           <div className="bg-transparent dark:bg-black/20 absolute inset-0"></div>
         </motion.div>
       </AnimatePresence>
 
-      <div className="relative max-w-md mx-auto overflow-hidden">
+      <div className="relative max-w-sm sm:max-w-md mx-auto overflow-hidden">
         <div
           ref={carouselRef}
-          className="flex gap-2 overflow-x-hidden scrollbar-hide py-2 px-4"
+          className="flex gap-1 sm:gap-2 overflow-x-hidden scrollbar-hide py-2 sm:px-4"
           style={{ scrollSnapType: "x mandatory" }}
         >
           {allImages.map((image, index) => (

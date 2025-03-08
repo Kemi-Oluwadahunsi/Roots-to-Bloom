@@ -31,7 +31,7 @@ const ProductDetails: React.FC = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="container mx-auto w-[90%] xl:w-[60%] pb-16 lg:pb-24 lg:pt-16 pt-20"
+      className="container mx-auto xl:w-[60%] pb-16 lg:pb-24 lg:pt-16 pt-20"
     >
       <Link
         to="/products"
