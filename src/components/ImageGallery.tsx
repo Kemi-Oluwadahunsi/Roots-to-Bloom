@@ -19,7 +19,7 @@ export default function ImageGallery({
   const [hoveredImage, setHoveredImage] = useState<string | null>(null);
   const allImages = [mainImage, ...images];
   const [showLeftButton, setShowLeftButton] = useState(false);
-  const [showRightButton, setShowRightButton] = useState(allImages.length > 4);
+  const [showRightButton, setShowRightButton] = useState(allImages.length > 6);
 
   const carouselRef = useRef<HTMLDivElement>(null);
 
