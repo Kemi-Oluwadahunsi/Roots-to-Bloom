@@ -10,7 +10,7 @@ import { blogPosts } from "../data/blogPosts"
 import OurPromise from "../components/OurPromise"
 import SubscriptionForm from "../components/SubscriptionForm"
 import FeedbackCard from "../components/FeedbackCard"
-import ReviewButton from "../components/reviews/ReviewButton";
+// import ReviewButton from "../components/reviews/ReviewButton";
 
 
 const carouselItems = [
@@ -374,7 +374,7 @@ const Home: React.FC = () => {
         </div>
       </section>
       {showFeedback && <FeedbackCard onClose={() => setShowFeedback(false)} />}
-      <ReviewButton />
+      
     </motion.div>
   );
 }

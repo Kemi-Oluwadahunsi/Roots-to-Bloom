@@ -13,7 +13,7 @@ const ReviewButton = () => {
     <>
       <button
         onClick={togglePanel}
-        className="fixed right-0 top-1/2 transform -translate-y-1/2 bg-[#4b774a] dark:bg-[#6a9e69] text-white px-1 py-2 sm:px-3 sm:py-4 rounded-l-lg shadow-lg hover:bg-[#3a6639] dark:hover:bg-[#5a8e59] transition-all duration-300 z-40 flex flex-col items-center"
+        className="fixed right-0 top-1/2 transform -translate-y-1/2 bg-[#4b774a] dark:bg-[#6a9e69] text-white px-1 py-2 sm:px-3 sm:py-4 rounded-l-lg shadow-lg hover:bg-[#3a6639] dark:hover:bg-[#5a8e59] transition-all duration-300 z-40 flex flex-col items-center cursor-pointer"
         aria-label="Open Reviews"
       >
         <MessageSquare size={24} />

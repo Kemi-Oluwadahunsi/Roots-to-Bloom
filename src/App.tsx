@@ -7,6 +7,7 @@ import { ProductProvider } from "./context/ProductContext";
 import { ThemeProvider } from "./context/ThemeContext";
 import LoadingSpinner from "./components/LoadingSpinner";
 import ScrollToTop from "./components/ScrollToTop";
+import ReviewButton from "./components/reviews/ReviewButton";
 
 const Home = React.lazy(() => import("./pages/Home"));
 const AboutRtB = React.lazy(() => import("./pages/AboutRtB"));
@@ -27,7 +28,7 @@ function App() {
   return (
     <ThemeProvider>
       <ProductProvider>
-        <div className="flex flex-col min-h-screen bg-background dark:bg-[#1a1a1a] dark:text-[#e0e0e0]">
+        <div className="flex flex-col min-h-screen bg-background dark:bg-[#1a1a1a] dark:text-[#e0e0e0] relative">
           <Header />
           <main className="flex-grow pt-10 xl:pt-20">
             <AnimatePresence mode="wait">
@@ -47,6 +48,7 @@ function App() {
           </main>
           <Footer />
           <ScrollToTop />
+          <ReviewButton />
         </div>
       </ProductProvider>
     </ThemeProvider>
