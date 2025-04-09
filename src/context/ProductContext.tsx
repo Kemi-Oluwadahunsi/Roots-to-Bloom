@@ -105,9 +105,9 @@ export interface Product {
   rating: number;
   calculatedRating?: number;
   reviewCount?: number;
-  howToUse?: string;
-  keyIngredients?: string;
-  ingredients?: string;
+  howToUse: string;
+  keyIngredients: string;
+  ingredients: string;
   status: string;
 }
 
