@@ -1,0 +1,70 @@
+Core Functionality
+- Fully responsive design optimized for all device sizes
+- Dark/light mode theme toggle with persistent user preference
+- Firebase integration for email subscriptions and user data storage
+- SEO-friendly semantic HTML structure
+
+Navigation & Layout
+- Animated header with dropdown navigation
+- Mobile-responsive hamburger menu
+- Scroll-to-top button for improved user experience
+- Footer with company information and social links
+
+Home Page
+- Dynamic hero carousel with auto-rotation and manual controls
+- Featured products section with direct links to product pages
+- "Why Choose Us" feature cards highlighting brand values
+- Category navigation (skin/hair) with visual representations
+- "Our Promise" section showcasing brand commitments 
+- Blog preview section with latest articles
+- Newsletter subscription form with Firebase integration
+
+Product Catalog
+- Comprehensive product listing with filtering capabilities
+- Category and subcategory filtering system
+- Size-based filtering
+- Product comparison tool for comparing multiple items
+- Currency converter for international customers
+- Product availability status indicators ("Available" or "Coming Soon")
+
+Product Details
+- Image gallery with thumbnails and main image display
+- Size selection with dynamic pricing
+- Currency conversion for selected products
+- "Shop Now" functionality with marketplace options (Shopee/Lazada)
+- Product information accordion with usage instructions and ingredients
+- FAQ section for common product questions
+
+Blog System
+- Complete blog listing page with search functionality
+- Category filtering for blog posts
+- Pagination with "Load More" functionality
+- Individual blog post pages with full content
+- Social sharing capabilities for blog posts
+- Related tags and categories
+
+About Pages
+- Brand story and philosophy page
+- Detailed ingredients page with categorization (hair/skin/medical)
+- Interactive ingredient cards with hover effects
+- Formulator profile and background information
+
+User Interaction
+- Form validation for all user inputs
+- Success feedback mechanisms for form submissions
+- Animated transitions between pages using Framer Motion
+- Interactive elements with hover and click animations
+
+Technical Features
+- Code splitting with React.lazy() and Suspense for improved performance
+- Context API for global state management (products, theme)
+- Custom hooks for responsive design
+- Type safety with TypeScript throughout the application
+- Lazy loading for images and components
+- Modular component architecture for maintainability
+
+Additional Features
+Contact form for customer inquiries
+Loading spinners for asynchronous operations
+Error handling for form submissions and data fetching
+Environment variable configuration for secure API keys

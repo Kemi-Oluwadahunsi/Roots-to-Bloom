@@ -357,7 +357,8 @@ const Home: React.FC = () => {
       </motion.section>
 
       {/* Newsletter Section */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-[#4b774a] via-[#d79f63] to-[#4b774a] dark:from-[#3a5a3a] dark:via-[#8f6b42] dark:to-[#3a5a3a]">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-[#4b774a] via-[#d79f63] to-[#4b774a] dark:from-[#3a5a3a] dark:via-[#41301c] dark:to-[rgb(25,41,25)]">
+        {/* 3a5a3a, 8f6b42 */}
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#f8f7f2] mb-6">

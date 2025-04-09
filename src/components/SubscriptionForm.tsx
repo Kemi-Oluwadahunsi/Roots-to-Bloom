@@ -92,10 +92,10 @@ const SubscriptionForm: React.FC<SubscriptionFormProps> = ({ onSuccess }) => {
             {...register("firstName")}
             type="text"
             placeholder="First Name"
-            className="w-full sm:w-2/3 p-2 pl-4 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0]"
+            className="w-full sm:w-2/3 p-2 pl-4 border border-gray-300 dark:border-gray-600 rounded-md bg-white/70 dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0] outline-none"
           />
           {errors.firstName && (
-            <p className="mt-1 text-red-800 italic text-sm">
+            <p className="mt-1 text-red-800 dark:text-white/40 italic text-sm">
               {errors.firstName.message}
             </p>
           )}
@@ -105,10 +105,10 @@ const SubscriptionForm: React.FC<SubscriptionFormProps> = ({ onSuccess }) => {
             {...register("lastName")}
             type="text"
             placeholder="Last Name"
-            className="w-full sm:w-2/3 p-2 pl-4 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0]"
+            className="w-full sm:w-2/3 p-2 pl-4 border border-gray-300 dark:border-gray-600 rounded-md bg-white/70 dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0] outline-none"
           />
           {errors.lastName && (
-            <p className="mt-1 text-red-800 italic text-sm">
+            <p className="mt-1 text-red-800 dark:text-white/40 italic text-sm">
               {errors.lastName.message}
             </p>
           )}
@@ -119,10 +119,10 @@ const SubscriptionForm: React.FC<SubscriptionFormProps> = ({ onSuccess }) => {
           {...register("email")}
           type="email"
           placeholder="Email"
-          className="w-full sm:w-2/3 p-2 pl-4 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0]"
+          className="w-full sm:w-2/3 p-2 pl-4 border border-gray-300 dark:border-gray-600 rounded-md bg-white/70 dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0] outline-none"
         />
         {errors.email && (
-          <p className="mt-1 text-red-800 italic text-sm">
+          <p className="mt-1 text-red-800 dark:text-white/40 italic text-sm">
             {errors.email.message}
           </p>
         )}
