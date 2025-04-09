@@ -1,7 +1,8 @@
 import type React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import type { SizePrice } from "../context/ProductContext";
+import { useProductContext, type SizePrice } from "../context/ProductContext";
+import { useEffect, useState } from "react";
 
 interface ProductCardProps {
   id: string;
@@ -22,9 +23,22 @@ const ProductCard: React.FC<ProductCardProps> = ({
   rating,
   status,
 }) => {
+  const { fetchProductRating } = useProductContext();
+  const [displayRating, setDisplayRating] = useState(rating);
   const lowestPrice = Math.min(...sizePrices.map((sp) => sp.price));
   const highestPrice = Math.max(...sizePrices.map((sp) => sp.price));
   const isAvailable = status === "Available";
+
+  useEffect(() => {
+    const loadRating = async () => {
+      const { rating: calculatedRating } = await fetchProductRating(id);
+      if (calculatedRating > 0) {
+        setDisplayRating(calculatedRating);
+      }
+    };
+
+    loadRating();
+  }, [id, fetchProductRating]);
 
   return (
     <motion.article
@@ -49,8 +63,13 @@ const ProductCard: React.FC<ProductCardProps> = ({
             <span className="text-[#4b774a] font-bold">
               ${lowestPrice.toFixed(2)} - ${highestPrice.toFixed(2)}
             </span>
-            {rating > 0 && (
+            {/* {rating > 0 && (
               <span className="text-[#d79f63]">★ {rating.toFixed(1)}</span>
+            )} */}
+            {displayRating > 0 && (
+              <span className="text-[#d79f63]">
+                ★ {displayRating.toFixed(1)}
+              </span>
             )}
           </div>
         </Link>

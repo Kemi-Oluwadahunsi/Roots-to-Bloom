@@ -30,7 +30,7 @@ export const products: Product[] = [
     ],
     shopeeLink: "https://my.shp.ee/J9C63Lf",
     carousellLink: "https://carousell.app.link/FNRwCDPDpRb",
-    rating: 4.9,
+    rating: 0,
     howToUse:
       "Take a small amount and melt between palms. Apply to damp or dry hair, focusing on ends and scalp, massage gently to boost absorption and stimulate circulation. Use as a daily moisturizer or sealant after leave-in conditioner. For best results, use consistently as part of your hair care routine.",
     keyIngredients:
@@ -143,7 +143,7 @@ export const products: Product[] = [
     ],
     shopeeLink: "https://my.shp.ee/pHKW2GB",
     carousellLink: "https://carousell.app.link/yjQrroEDpRb",
-    rating: 4.5,
+    rating: 0,
     howToUse:
       "After shampooing, apply a generous amount to wet hair, focusing on mid-lengths and ends. Leave for 2-3 minutes, then rinse thoroughly with cool water.",
     keyIngredients:

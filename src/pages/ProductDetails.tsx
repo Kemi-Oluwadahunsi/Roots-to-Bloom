@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useProductContext } from "../context/ProductContext";
@@ -6,17 +6,31 @@ import ProductPopup from "../components/ProductPopup";
 import CurrencyConverter from "../components/CurrencyConverter";
 import ImageGallery from "../components/ImageGallery";
 import ProductFAQ from "../components/ProductFAQ";
+import ProductReviews from "../components/reviews/ProductReviews";
 import { Currency } from "../data/products";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Star } from "lucide-react";
 
 const ProductDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const { getProduct } = useProductContext();
+  const { getProduct, fetchProductRating } = useProductContext();
   const [showPopup, setShowPopup] = useState(false);
   const [selectedSize, setSelectedSize] = useState("");
   const [currency, setCurrency] = useState<Currency>(Currency.MYR);
+  // const [isLoadingRating, setIsLoadingRating] = useState(true);
 
   const product = getProduct(id || "");
+
+  useEffect(() => {
+    const loadRating = async () => {
+      if (id) {
+        // setIsLoadingRating(true);
+        await fetchProductRating(id);
+        // setIsLoadingRating(false);
+      }
+    };
+
+    loadRating();
+  }, [id, fetchProductRating]);
 
   if (!product) {
     return <div>Product not found</div>;
@@ -25,6 +39,13 @@ const ProductDetails: React.FC = () => {
   const selectedSizePrice = product.sizePrices.find(
     (sp) => sp.size === selectedSize
   );
+
+  // Use the calculated rating from Firestore if available, otherwise fall back to the hardcoded rating
+  const displayRating = product.calculatedRating || 0;
+    // product.calculatedRating !== undefined
+    //   ? product.calculatedRating
+    //   : product.rating;
+  const reviewCount = product.reviewCount || 0;
 
   return (
     <motion.div
@@ -68,11 +89,37 @@ const ProductDetails: React.FC = () => {
               <span className="sm:text-lg text-[#4b774a] dark:text-[#6a9e69]">
                 {product.category} - {product.subCategory}
               </span>
-              <div className="flex items-center">
+              {/* <div className="flex items-center">
                 <span className="text-[#d79f63] dark:text-[#b58552]">★</span>
                 <span className="ml-1 text-[#48392e] dark:text-[#e0e0e0]">
                   {product.rating}
                 </span>
+              </div> */}
+              <div className="flex items-center">
+                {displayRating < 0 ? (
+                  <span className="text-sm text-gray-500 dark:text-gray-400">
+                    No ratings yet
+                  </span>
+                ) : (
+                  <>
+                    <div className="flex mr-2">
+                      {[1, 2, 3, 4, 5].map((star) => (
+                        <Star
+                          key={star}
+                          className={`w-4 h-4 ${
+                            star <= Math.round(displayRating)
+                              ? "text-[#d79f63] fill-[#d79f63]"
+                              : "text-gray-300 dark:text-gray-600"
+                          }`}
+                        />
+                      ))}
+                    </div>
+                    <span className="text-[#48392e] dark:text-[#e0e0e0]">
+                      {displayRating.toFixed(1)} ({reviewCount}{" "}
+                      {reviewCount === 1 ? "review" : "reviews"})
+                    </span>
+                  </>
+                )}
               </div>
             </motion.div>
           </div>
@@ -163,6 +210,14 @@ const ProductDetails: React.FC = () => {
               Product Information
             </h2>
             <ProductFAQ product={product} />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+          >
+            <ProductReviews productId={id || ""} />
           </motion.div>
         </div>
       </div>
