@@ -211,7 +211,7 @@ export const products: Product[] = [
     id: "6",
     name: "Anti-Dandruff & Scalp Therapy Shampoo",
     category: "hair",
-    subCategory: "Shampoo",
+    subCategory: "shampoos",
     description:
       "This herbal anti-dandruff shampoo is a powerful yet gentle solution designed to combat dandruff, soothe the scalp, and restore hair health. Infused with natural botanicals, purifying agents, and scalp-nourishing ingredients, it effectively removes flakes, reduces itchiness, and prevents future dandruff outbreaks. The advanced formula detoxifies the scalp, regulates excess oil production, and provides long-lasting hydration to maintain a balanced scalp environment.",
     sizePrices: [
