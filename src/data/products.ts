@@ -30,7 +30,7 @@ export const products: Product[] = [
     ],
     shopeeLink: "https://my.shp.ee/J9C63Lf",
     carousellLink: "https://carousell.app.link/FNRwCDPDpRb",
-    rating: 0,
+    rating: 5,
     howToUse:
       "Take a small amount and melt between palms. Apply to damp or dry hair, focusing on ends and scalp, massage gently to boost absorption and stimulate circulation. Use as a daily moisturizer or sealant after leave-in conditioner. For best results, use consistently as part of your hair care routine.",
     keyIngredients:
@@ -85,7 +85,7 @@ export const products: Product[] = [
     ],
     shopeeLink: "https://my.shp.ee/k5Bxee4",
     carousellLink: "https://carousell.app.link/ibB7mdMDpRb",
-    rating: 0,
+    rating: 5,
     howToUse:
       "Wet hair thoroughly. Apply a small amount of shampoo to your palm and massage into your scalp and hair. Rinse thoroughly with warm water. For best results, follow with our SilkyGlow Hydrating Deep Conditioner.",
     keyIngredients:
@@ -113,7 +113,7 @@ export const products: Product[] = [
     ],
     shopeeLink: "https://my.shp.ee/3oHiFSa",
     carousellLink: "https://carousell.app.link/s8zeHpIDpRb",
-    rating: 0,
+    rating: 5,
     howToUse:
       "1. Apply a generous amount to damp or freshly washed hair. 2. Work through strands with fingers or a wide-tooth comb. 3. Style as desired, perfect for wash-and-go, twist-outs, or protective styles. 4. No need to rinse, just let your hair absorb the nourishing benefits.",
     keyIngredients:
@@ -143,7 +143,7 @@ export const products: Product[] = [
     ],
     shopeeLink: "https://my.shp.ee/pHKW2GB",
     carousellLink: "https://carousell.app.link/yjQrroEDpRb",
-    rating: 0,
+    rating: 4.6,
     howToUse:
       "After shampooing, apply a generous amount to wet hair, focusing on mid-lengths and ends. Leave for 2-3 minutes, then rinse thoroughly with cool water.",
     keyIngredients:
@@ -173,7 +173,7 @@ export const products: Product[] = [
     ],
     shopeeLink: "https://my.shp.ee/5pB6KvY",
     carousellLink: "https://carousell.app.link/JJsqtTvDpRb",
-    rating: 0,
+    rating: 5,
     howToUse:
       "Directions For Use: 1. Scalp Treatment: Apply a few drops to the scalp, massage for 5-10 minutes, and leave overnight or for at least 2 hours before washing. 2. Moisturizing Oil: Apply a small amount to damp or dry hair, focusing on the ends. 3. Sealant: Apply a small amount to the ends of damp or dry hair to lock in moisture and prevent breakage.",
     keyIngredients:
@@ -199,7 +199,7 @@ export const products: Product[] = [
     ],
     shopeeLink: "https://my.shp.ee/Wy3SXhU",
     carousellLink: "https://carousell.app.link/AE3YCw46qRb",
-    rating: 0,
+    rating: 5,
     howToUse:
       "1. Apply generously to clean, damp hair, focusing on mid-lengths to ends. 2. Massage gently and detangle with fingers or a wide-tooth comb. 3. Leave on for 15 to 30 minutes for deep penetration. 4. Rinse thoroughly with cool water to seal in moisture.  ",
     keyIngredients: "Rice Milk, Oats Milk, Coconut Milk, Honey, Proteins",
@@ -227,7 +227,7 @@ export const products: Product[] = [
     ],
     shopeeLink: "https://my.shp.ee/FRko7CW",
     carousellLink: "https://carousell.app.link/mQc0PwhMsRb",
-    rating: 0,
+    rating: 5,
     howToUse:
       "Apply a generous amount to wet hair and scalp. Massage gently for two to three minutes, allowing the active ingredients to penetrate. Rinse thoroughly and repeat if necessary. For best results, use consistently and follow up with a lightweight conditioner.",
     keyIngredients:
@@ -252,7 +252,7 @@ export const products: Product[] = [
     images: ["/images/products/cleansing-bar-2.jpg"],
     shopeeLink: "https://shopee.com/gentle-cleansing-bar",
     carousellLink: "https://www.lazada.com/gentle-cleansing-bar",
-    rating: 0,
+    rating: 5,
     howToUse:
       "Wet the bar and work into a lather. Gently massage onto face or body, then rinse thoroughly with warm water. Suitable for daily use.",
     keyIngredients:
