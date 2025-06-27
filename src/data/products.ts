@@ -5,6 +5,13 @@ export enum Currency {
   USD = "USD",
   EUR = "EUR",
   GBP = "GBP",
+  AUD = "AUD",
+  SGD = "SGD",
+  JPY = "JPY",
+  INR = "INR",
+  CNY = "CNY",
+  CAD = "CAD",
+  NGN = "NGN",
 }
 
 export const products: Product[] = [
@@ -128,7 +135,7 @@ export const products: Product[] = [
     category: "hair",
     subCategory: "butters",
     description:
-      "Flora Luxe Whipped Hair Butter – Nourish, strengthen, and hydrate with hibiscus and rosemary. Flora Luxe Whipped Hair Butter is a rich, velvety blend of nature’s most powerful botanicals, designed to deeply nourish, hydrate, and strengthen your hair. Infused with hibiscus and rosemary extracts, this lightweight yet ultra-moisturizing butter melts effortlessly into your strands, sealing in hydration without leaving a greasy feel.",
+      "Flora Luxe Whipped Hair Butter – Nourish, strengthen, and hydrate with hibiscus and rosemary. Flora Luxe Whipped Hair Butter is a rich, velvety blend of nature's most powerful botanicals, designed to deeply nourish, hydrate, and strengthen your hair. Infused with hibiscus and rosemary extracts, this lightweight yet ultra-moisturizing butter melts effortlessly into your strands, sealing in hydration without leaving a greasy feel.",
     sizePrices: [
       { size: "100ml/g", price: 18.0 },
       { size: "150ml/g", price: 25.0 },
