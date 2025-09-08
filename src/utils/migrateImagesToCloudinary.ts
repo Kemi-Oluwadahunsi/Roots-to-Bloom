@@ -1,6 +1,6 @@
 import { uploadImageToCloudinary, getCloudinaryConfig } from "../services/cloudinaryService";
 import { fetchProducts, updateProduct } from "../services/productService";
-import { products as staticProducts } from "../data/products";
+import type { Product } from "../context/ProductContext";
 
 interface ImageMigrationResult {
   productId: string;
@@ -46,7 +46,6 @@ const fetchImageFromPath = async (imagePath: string): Promise<File | null> => {
 // Upload a single image to Cloudinary
 const uploadImageToCloudinaryWithRetry = async (
   imagePath: string, 
-  productName: string,
   retries: number = 3
 ): Promise<{ url: string; error?: string }> => {
   for (let attempt = 1; attempt <= retries; attempt++) {
@@ -81,7 +80,7 @@ const uploadImageToCloudinaryWithRetry = async (
 };
 
 // Migrate images for a single product
-const migrateProductImages = async (product: any): Promise<ImageMigrationResult> => {
+const migrateProductImages = async (product: Product): Promise<ImageMigrationResult> => {
   const result: ImageMigrationResult = {
     productId: product.id,
     productName: product.name,
@@ -98,8 +97,7 @@ const migrateProductImages = async (product: any): Promise<ImageMigrationResult>
   // Migrate main image
   if (product.image) {
     const mainImageResult = await uploadImageToCloudinaryWithRetry(
-      product.image, 
-      product.name
+      product.image
     );
     
     result.mainImage = {
@@ -114,8 +112,7 @@ const migrateProductImages = async (product: any): Promise<ImageMigrationResult>
   if (product.images && Array.isArray(product.images)) {
     for (const imagePath of product.images) {
       const additionalImageResult = await uploadImageToCloudinaryWithRetry(
-        imagePath, 
-        product.name
+        imagePath
       );
       
       result.additionalImages.push({
@@ -136,7 +133,7 @@ const updateProductInFirebase = async (
   migrationResult: ImageMigrationResult
 ): Promise<boolean> => {
   try {
-    const updateData: any = {};
+    const updateData: Partial<Product> = {};
     
     // Update main image if successful
     if (migrationResult.mainImage.success) {
@@ -200,7 +197,7 @@ export const migrateImagesToCloudinary = async (): Promise<void> => {
     // Filter out products that already have Cloudinary URLs
     const productsToMigrate = firebaseProducts.filter(product => {
       const hasCloudinaryImage = product.image && product.image.includes('cloudinary.com');
-      const hasCloudinaryImages = product.images && product.images.some((img: any) => 
+      const hasCloudinaryImages = product.images && product.images.some((img: unknown) => 
         typeof img === 'string' && img.includes('cloudinary.com')
       );
       
@@ -320,7 +317,19 @@ export const triggerImageMigration = async (): Promise<void> => {
 
 // Make functions available globally for console access
 if (typeof window !== 'undefined') {
-  (window as any).triggerImageMigration = triggerImageMigration;
-  (window as any).checkImageMigrationStatus = checkImageMigrationStatus;
-  (window as any).migrateImagesToCloudinary = migrateImagesToCloudinary;
+  (window as unknown as {
+    triggerImageMigration: typeof triggerImageMigration;
+    checkImageMigrationStatus: typeof checkImageMigrationStatus;
+    migrateImagesToCloudinary: typeof migrateImagesToCloudinary;
+  }).triggerImageMigration = triggerImageMigration;
+  (window as unknown as {
+    triggerImageMigration: typeof triggerImageMigration;
+    checkImageMigrationStatus: typeof checkImageMigrationStatus;
+    migrateImagesToCloudinary: typeof migrateImagesToCloudinary;
+  }).checkImageMigrationStatus = checkImageMigrationStatus;
+  (window as unknown as {
+    triggerImageMigration: typeof triggerImageMigration;
+    checkImageMigrationStatus: typeof checkImageMigrationStatus;
+    migrateImagesToCloudinary: typeof migrateImagesToCloudinary;
+  }).migrateImagesToCloudinary = migrateImagesToCloudinary;
 }

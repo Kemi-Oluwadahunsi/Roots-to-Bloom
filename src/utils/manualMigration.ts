@@ -15,5 +15,5 @@ export const triggerMigration = async () => {
 
 // Add to window for easy access in browser console
 if (typeof window !== 'undefined') {
-  (window as any).triggerMigration = triggerMigration;
+  (window as unknown as { triggerMigration: typeof triggerMigration }).triggerMigration = triggerMigration;
 }
