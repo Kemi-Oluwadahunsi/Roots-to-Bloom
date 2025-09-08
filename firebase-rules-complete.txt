@@ -1,0 +1,58 @@
+// Firestore rules
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow read access to all documents
+    match /{document=**} {
+      allow read: if true;
+    }
+    
+    // Allow users to read and write their own user profile
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Allow authenticated users to manage products (for admin functionality)
+    match /products/{productId} {
+      allow read: if true; // Anyone can read products
+      allow write: if request.auth != null; // Only authenticated users can write
+    }
+    
+    // Allow write access to the reviews collection with validation
+    match /reviews/{reviewId} {
+      allow create: if request.resource.data.name is string &&
+                     request.resource.data.name.size() > 0 &&
+                     request.resource.data.productId is string &&
+                     request.resource.data.rating is number &&
+                     request.resource.data.rating >= 1 &&
+                     request.resource.data.rating <= 5 &&
+                     request.resource.data.reviewText is string &&
+                     request.resource.data.reviewText.size() >= 10;
+    }
+    
+    // Allow write access to the subscribers collection with validation
+    match /subscribers/{subscriberId} {
+      allow create: if request.resource.data.firstName is string &&
+                     request.resource.data.lastName is string &&
+                     request.resource.data.email is string &&
+                     request.resource.data.email.matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$");
+    }
+  }
+}
+
+// Firebase Storage rules
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Allow read access to all images
+    match /products/{allPaths=**} {
+      allow read: if true;
+    }
+    
+    // Allow authenticated users to upload and manage images
+    match /products/{allPaths=**} {
+      allow write: if request.auth != null;
+      allow delete: if request.auth != null;
+    }
+  }
+}

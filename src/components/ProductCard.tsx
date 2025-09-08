@@ -3,6 +3,22 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useProductContext, type SizePrice } from "../context/ProductContext";
 import { useEffect, useState } from "react";
+// Simple function to get clean Cloudinary URL without transformations
+const getCleanImageUrl = (imageUrl: string): string => {
+  if (!imageUrl || !imageUrl.includes('cloudinary.com')) {
+    return imageUrl;
+  }
+  
+  // Extract public ID from Cloudinary URL
+  const match = imageUrl.match(/\/upload\/[^/]+\/(.+)$/);
+  if (match) {
+    const publicId = match[1];
+    const cloudName = imageUrl.match(/res\.cloudinary\.com\/([^/]+)/)?.[1];
+    return `https://res.cloudinary.com/${cloudName}/image/upload/${publicId}`;
+  }
+  
+  return imageUrl;
+};
 
 interface ProductCardProps {
   id: string;
@@ -50,9 +66,12 @@ const ProductCard: React.FC<ProductCardProps> = ({
           <div className="bg-transparent dark:bg-black/20 absolute inset-0"></div>
 
           <img
-            src={image || "/placeholder.svg"}
+            src={image ? getCleanImageUrl(image) : "/placeholder.svg"}
             alt={name}
             className="w-full h-32 lg:h-56 object-contain mb-4 rounded"
+            onError={(e) => {
+              (e.target as HTMLImageElement).src = "/placeholder.svg";
+            }}
           />
 
           <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-[#48392e] mb-2">
@@ -77,9 +96,12 @@ const ProductCard: React.FC<ProductCardProps> = ({
         <>
           <div className="bg-transparent dark:bg-black/20 absolute inset-0"></div>
           <img
-            src={image || "/placeholder.svg"}
+            src={image ? getCleanImageUrl(image) : "/placeholder.svg"}
             alt={name}
-            className="w-full h-32 lg:h-48 object-contain mb-4 rounded opacity-50"
+            className="w-full h-48 lg:h-72 object-cover mb-4 rounded opacity-50"
+            onError={(e) => {
+              (e.target as HTMLImageElement).src = "/placeholder.svg";
+            }}
           />
           <h3 className="text-sm sm:text-base lg:text-xl font-semibold text-[#48392e] mb-2">
             {name}

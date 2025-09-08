@@ -12,7 +12,7 @@ import { ArrowLeft, Star } from "lucide-react";
 
 const ProductDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const { getProduct, fetchProductRating } = useProductContext();
+  const { getProduct, fetchProductRating, loading: productsLoading } = useProductContext();
   const [showPopup, setShowPopup] = useState(false);
   const [selectedSize, setSelectedSize] = useState("");
   const [currency, setCurrency] = useState<Currency>(Currency.MYR);
@@ -32,8 +32,34 @@ const ProductDetails: React.FC = () => {
     loadRating();
   }, [id, fetchProductRating]);
 
+  if (productsLoading) {
+    return (
+      <div className="min-h-screen bg-[#f8f7f2] dark:bg-[#1a1a1a] flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#4b774a] mx-auto mb-4"></div>
+          <p className="text-[#48392e] dark:text-[#e0e0e0]">Loading product...</p>
+        </div>
+      </div>
+    );
+  }
+
   if (!product) {
-    return <div>Product not found</div>;
+    return (
+      <div className="min-h-screen bg-[#f8f7f2] dark:bg-[#1a1a1a] flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-[#48392e] dark:text-[#e0e0e0] mb-4">
+            Product not found
+          </h1>
+          <Link
+            to="/products"
+            className="inline-flex items-center px-4 py-2 bg-[#4b774a] text-white rounded-md hover:bg-opacity-90"
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Products
+          </Link>
+        </div>
+      </div>
+    );
   }
 
   const selectedSizePrice = product.sizePrices.find(

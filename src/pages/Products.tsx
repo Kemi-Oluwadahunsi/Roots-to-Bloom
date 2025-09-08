@@ -8,7 +8,7 @@ import ProductComparison from "../components/ProductComparison";
 
 const Products: React.FC = () => {
   const location = useLocation();
-  const { products } = useProductContext();
+  const { products, loading: productsLoading, error: productsError } = useProductContext();
   const [filteredProducts, setFilteredProducts] = useState(products);
   const [activeCategory, setActiveCategory] = useState("all");
   const [activeSubCategory, setActiveSubCategory] = useState("all");
@@ -134,7 +134,30 @@ const Products: React.FC = () => {
       </nav>
 
       {/* Product Display */}
-      {filteredProducts.length > 0 ? (
+      {productsLoading ? (
+        <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8">
+          {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+            <div key={i} className="bg-[#f8f7f2] p-3 lg:p-6 rounded-lg shadow-md animate-pulse">
+              <div className="w-full h-32 lg:h-56 bg-gray-300 rounded mb-4"></div>
+              <div className="h-4 bg-gray-300 rounded mb-2"></div>
+              <div className="h-4 bg-gray-300 rounded w-2/3 mb-2"></div>
+              <div className="h-4 bg-gray-300 rounded w-1/2"></div>
+            </div>
+          ))}
+        </section>
+      ) : productsError ? (
+        <div className="text-center py-12">
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+            {productsError}
+          </div>
+          <button
+            onClick={() => window.location.reload()}
+            className="px-4 py-2 bg-[#4b774a] text-white rounded-md hover:bg-opacity-90"
+          >
+            Retry
+          </button>
+        </div>
+      ) : filteredProducts.length > 0 ? (
         <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8">
           {filteredProducts.map((product) => (
             <ProductCard

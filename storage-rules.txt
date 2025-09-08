@@ -1,0 +1,20 @@
+// Firebase Storage rules
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Allow read access to all images
+    match /products/{allPaths=**} {
+      allow read: if true;
+    }
+    
+    // Allow authenticated users to upload images
+    match /products/{allPaths=**} {
+      allow write: if request.auth != null;
+    }
+    
+    // Allow authenticated users to delete images
+    match /products/{allPaths=**} {
+      allow delete: if request.auth != null;
+    }
+  }
+}

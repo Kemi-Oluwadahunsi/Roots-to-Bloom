@@ -5,7 +5,7 @@ import CurrencyConverter from "./CurrencyConverter";
 import { Currency } from "../data/products"
 
 const ProductComparison: React.FC = () => {
-  const { products } = useProductContext();
+  const { products, loading: productsLoading } = useProductContext();
   const [selectedProducts, setSelectedProducts] = useState<string[]>([]);
 const [currency, setCurrency] = useState<Currency>(Currency.MYR);
 
@@ -32,9 +32,12 @@ const [currency, setCurrency] = useState<Currency>(Currency.MYR);
         <select
           id="product-select"
           onChange={(e) => handleProductSelect(e.target.value)}
-          className="w-full sm:w-2/4 lg:w-1/3 p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0]"
+          disabled={productsLoading}
+          className="w-full sm:w-2/4 lg:w-1/3 p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0] disabled:opacity-50"
         >
-          <option value="">Choose a product</option>
+          <option value="">
+            {productsLoading ? "Loading products..." : "Choose a product"}
+          </option>
           {products.map((product) => (
             <option key={product.id} value={product.id}>
               {product.name}

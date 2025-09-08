@@ -42,7 +42,7 @@ const carouselItems = [
 
 const Home: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
-  const { products } = useProductContext()
+  const { products, loading: productsLoading } = useProductContext()
    const [showFeedback, setShowFeedback] = useState(false);
 
   useEffect(() => {
@@ -60,7 +60,7 @@ const Home: React.FC = () => {
     setCurrentSlide((prevSlide) => (prevSlide - 1 + carouselItems.length) % carouselItems.length)
   }
 
-  const featuredProducts = products.slice(0, 3)
+  const featuredProducts = productsLoading ? [] : products.slice(0, 3)
   const featuredBlogPosts = blogPosts.slice(0, 3)
 
   const fadeInUp = {
@@ -287,21 +287,33 @@ const Home: React.FC = () => {
           >
             Featured Products
           </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredProducts.map((product) => (
-              <motion.div key={product.id} variants={fadeInUp}>
-                <ProductCard
-                  id={product.id}
-                  name={product.name}
-                  category={product.category}
-                  image={product.image}
-                  sizePrices={product.sizePrices}
-                  rating={product.rating}
-                  status={product.status}
-                />
-              </motion.div>
-            ))}
-          </div>
+          {productsLoading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="bg-[#f8f7f2] p-6 rounded-lg shadow-md animate-pulse">
+                  <div className="w-full h-56 bg-gray-300 rounded mb-4"></div>
+                  <div className="h-4 bg-gray-300 rounded mb-2"></div>
+                  <div className="h-4 bg-gray-300 rounded w-2/3"></div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {featuredProducts.map((product) => (
+                <motion.div key={product.id} variants={fadeInUp}>
+                  <ProductCard
+                    id={product.id}
+                    name={product.name}
+                    category={product.category}
+                    image={product.image}
+                    sizePrices={product.sizePrices}
+                    rating={product.rating}
+                    status={product.status}
+                  />
+                </motion.div>
+              ))}
+            </div>
+          )}
           <motion.div variants={fadeInUp} className="text-center mt-12">
             <Link
               to="/products"

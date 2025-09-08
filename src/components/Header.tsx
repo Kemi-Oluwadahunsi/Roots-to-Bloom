@@ -1,18 +1,30 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Sun, Moon, ChevronDown } from "lucide-react";
+import { Menu, X, Sun, Moon, ChevronDown, User, LogOut, CheckCircle, AlertCircle } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
+import { useAuth } from "../context/AuthContext";
+
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showAboutDropdown, setShowAboutDropdown] = useState(false);
+  const [showUserDropdown, setShowUserDropdown] = useState(false)
+  const { currentUser, userProfile, logout } = useAuth()
   const { theme, toggleTheme } = useTheme();
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const location = useLocation();
 
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  const handleLogout = async () => {
+    try {
+      await logout()
+    } catch (error) {
+      console.error("Failed to log out", error)
+    }
+  }
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -104,6 +116,77 @@ const Header = () => {
           <NavLink to="/contact" currentPath={location.pathname}>
             Contact
           </NavLink>
+          
+          {/* Admin Link - Only show for authenticated users */}
+          {currentUser && (
+            <NavLink to="/admin" currentPath={location.pathname}>
+              Admin
+            </NavLink>
+          )}
+
+          {/* User Authentication */}
+          {currentUser ? (
+            <div
+              className="relative"
+              onMouseEnter={() => setShowUserDropdown(true)}
+              onMouseLeave={() => setShowUserDropdown(false)}
+            >
+              <button className="flex items-center py-2 px-4 text-[#48392e] dark:text-[#e0e0e0] hover:text-[#d79f63] dark:hover:text-[#b58552] transition duration-300">
+                <div className="w-8 h-8 bg-[#4b774a] dark:bg-[#6a9e69] rounded-full flex items-center justify-center text-white text-sm font-bold mr-2">
+                  {userProfile?.firstName?.charAt(0) || currentUser.email?.charAt(0)}
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-1">{userProfile?.firstName || "User"}</span>
+                  {userProfile?.emailVerified ? (
+                    <CheckCircle className="w-4 h-4 text-green-500"  />
+                  ) : (
+                    <AlertCircle className="w-4 h-4 text-amber-500"  />
+                  )}
+                </div>
+                <ChevronDown className="ml-1 w-4 h-4" />
+              </button>
+              <AnimatePresence>
+                {showUserDropdown && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="absolute right-0 mt-2 w-48 bg-white dark:bg-[#2a2a2a] rounded-md shadow-lg z-10"
+                  >
+                    <Link
+                      to="/profile"
+                      className="flex items-center px-4 py-2 text-[#48392e] dark:text-[#e0e0e0] hover:bg-[#f0e6d2] dark:hover:bg-[#3a3a3a] transition duration-300"
+                    >
+                      <User className="w-4 h-4 mr-2" />
+                      Profile
+                    </Link>
+                    <button
+                      onClick={handleLogout}
+                      className="flex items-center w-full px-4 py-2 text-[#48392e] dark:text-[#e0e0e0] hover:bg-[#f0e6d2] dark:hover:bg-[#3a3a3a] transition duration-300"
+                    >
+                      <LogOut className="w-4 h-4 mr-2" />
+                      Logout
+                    </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          ) : (
+            <div className="flex space-x-2">
+              <Link
+                to="/login"
+                className="px-4 py-2 text-[#48392e] dark:text-[#e0e0e0] hover:text-[#d79f63] dark:hover:text-[#b58552] transition duration-300"
+              >
+                Login
+              </Link>
+              <Link
+                to="/register"
+                className="px-4 py-2 bg-[#4b774a] dark:bg-[#6a9e69] text-white rounded-md hover:bg-opacity-90 transition duration-300"
+              >
+                Sign Up
+              </Link>
+            </div>
+          )}
 
           {/* Theme Toggle */}
           <button
@@ -180,6 +263,52 @@ const Header = () => {
             >
               Contact
             </NavLink>
+            
+            {/* Admin Link - Only show for authenticated users */}
+            {currentUser && (
+              <NavLink
+                to="/admin"
+                onClick={toggleMenu}
+                currentPath={location.pathname}
+              >
+                Admin
+              </NavLink>
+            )}
+
+            {currentUser ? (
+            <>
+              <div className="flex items-center justify-between py-2 px-4">
+                <NavLink to="/profile" onClick={toggleMenu} currentPath={location.pathname}>
+                  Profile
+                </NavLink>
+                <div className="flex items-center">
+                  {userProfile?.emailVerified ? (
+                    <CheckCircle className="w-4 h-4 text-green-500"  />
+                  ) : (
+                    <AlertCircle className="w-4 h-4 text-amber-500"  />
+                  )}
+                </div>
+              </div>
+              <button
+                onClick={() => {
+                  handleLogout()
+                  toggleMenu()
+                }}
+                className="block w-full text-left py-2 px-4 text-[#48392e] dark:text-[#e0e0e0] hover:text-[#d79f63] dark:hover:text-[#b58552] transition duration-300"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <NavLink to="/login" onClick={toggleMenu} currentPath={location.pathname}>
+                Login
+              </NavLink>
+              <NavLink to="/register" onClick={toggleMenu} currentPath={location.pathname}>
+                Sign Up
+              </NavLink>
+            </>
+          )}
           </motion.div>
         )}
       </AnimatePresence>

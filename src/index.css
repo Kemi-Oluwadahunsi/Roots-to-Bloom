@@ -51,3 +51,9 @@ body {
   font-size: 1.2rem;
 }
 }
+
+/* Gradient color references for future use:
+linear-gradient(90deg, #b7f8db 0%, #50a7c2 100%)
+linear-gradient(90deg, #355c7d 0%, #6c5b7b 50%, #c06c84 100%)
+linear-gradient(90deg, #606c88 0%, #3f4c6b 100%)
+*/
