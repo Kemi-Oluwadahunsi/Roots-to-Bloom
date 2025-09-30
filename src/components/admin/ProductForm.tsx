@@ -5,6 +5,7 @@ import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { X, Save, Plus, Trash2 } from "lucide-react"
 import { useProductMutations } from "../../hooks/useProducts"
+import { useToast } from "../../hooks/useToast"
 import CloudinaryImageUpload from "./CloudinaryImageUpload"
 import CloudinaryImageGallery from "./CloudinaryImageGallery"
 import type { Product, SizePrice } from "../../context/ProductContext"
@@ -17,6 +18,7 @@ interface ProductFormProps {
 
 const ProductForm: React.FC<ProductFormProps> = ({ product, onClose, onSuccess }) => {
   const { addProduct, updateProduct, loading } = useProductMutations()
+  const { showSuccess, showError } = useToast()
   const [formData, setFormData] = useState({
     name: "",
     category: "hair",
@@ -24,13 +26,23 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, onClose, onSuccess }
     description: "",
     image: "",
     images: [] as string[],
-    shopeeLink: "",
-    carousellLink: "",
     rating: 0,
     howToUse: "",
     keyIngredients: "",
     ingredients: "",
     status: "Available",
+    // E-commerce fields
+    stock: 100,
+    isActive: true,
+    tags: [] as string[],
+    weight: 0,
+    dimensions: {
+      length: 0,
+      width: 0,
+      height: 0,
+    },
+    sku: "",
+    brand: "Roots to Bloom",
   })
   const [sizePrices, setSizePrices] = useState<SizePrice[]>([])
   const [newSize, setNewSize] = useState("")
@@ -47,13 +59,19 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, onClose, onSuccess }
         description: product.description,
         image: product.image,
         images: product.images,
-        shopeeLink: product.shopeeLink,
-        carousellLink: product.carousellLink,
         rating: product.rating,
         howToUse: product.howToUse,
         keyIngredients: product.keyIngredients,
         ingredients: product.ingredients,
         status: product.status,
+        // E-commerce fields with defaults
+        stock: product.stock || 100,
+        isActive: product.isActive ?? true,
+        tags: product.tags || [],
+        weight: product.weight || 0,
+        dimensions: product.dimensions || { length: 0, width: 0, height: 0 },
+        sku: product.sku || "",
+        brand: product.brand || "Roots to Bloom",
       })
       setSizePrices(product.sizePrices)
     }
@@ -86,14 +104,17 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, onClose, onSuccess }
 
       if (product) {
         await updateProduct(product.id, productData)
+        showSuccess("Product updated successfully!")
       } else {
         await addProduct(productData)
+        showSuccess("Product added successfully!")
       }
 
       onSuccess()
       onClose()
     } catch (error) {
       console.error("Failed to save product:", error)
+      showError("Failed to save product. Please try again.")
     }
   }
 
@@ -309,32 +330,150 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, onClose, onSuccess }
               {errors.sizePrices && <p className="mt-1 text-red-500 text-sm">{errors.sizePrices}</p>}
             </div>
 
-            {/* Additional fields */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
+            {/* E-commerce Fields */}
+            <div className="border-t border-gray-200 dark:border-gray-700 pt-6">
+              <h3 className="text-lg font-semibold text-[#48392e] dark:text-[#e0e0e0] mb-4">
+                E-commerce Settings
+              </h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-[#48392e] dark:text-[#e0e0e0] mb-2">
+                    Stock Quantity
+                  </label>
+                  <input
+                    type="number"
+                    value={formData.stock}
+                    onChange={(e) => setFormData({ ...formData, stock: parseInt(e.target.value) || 0 })}
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0] focus:outline-none focus:ring-2 focus:ring-[#4b774a] dark:focus:ring-[#6a9e69]"
+                    placeholder="Enter stock quantity"
+                    min="0"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-[#48392e] dark:text-[#e0e0e0] mb-2">
+                    SKU
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.sku}
+                    onChange={(e) => setFormData({ ...formData, sku: e.target.value })}
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0] focus:outline-none focus:ring-2 focus:ring-[#4b774a] dark:focus:ring-[#6a9e69]"
+                    placeholder="Enter SKU (e.g., RTB-SHAMPOO-001)"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-[#48392e] dark:text-[#e0e0e0] mb-2">
+                    Brand
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.brand}
+                    onChange={(e) => setFormData({ ...formData, brand: e.target.value })}
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0] focus:outline-none focus:ring-2 focus:ring-[#4b774a] dark:focus:ring-[#6a9e69]"
+                    placeholder="Enter brand name"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-[#48392e] dark:text-[#e0e0e0] mb-2">
+                    Weight (kg)
+                  </label>
+                  <input
+                    type="number"
+                    value={formData.weight}
+                    onChange={(e) => setFormData({ ...formData, weight: parseFloat(e.target.value) || 0 })}
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0] focus:outline-none focus:ring-2 focus:ring-[#4b774a] dark:focus:ring-[#6a9e69]"
+                    placeholder="Enter weight in kg"
+                    step="0.01"
+                    min="0"
+                  />
+                </div>
+              </div>
+
+              <div className="mt-6">
                 <label className="block text-sm font-medium text-[#48392e] dark:text-[#e0e0e0] mb-2">
-                  Shopee Link
+                  Dimensions (cm)
+                </label>
+                <div className="grid grid-cols-3 gap-4">
+                  <div>
+                    <label className="block text-xs text-gray-600 dark:text-gray-400 mb-1">Length</label>
+                    <input
+                      type="number"
+                      value={formData.dimensions.length}
+                      onChange={(e) => setFormData({ 
+                        ...formData, 
+                        dimensions: { ...formData.dimensions, length: parseFloat(e.target.value) || 0 }
+                      })}
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0] focus:outline-none focus:ring-2 focus:ring-[#4b774a] dark:focus:ring-[#6a9e69]"
+                      placeholder="Length"
+                      step="0.1"
+                      min="0"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs text-gray-600 dark:text-gray-400 mb-1">Width</label>
+                    <input
+                      type="number"
+                      value={formData.dimensions.width}
+                      onChange={(e) => setFormData({ 
+                        ...formData, 
+                        dimensions: { ...formData.dimensions, width: parseFloat(e.target.value) || 0 }
+                      })}
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0] focus:outline-none focus:ring-2 focus:ring-[#4b774a] dark:focus:ring-[#6a9e69]"
+                      placeholder="Width"
+                      step="0.1"
+                      min="0"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs text-gray-600 dark:text-gray-400 mb-1">Height</label>
+                    <input
+                      type="number"
+                      value={formData.dimensions.height}
+                      onChange={(e) => setFormData({ 
+                        ...formData, 
+                        dimensions: { ...formData.dimensions, height: parseFloat(e.target.value) || 0 }
+                      })}
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0] focus:outline-none focus:ring-2 focus:ring-[#4b774a] dark:focus:ring-[#6a9e69]"
+                      placeholder="Height"
+                      step="0.1"
+                      min="0"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6">
+                <label className="block text-sm font-medium text-[#48392e] dark:text-[#e0e0e0] mb-2">
+                  Tags (comma-separated)
                 </label>
                 <input
-                  type="url"
-                  value={formData.shopeeLink}
-                  onChange={(e) => setFormData({ ...formData, shopeeLink: e.target.value })}
+                  type="text"
+                  value={formData.tags.join(', ')}
+                  onChange={(e) => setFormData({ 
+                    ...formData, 
+                    tags: e.target.value.split(',').map(tag => tag.trim()).filter(tag => tag.length > 0)
+                  })}
                   className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0] focus:outline-none focus:ring-2 focus:ring-[#4b774a] dark:focus:ring-[#6a9e69]"
-                  placeholder="Enter Shopee link"
+                  placeholder="e.g., hair, growth, natural, organic"
                 />
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-[#48392e] dark:text-[#e0e0e0] mb-2">
-                  Carousell Link
+              <div className="mt-6">
+                <label className="flex items-center space-x-2">
+                  <input
+                    type="checkbox"
+                    checked={formData.isActive}
+                    onChange={(e) => setFormData({ ...formData, isActive: e.target.checked })}
+                    className="w-4 h-4 text-[#4b774a] bg-gray-100 border-gray-300 rounded focus:ring-[#4b774a] dark:focus:ring-[#6a9e69] dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                  />
+                  <span className="text-sm font-medium text-[#48392e] dark:text-[#e0e0e0]">
+                    Product is active and available for sale
+                  </span>
                 </label>
-                <input
-                  type="url"
-                  value={formData.carousellLink}
-                  onChange={(e) => setFormData({ ...formData, carousellLink: e.target.value })}
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0] focus:outline-none focus:ring-2 focus:ring-[#4b774a] dark:focus:ring-[#6a9e69]"
-                  placeholder="Enter Carousell link"
-                />
               </div>
             </div>
 

@@ -139,6 +139,9 @@ const ProductManagement: React.FC = () => {
                       Price Range
                     </th>
                     <th className="px-6 py-4 text-left text-sm font-medium text-[#48392e] dark:text-[#e0e0e0]">
+                      Stock
+                    </th>
+                    <th className="px-6 py-4 text-left text-sm font-medium text-[#48392e] dark:text-[#e0e0e0]">
                       Status
                     </th>
                     <th className="px-6 py-4 text-left text-sm font-medium text-[#48392e] dark:text-[#e0e0e0]">
@@ -176,14 +179,30 @@ const ProductManagement: React.FC = () => {
                         <td className="px-6 py-4 text-sm text-[#48392e] dark:text-[#e0e0e0]">
                           ${lowestPrice.toFixed(2)} - ${highestPrice.toFixed(2)}
                         </td>
-                        <td className="px-6 py-4">
-                          <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                            product.status === "Available" 
-                              ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
-                              : "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200"
+                        <td className="px-6 py-4 text-sm text-[#48392e] dark:text-[#e0e0e0]">
+                          <span className={`font-medium ${
+                            (product.stock || 0) > 0 
+                              ? "text-green-600 dark:text-green-400" 
+                              : "text-red-600 dark:text-red-400"
                           }`}>
-                            {product.status}
+                            {product.stock || 0}
                           </span>
+                        </td>
+                        <td className="px-6 py-4">
+                          <div className="flex flex-col space-y-1">
+                            <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                              product.status === "Available" 
+                                ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+                                : "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200"
+                            }`}>
+                              {product.status}
+                            </span>
+                            {product.isActive !== false && (
+                              <span className="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+                                Active
+                              </span>
+                            )}
+                          </div>
                         </td>
                         <td className="px-6 py-4">
                           <div className="flex space-x-2">

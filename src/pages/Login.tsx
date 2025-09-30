@@ -8,6 +8,7 @@ import { Eye, EyeOff, Mail, Lock } from "lucide-react"
 import { useAuth } from "../context/AuthContext"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
+import { useToast } from "../hooks/useToast"
 import * as yup from "yup"
 
 const schema = yup.object().shape({
@@ -23,11 +24,11 @@ interface LoginFormData {
 const Login: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState("")
 
   const { login } = useAuth()
   const navigate = useNavigate()
   const location = useLocation()
+  const { showSuccess, showError } = useToast()
 
   const from = location.state?.from?.pathname || "/"
 
@@ -41,12 +42,12 @@ const Login: React.FC = () => {
 
   const onSubmit = async (data: LoginFormData) => {
     try {
-      setError("")
       setIsLoading(true)
       await login(data.email, data.password)
+      showSuccess("Welcome back! You've been logged in successfully.")
       navigate(from, { replace: true })
-    } catch {
-      setError("Failed to log in. Please check your credentials.")
+    } catch (error) {
+      showError("Failed to log in. Please check your credentials.")
     } finally {
       setIsLoading(false)
     }
@@ -66,7 +67,6 @@ const Login: React.FC = () => {
             <p className="text-[#4b774a] dark:text-[#6a9e69]">Sign in to your account</p>
           </div>
 
-          {error && <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">{error}</div>}
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             <div>

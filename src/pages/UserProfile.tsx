@@ -8,6 +8,8 @@ import { useAuth } from "../context/AuthContext"
 import { Link } from "react-router-dom"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
+import { useToast } from "../hooks/useToast"
+import { getAvailableCurrencies } from "../utils/currency"
 import * as yup from "yup"
 
 const profileSchema = yup.object().shape({
@@ -17,6 +19,7 @@ const profileSchema = yup.object().shape({
   phoneNumber: yup.string(),
   skinType: yup.string(),
   hairType: yup.string(),
+  preferredCurrency: yup.string(),
   interests: yup.array().of(yup.string().required()).default([]),
   addressLine1: yup.string(),
   addressLine2: yup.string(),
@@ -42,6 +45,7 @@ interface ProfileFormData {
   phoneNumber?: string
   skinType?: string
   hairType?: string
+  preferredCurrency?: string
   interests: string[]
   addressLine1?: string
   addressLine2?: string
@@ -61,9 +65,8 @@ const UserProfile: React.FC = () => {
   const { currentUser, userProfile, updateUserProfile, updateUserPassword, sendEmailVerification } = useAuth()
   const [isEditing, setIsEditing] = useState(false)
   const [isChangingPassword, setIsChangingPassword] = useState(false)
-  const [message, setMessage] = useState("")
-  const [error, setError] = useState("")
   const [isSendingVerification, setIsSendingVerification] = useState(false)
+  const { showSuccess, showError } = useToast()
 
   const {
     register: registerProfile,
@@ -79,6 +82,7 @@ const UserProfile: React.FC = () => {
       phoneNumber: userProfile?.phone?.number || "",
       skinType: userProfile?.skinType || "",
       hairType: userProfile?.hairType || "",
+      preferredCurrency: userProfile?.preferredCurrency || "MYR",
       interests: userProfile?.interests || [],
       addressLine1: userProfile?.address?.line1 || "",
       addressLine2: userProfile?.address?.line2 || "",
@@ -100,9 +104,6 @@ const UserProfile: React.FC = () => {
 
   const onProfileSubmit = async (data: ProfileFormData) => {
     try {
-      setError("")
-      setMessage("")
-      
       const phone = data.phoneCountryCode && data.phoneNumber ? {
         countryCode: data.phoneCountryCode,
         number: data.phoneNumber
@@ -124,39 +125,37 @@ const UserProfile: React.FC = () => {
         address,
         skinType: data.skinType,
         hairType: data.hairType,
+        preferredCurrency: data.preferredCurrency,
         interests: data.interests,
       }
       
       await updateUserProfile(profileData)
-      setMessage("Profile updated successfully!")
+      showSuccess("Profile updated successfully!")
       setIsEditing(false)
-    } catch {
-      setError("Failed to update profile. Please try again.")
+    } catch (err) {
+      showError("Failed to update profile. Please try again:" + err)
     }
   }
 
   const onPasswordSubmit = async (data: PasswordFormData) => {
     try {
-      setError("")
-      setMessage("")
       await updateUserPassword(data.currentPassword, data.newPassword)
-      setMessage("Password updated successfully!")
+      showSuccess("Password updated successfully!")
       setIsChangingPassword(false)
       resetPassword()
-    } catch {
-      setError("Failed to update password. Please check your current password.")
+    } catch (err) {
+      console.error('Password update error:', err)
+      showError("Failed to update password. Please check your current password.")
     }
   }
 
   const handleSendVerification = async () => {
     try {
-      setError("")
-      setMessage("")
       setIsSendingVerification(true)
       await sendEmailVerification()
-      setMessage("Verification email sent! Please check your inbox.")
-    } catch {
-      setError("Failed to send verification email. Please try again.")
+      showSuccess("Verification email sent! Please check your inbox.")
+    } catch (err) {
+      showError(err +"Failed to send verification email. Please try again.")
     } finally {
       setIsSendingVerification(false)
     }
@@ -246,15 +245,6 @@ const UserProfile: React.FC = () => {
               </div>
             </div>
 
-            {message && (
-              <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
-                {message}
-              </div>
-            )}
-
-            {error && (
-              <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">{error}</div>
-            )}
 
             <form onSubmit={handleProfileSubmit(onProfileSubmit)} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -497,6 +487,27 @@ const UserProfile: React.FC = () => {
                     <option value="coily">Coily</option>
                   </select>
                 </div>
+              </div>
+
+              {/* Preferred Currency */}
+              <div>
+                <label className="block text-sm font-medium text-[#48392e] dark:text-[#e0e0e0] mb-2">
+                  Preferred Currency
+                </label>
+                <select
+                  {...registerProfile("preferredCurrency")}
+                  disabled={!isEditing}
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0] focus:outline-none focus:ring-2 focus:ring-[#4b774a] dark:focus:ring-[#6a9e69] disabled:bg-gray-100 dark:disabled:bg-gray-700"
+                >
+                  {getAvailableCurrencies().map((currency) => (
+                    <option key={currency.code} value={currency.code}>
+                      {currency.symbol} - {currency.name} ({currency.code})
+                    </option>
+                  ))}
+                </select>
+                <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                  All prices will be displayed in your preferred currency
+                </p>
               </div>
 
               <div>

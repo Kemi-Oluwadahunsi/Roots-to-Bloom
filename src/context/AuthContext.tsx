@@ -31,6 +31,7 @@ interface UserProfile {
   skinType?: string
   hairType?: string
   interests: string[]
+  preferredCurrency?: string // User's preferred currency (default: MYR)
   address?: {
     line1: string
     line2?: string
@@ -99,6 +100,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         phone,
         address,
         interests: [],
+        preferredCurrency: 'MYR', // Default currency
         emailVerified: user.emailVerified,
         createdAt: serverTimestamp(),
         updatedAt: serverTimestamp(),
@@ -216,6 +218,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           firstName: user.displayName?.split(' ')[0] || 'User',
           lastName: user.displayName?.split(' ')[1] || '',
           interests: [],
+          preferredCurrency: 'MYR', // Default currency
           emailVerified: user.emailVerified,
           createdAt: serverTimestamp(),
           updatedAt: serverTimestamp(),
@@ -238,6 +241,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         firstName: user.displayName?.split(' ')[0] || 'User',
         lastName: user.displayName?.split(' ')[1] || '',
         interests: [],
+        preferredCurrency: 'MYR', // Default currency
         emailVerified: user.emailVerified,
         createdAt: new Date(),
         updatedAt: new Date(),

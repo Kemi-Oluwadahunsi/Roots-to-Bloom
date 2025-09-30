@@ -8,6 +8,7 @@ import { Mail, ArrowLeft } from "lucide-react"
 import { useAuth } from "../context/AuthContext"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
+import { useToast } from "../hooks/useToast"
 import * as yup from "yup"
 
 const schema = yup.object().shape({
@@ -20,10 +21,9 @@ interface ForgotPasswordFormData {
 
 const ForgotPassword: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false)
-  const [message, setMessage] = useState("")
-  const [error, setError] = useState("")
 
   const { resetPassword } = useAuth()
+  const { showSuccess, showError } = useToast()
 
   const {
     register,
@@ -35,13 +35,11 @@ const ForgotPassword: React.FC = () => {
 
   const onSubmit = async (data: ForgotPasswordFormData) => {
     try {
-      setMessage("")
-      setError("")
       setIsLoading(true)
       await resetPassword(data.email)
-      setMessage("Check your inbox for further instructions")
-    } catch (error: any) {
-      setError("Failed to reset password. Please check your email address.")
+      showSuccess("Check your inbox for further instructions")
+    } catch (error: unknown) {
+      showError("Failed to reset password. Please check your email address.")
     } finally {
       setIsLoading(false)
     }
@@ -63,11 +61,6 @@ const ForgotPassword: React.FC = () => {
             </p>
           </div>
 
-          {error && <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">{error}</div>}
-
-          {message && (
-            <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">{message}</div>
-          )}
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             <div>

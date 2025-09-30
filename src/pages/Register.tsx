@@ -8,6 +8,7 @@ import { Eye, EyeOff, Mail, Lock, User } from "lucide-react"
 import { useAuth } from "../context/AuthContext"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
+import { useToast } from "../hooks/useToast"
 import * as yup from "yup"
 
 const schema = yup.object().shape({
@@ -49,11 +50,10 @@ const Register: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState("")
-  const [message, setMessage] = useState("")
 
   const { signup } = useAuth()
   const navigate = useNavigate()
+  const { showSuccess, showError } = useToast()
 
   const {
     register,
@@ -65,7 +65,6 @@ const Register: React.FC = () => {
 
   const onSubmit = async (data: RegisterFormData) => {
     try {
-      setError("")
       setIsLoading(true)
       
       const phone = data.phoneCountryCode && data.phoneNumber ? {
@@ -83,13 +82,13 @@ const Register: React.FC = () => {
       } : undefined
       
       await signup(data.email, data.password, data.firstName, data.lastName, phone, address)
-      setMessage("Account created successfully! Redirecting to verification page...")
+      showSuccess("Account created successfully! Redirecting to verification page...")
       setTimeout(() => {
         navigate("/email-verification")
       }, 2000)
     } catch (error: unknown) {
       console.error("Registration error:", error)
-      setError((error as Error).message || "Failed to create account. Please try again.")
+      showError((error as Error).message || "Failed to create account. Please try again.")
     } finally {
       setIsLoading(false)
     }
@@ -109,8 +108,6 @@ const Register: React.FC = () => {
             <p className="text-[#4b774a] dark:text-[#6a9e69]">Join the Roots to Bloom community</p>
           </div>
 
-          {error && <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">{error}</div>}
-          {message && <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">{message}</div>}
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             <div className="grid grid-cols-2 gap-4">

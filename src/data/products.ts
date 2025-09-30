@@ -35,8 +35,6 @@ export const products: Product[] = [
       "/images/products/botanic/58.webp",
       // "/images/products/botanic/51.webp",
     ],
-    shopeeLink: "https://my.shp.ee/J9C63Lf",
-    carousellLink: "https://carousell.app.link/FNRwCDPDpRb",
     rating: 5,
     howToUse:
       "Take a small amount and melt between palms. Apply to damp or dry hair, focusing on ends and scalp, massage gently to boost absorption and stimulate circulation. Use as a daily moisturizer or sealant after leave-in conditioner. For best results, use consistently as part of your hair care routine.",
@@ -45,33 +43,19 @@ export const products: Product[] = [
     ingredients:
       "Macadamia Seed Butter, Kokum Butter, Mango Butter, Shea Butter, Cocoa Butter, D-Panthenol, Rosemary Oil, Batana Oil, Black Seed Oil, Castor Oil,  Neem Oil, Vitamin E Oil, Moringa Powder, Propanediol, Menthol Crystals, Rosemary Essential Oil, Peppermint Essential Oil, Spearmint Essential Oil, Tea Trea Essential Oil, Optiphen Plus.",
     status: "Available",
+    // E-commerce fields
+    stock: 100,
+    isActive: true,
+    tags: ["hair", "butters", "growth", "hydrating"],
+    weight: 0.15, // kg
+    dimensions: {
+      length: 8,
+      width: 6,
+      height: 4
+    },
+    sku: "RTB-BHGB-001",
+    brand: "Roots to Bloom",
   },
-  // {
-  //   id: "2",
-  //   name: "Flora Luxe Growth Butter",
-  //   category: "hair",
-  //   subCategory: "butters",
-  //   description:
-  //     "A gentle exfoliating scrub that removes dead skin cells and leaves your skin smooth and radiant.",
-  //   sizePrices: [
-  //     { size: "150ml/g/g", price: 29.99 },
-  //     { size: "300ml/g", price: 59.99 },
-  //   ],
-  //   image: "/images/products/scrub2.webp",
-  //   images: [
-  //     "/images/products/coffee-scrub.webp",
-  //     "/images/products/scrub.webp",
-  //   ],
-  //   shopeeLink: "https://shopee.com/exfoliating-body-scrub",
-  //   carousellLink: "https://www.lazada.com/exfoliating-body-scrub",
-  //   rating: 0,
-  //   howToUse:
-  //     "Apply to damp skin in circular motions, focusing on rough areas. Rinse thoroughly with warm water. Use 2-3 times a week for best results.",
-  //   keyIngredients:
-  //     "Sugar, Coconut Oil, Shea Butter, Vitamin E, Lavender Essential Oil",
-  //   ingredients: "Aqua, ......",
-  //   status: "Available",
-  // },
   {
     id: "8",
     name: "Herbal Strength & Growth Shampoo",
@@ -90,8 +74,6 @@ export const products: Product[] = [
       "/images/products/strength-shampoo/3.webp",
       "/images/products/strength-shampoo/4.webp",
     ],
-    shopeeLink: "https://my.shp.ee/k5Bxee4",
-    carousellLink: "https://carousell.app.link/ibB7mdMDpRb",
     rating: 5,
     howToUse:
       "Wet hair thoroughly. Apply a small amount of shampoo to your palm and massage into your scalp and hair. Rinse thoroughly with warm water. For best results, follow with our SilkyGlow Hydrating Deep Conditioner.",
@@ -100,6 +82,18 @@ export const products: Product[] = [
     ingredients:
       "Purified water, Aloe Vera Juice, Nettle Extract, Rosemary Extract, Fenugreek Extract, Hibiscus Extract, Panthenol, Sodium Cocoyl Isethionate, Coco Glucoside, Decyl Glucoside, Foaming Apple, Cocamidopropyl Betaine, Olivem 1000, Castor Oil, Argan Oil, Caffeine Extract, Oats Extract, Citric Acid, Eco-Cert Preservative.",
     status: "Available",
+    // E-commerce fields
+    stock: 100,
+    isActive: true,
+    tags: ["hair", "shampoos", "strength", "growth"],
+    weight: 0.12, // kg
+    dimensions: {
+      length: 7,
+      width: 5,
+      height: 18
+    },
+    sku: "RTB-HSGS-008",
+    brand: "Roots to Bloom",
   },
   {
     id: "9",
@@ -118,8 +112,6 @@ export const products: Product[] = [
       "/images/products/leave-in/9.webp",
       "/images/products/leave-in/10.webp",
     ],
-    shopeeLink: "https://my.shp.ee/3oHiFSa",
-    carousellLink: "https://carousell.app.link/s8zeHpIDpRb",
     rating: 5,
     howToUse:
       "1. Apply a generous amount to damp or freshly washed hair. 2. Work through strands with fingers or a wide-tooth comb. 3. Style as desired, perfect for wash-and-go, twist-outs, or protective styles. 4. No need to rinse, just let your hair absorb the nourishing benefits.",
@@ -128,6 +120,18 @@ export const products: Product[] = [
     ingredients:
       "Water (Aqua), Avena Sativa (Oat) Milk, Linum Usitatissimum (Flaxseed) Gel, Trigonella Foenum-Graecum (Fenugreek) Extract, Rosmarinus Officinalis (Rosemary) Hydrosol, Ulmus Rubra (Slippery Elm) Extract, Argania Spinosa (Argan) Oil, Simmondsia Chinensis (Jojoba) Oil, Behentrimonium Methosulfate (BTMS-50), Cetyl Alcohol, Aloe Barbadensis (Aloe Vera) Extract, Silk Amino Acids, Tocopherol (Vitamin E), Mentha Piperita (Peppermint) Essential Oil, Preservative.",
     status: "Available",
+    // E-commerce fields
+    stock: 100,
+    isActive: true,
+    tags: ["hair", "conditioners", "leave-in", "nourishing"],
+    weight: 0.12, // kg
+    dimensions: {
+      length: 7,
+      width: 5,
+      height: 18
+    },
+    sku: "RTB-HTLC-009",
+    brand: "Roots to Bloom",
   },
   {
     id: "3",
@@ -148,8 +152,6 @@ export const products: Product[] = [
       "/images/products/hibiscus-butter/15.webp",
       "/images/products/hibiscus-butter/16.webp",
     ],
-    shopeeLink: "https://my.shp.ee/pHKW2GB",
-    carousellLink: "https://carousell.app.link/yjQrroEDpRb",
     rating: 4.6,
     howToUse:
       "After shampooing, apply a generous amount to wet hair, focusing on mid-lengths and ends. Leave for 2-3 minutes, then rinse thoroughly with cool water.",
@@ -158,6 +160,18 @@ export const products: Product[] = [
     ingredients:
       "Mango butter, Kokum butter, Macadamia butter, Cocoa butter, Hibiscus extract, Rosemary extract, Castor oil, Blackseed oil, Batana oil, Neem oil, Provitamin B5, Propane-1,3-diol, Vitamin E oil, Optiphen plus.",
     status: "Available",
+    // E-commerce fields
+    stock: 100,
+    isActive: true,
+    tags: ["hair", "butters", "growth", "hibiscus"],
+    weight: 0.15, // kg
+    dimensions: {
+      length: 8,
+      width: 6,
+      height: 4
+    },
+    sku: "RTB-FLGB-003",
+    brand: "Roots to Bloom",
   },
   {
     id: "4",
@@ -178,8 +192,6 @@ export const products: Product[] = [
       "/images/products/Oil/22.webp",
       "/images/products/Oil/23.webp",
     ],
-    shopeeLink: "https://my.shp.ee/5pB6KvY",
-    carousellLink: "https://carousell.app.link/JJsqtTvDpRb",
     rating: 5,
     howToUse:
       "Directions For Use: 1. Scalp Treatment: Apply a few drops to the scalp, massage for 5-10 minutes, and leave overnight or for at least 2 hours before washing. 2. Moisturizing Oil: Apply a small amount to damp or dry hair, focusing on the ends. 3. Sealant: Apply a small amount to the ends of damp or dry hair to lock in moisture and prevent breakage.",
@@ -188,6 +200,18 @@ export const products: Product[] = [
     ingredients:
       "Sunflower Oil, Castor Oil, Black Cunin Seed Oil, Batana Oil, Rosemary, Moringa, Fenugreek, Hibiscus, Star Anise, Amla Fruit, Bhringraj, and vitamin E Oil.",
     status: "Available",
+    // E-commerce fields
+    stock: 100,
+    isActive: true,
+    tags: ["hair", "oils", "growth", "elixir"],
+    weight: 0.03, // kg
+    dimensions: {
+      length: 5,
+      width: 5,
+      height: 10
+    },
+    sku: "RTB-GEOC-004",
+    brand: "Roots to Bloom",
   },
   {
     id: "5",
@@ -204,8 +228,6 @@ export const products: Product[] = [
       "/images/products/deep-conditioner/37.webp",
       "/images/products/deep-conditioner/38.webp",
     ],
-    shopeeLink: "https://my.shp.ee/Wy3SXhU",
-    carousellLink: "https://carousell.app.link/AE3YCw46qRb",
     rating: 5,
     howToUse:
       "1. Apply generously to clean, damp hair, focusing on mid-lengths to ends. 2. Massage gently and detangle with fingers or a wide-tooth comb. 3. Leave on for 15 to 30 minutes for deep penetration. 4. Rinse thoroughly with cool water to seal in moisture.  ",
@@ -213,6 +235,18 @@ export const products: Product[] = [
     ingredients:
       "Aqua (Water), Rice Milk, Oat Milk, Coconut Milk, Aloe Vera Juice, Hydrolyzed Silk Protein, Glycerin, Panthenol (Pro-Vitamin B5), Mango Seed Butter, Castor Seed Oil, Grape Seed Oil, Cetearyl Alcohol, BTMS-50, Honey, Hydrolyzed Wheat Protein, Baobab Extract, Green Tea Extract, Vitamin E Oil, NipaGuard, Essential Oil Blend (Lavender, Rosemary, or Peppermint), Citric Acid.",
     status: "Available",
+    // E-commerce fields
+    stock: 100,
+    isActive: true,
+    tags: ["hair", "conditioners", "deep", "hydrating"],
+    weight: 0.25, // kg
+    dimensions: {
+      length: 7,
+      width: 5,
+      height: 20
+    },
+    sku: "RTB-SHDC-005",
+    brand: "Roots to Bloom",
   },
   {
     id: "6",
@@ -232,8 +266,6 @@ export const products: Product[] = [
       "/images/products/antidandruff/12.webp",
       "/images/products/antidandruff/13.webp",
     ],
-    shopeeLink: "https://my.shp.ee/FRko7CW",
-    carousellLink: "https://carousell.app.link/mQc0PwhMsRb",
     rating: 5,
     howToUse:
       "Apply a generous amount to wet hair and scalp. Massage gently for two to three minutes, allowing the active ingredients to penetrate. Rinse thoroughly and repeat if necessary. For best results, use consistently and follow up with a lightweight conditioner.",
@@ -242,6 +274,18 @@ export const products: Product[] = [
     ingredients:
       "Purified Water, Aloe Vera Juice, Hydrolyzed Oat Protein, Piroctone Olamine, Salicylic Acid (BHA), Zinc PCA, Activated Charcoal, Sodium Cocoyl Isethionate (SCI), Coco Glucoside, Decyl Glucoside, Cocamidopropyl Betaine, Neem Extract, Tea Tree Oil, Black Cumin Seed Oil, Peppermint Oil, Menthol Crystals, Panthenol (Provitamin B5), Guar Hydroxypropyltrimonium Chloride, Eco-Cert Preservative (Geogard ECT), Citric Acid.",
     status: "Available",
+    // E-commerce fields
+    stock: 100,
+    isActive: true,
+    tags: ["hair", "shampoos", "anti-dandruff", "scalp"],
+    weight: 0.12, // kg
+    dimensions: {
+      length: 7,
+      width: 5,
+      height: 18
+    },
+    sku: "RTB-ADSTS-006",
+    brand: "Roots to Bloom",
   },
   {
     id: "7",
@@ -257,8 +301,6 @@ export const products: Product[] = [
     ],
     image: "/images/products/bar-soap.avif",
     images: ["/images/products/cleansing-bar-2.jpg"],
-    shopeeLink: "https://shopee.com/gentle-cleansing-bar",
-    carousellLink: "https://www.lazada.com/gentle-cleansing-bar",
     rating: 5,
     howToUse:
       "Wet the bar and work into a lather. Gently massage onto face or body, then rinse thoroughly with warm water. Suitable for daily use.",
@@ -266,5 +308,17 @@ export const products: Product[] = [
       "Glycerin, Shea Butter, Aloe Vera, Chamomile Extract, Vitamin E",
     ingredients: "Aqua, ......",
     status: "Unavailable",
+    // E-commerce fields
+    stock: 0,
+    isActive: false,
+    tags: ["skin", "bar soaps", "cleansing", "gentle"],
+    weight: 0.05, // kg
+    dimensions: {
+      length: 8,
+      width: 5,
+      height: 2
+    },
+    sku: "RTB-GCB-007",
+    brand: "Roots to Bloom",
   },
 ];

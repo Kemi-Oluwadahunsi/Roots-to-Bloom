@@ -31,8 +31,6 @@ export interface Product {
   sizePrices: SizePrice[];
   image: string;
   images: string[];
-  shopeeLink: string;
-  carousellLink: string;
   rating: number;
   calculatedRating?: number;
   reviewCount?: number;
@@ -40,6 +38,17 @@ export interface Product {
   keyIngredients: string;
   ingredients: string;
   status: string;
+  stock?: number;
+  isActive?: boolean;
+  tags?: string[];
+  weight?: number; // in kg
+  dimensions?: {
+    length: number; // in cm
+    width: number;  // in cm
+    height: number; // in cm
+  };
+  sku?: string;
+  brand?: string;
 }
 
 interface ProductContextType {

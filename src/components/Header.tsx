@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Sun, Moon, ChevronDown, User, LogOut, CheckCircle, AlertCircle } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 import { useAuth } from "../context/AuthContext";
+import CartBadge from "./cart/CartBadge";
 
 
 const Header = () => {
@@ -124,6 +125,9 @@ const Header = () => {
             </NavLink>
           )}
 
+          {/* Cart Badge */}
+          <CartBadge />
+
           {/* User Authentication */}
           {currentUser ? (
             <div
@@ -201,11 +205,12 @@ const Header = () => {
         <div className="lg:hidden flex items-center">
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full bg-[#d79f63] dark:bg-[#b58552] text-[#48392e] dark:text-[#f8f7f2] mr-3 sm:mr-6"
+            className="p-2 rounded-full bg-[#d79f63] dark:bg-[#b58552] text-[#48392e] dark:text-[#f8f7f2] mr-3"
           >
             {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
           </button>
-          <button onClick={toggleMenu} ref={buttonRef}>
+          <CartBadge />
+          <button onClick={toggleMenu} ref={buttonRef} className="ml-3">
             {isOpen ? <X /> : <Menu />}
           </button>
         </div>

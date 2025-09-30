@@ -6,10 +6,13 @@ import Footer from "./components/Footer";
 import { ProductProvider } from "./context/ProductContext";
 import { ThemeProvider } from "./context/ThemeContext";
 import { AuthProvider } from "./context/AuthContext";
+import { CartProvider } from "./context/CartContext";
+import { ToastProvider } from "./components/ui/ToastProvider";
 import LoadingSpinner from "./components/LoadingSpinner";
 import ScrollToTop from "./components/ScrollToTop";
 import ReviewButton from "./components/reviews/ReviewButton";
 import ProtectedRoute from "./components/ProtectedRoute";
+import { preloadExchangeRates } from "./services/exchangeRateService";
 
 const Home = React.lazy(() => import("./pages/Home"));
 const AboutRtB = React.lazy(() => import("./pages/AboutRtB"));
@@ -24,6 +27,7 @@ const Register = React.lazy(() => import("./pages/Register"))
 const ForgotPassword = React.lazy(() => import("./pages/ForgotPassword"))
 const EmailVerification = React.lazy(() => import("./pages/EmailVerification"))
 const UserProfile = React.lazy(() => import("./pages/UserProfile"))
+const Cart = React.lazy(() => import("./pages/Cart"))
 const ProductManagement = React.lazy(() => import("./pages/admin/ProductManagement"))
 const AdminDashboard = React.lazy(() => import("./pages/admin/AdminDashboard"))
 const CloudinaryImageManagement = React.lazy(() => import("./pages/admin/CloudinaryImageManagement"))
@@ -37,25 +41,35 @@ function App() {
     window.scrollTo(0, 0);
   }, [location]);
 
+  // Preload exchange rates on app initialization
+  useEffect(() => {
+    preloadExchangeRates().catch(error => {
+      console.error('Failed to preload exchange rates:', error);
+    });
+  }, []);
+
   return (
     <ThemeProvider>
       <AuthProvider>
-      <ProductProvider>
-        <div className="flex flex-col min-h-screen bg-background dark:bg-[#1a1a1a] dark:text-[#e0e0e0] relative">
-          <Header />
-          <main className="flex-grow pt-10 xl:pt-20">
-            <AnimatePresence mode="wait">
-              <Suspense fallback={<LoadingSpinner />}>
-                <Routes location={location} key={location.pathname}>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/about" element={<AboutRtB />} />
-                  <Route path="/ingredients" element={<Ingredients />} />
-                  <Route path="/products" element={<Products />} />
-                  <Route path="/products/:id" element={<ProductDetails />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="/blog" element={<Blog />} />
-                  <Route path="/blog/:slug" element={<BlogPost />} />
-                  <Route path="/login" element={<Login />} />
+        <CartProvider>
+          <ProductProvider>
+            <ToastProvider>
+            <div className="flex flex-col min-h-screen bg-background dark:bg-[#1a1a1a] dark:text-[#e0e0e0] relative">
+              <Header />
+              <main className="flex-grow pt-10 xl:pt-20">
+                <AnimatePresence mode="wait">
+                  <Suspense fallback={<LoadingSpinner />}>
+                    <Routes location={location} key={location.pathname}>
+                      <Route path="/" element={<Home />} />
+                      <Route path="/about" element={<AboutRtB />} />
+                      <Route path="/ingredients" element={<Ingredients />} />
+                      <Route path="/products" element={<Products />} />
+                      <Route path="/products/:id" element={<ProductDetails />} />
+                      <Route path="/cart" element={<Cart />} />
+                      <Route path="/contact" element={<Contact />} />
+                      <Route path="/blog" element={<Blog />} />
+                      <Route path="/blog/:slug" element={<BlogPost />} />
+                      <Route path="/login" element={<Login />} />
                       <Route path="/register" element={<Register />} />
                       <Route path="/forgot-password" element={<ForgotPassword />} />
                       <Route path="/email-verification" element={<EmailVerification />} />
@@ -107,15 +121,17 @@ function App() {
                           </ProtectedRoute>
                         }
                       />
-                </Routes>
-              </Suspense>
-            </AnimatePresence>
-          </main>
-          <Footer />
-          <ScrollToTop />
-          <ReviewButton />
-        </div>
-      </ProductProvider>
+                    </Routes>
+                  </Suspense>
+                </AnimatePresence>
+              </main>
+              <Footer />
+              <ScrollToTop />
+              <ReviewButton />
+            </div>
+            </ToastProvider>
+          </ProductProvider>
+        </CartProvider>
       </AuthProvider>
     </ThemeProvider>
   );

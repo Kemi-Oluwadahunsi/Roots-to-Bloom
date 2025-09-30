@@ -1,11 +1,29 @@
 "use client"
 
 import type React from "react"
+import { useState } from "react"
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
-import { Package, Users, MessageSquare, BarChart3, Settings, Upload, AlertTriangle } from "lucide-react"
+import { Package, Users, MessageSquare, BarChart3, Settings, Upload, AlertTriangle, Database } from "lucide-react"
+import { migrateProductsToFirebase } from "../../utils/migrateProducts"
 
 const AdminDashboard: React.FC = () => {
+  const [migrating, setMigrating] = useState(false)
+  const [migrationResult, setMigrationResult] = useState<string | null>(null)
+
+  const handleMigration = async () => {
+    try {
+      setMigrating(true)
+      setMigrationResult(null)
+      await migrateProductsToFirebase()
+      setMigrationResult("✅ Migration completed! Check console for details.")
+    } catch (error) {
+      setMigrationResult("❌ Migration failed. Check console for errors.")
+      console.error(error)
+    } finally {
+      setMigrating(false)
+    }
+  }
   const adminMenuItems = [
     {
       title: "Product Management",
@@ -81,8 +99,43 @@ const AdminDashboard: React.FC = () => {
             </p>
           </div>
 
+          {/* Migration Result */}
+          {migrationResult && (
+            <div className="mb-6 p-4 bg-white dark:bg-[#2a2a2a] rounded-lg shadow-lg">
+              <p className="text-center">{migrationResult}</p>
+            </div>
+          )}
+
           {/* Admin Menu Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Product Migration Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0 }}
+              className="relative bg-white dark:bg-[#2a2a2a] rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300"
+            >
+              <div className="w-12 h-12 bg-green-600 dark:bg-green-700 rounded-lg flex items-center justify-center mb-4">
+                <Database className="w-6 h-6 text-white" />
+              </div>
+
+              <h3 className="text-xl font-semibold text-[#48392e] dark:text-[#e0e0e0] mb-2">
+                Sync Products to Firebase
+              </h3>
+
+              <p className="text-gray-600 dark:text-gray-400 mb-4">
+                Migrate new products from static data to Firebase database
+              </p>
+
+              <button
+                onClick={handleMigration}
+                disabled={migrating}
+                className="w-full py-2 px-4 bg-green-600 dark:bg-green-700 text-white rounded-md hover:bg-green-700 dark:hover:bg-green-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {migrating ? "Migrating..." : "Run Migration"}
+              </button>
+            </motion.div>
+
             {adminMenuItems.map((item, index) => {
               const IconComponent = item.icon
               const isComingSoon = item.comingSoon

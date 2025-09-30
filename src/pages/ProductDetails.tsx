@@ -2,21 +2,22 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useProductContext } from "../context/ProductContext";
-import ProductPopup from "../components/ProductPopup";
-import CurrencyConverter from "../components/CurrencyConverter";
 import ImageGallery from "../components/ImageGallery";
 import ProductFAQ from "../components/ProductFAQ";
 import ProductReviews from "../components/reviews/ProductReviews";
+import AddToCartButton from "../components/cart/AddToCartButton";
 import { Currency } from "../data/products";
 import { ArrowLeft, Star } from "lucide-react";
+import type { EnhancedProduct } from "../types/ecommerce";
+import { useCurrency } from "../hooks/useCurrency";
 
 const ProductDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const { getProduct, fetchProductRating, loading: productsLoading } = useProductContext();
-  const [showPopup, setShowPopup] = useState(false);
+  const { formatUserPrice } = useCurrency();
   const [selectedSize, setSelectedSize] = useState("");
   const [currency, setCurrency] = useState<Currency>(Currency.MYR);
-  // const [isLoadingRating, setIsLoadingRating] = useState(true);
+  const [quantity, setQuantity] = useState(1);
 
   const product = getProduct(id || "");
 
@@ -68,10 +69,30 @@ const ProductDetails: React.FC = () => {
 
   // Use the calculated rating from Firestore if available, otherwise fall back to the hardcoded rating
   const displayRating = product.calculatedRating || 0;
-    // product.calculatedRating !== undefined
-    //   ? product.calculatedRating
-    //   : product.rating;
   const reviewCount = product.reviewCount || 0;
+
+  // Convert product to EnhancedProduct format
+  const enhancedProduct: EnhancedProduct = {
+    id: product.id,
+    name: product.name,
+    description: product.description,
+    price: selectedSizePrice?.price || product.sizePrices[0]?.price || 0,
+    image: product.image,
+    images: product.images || [product.image],
+    category: product.category,
+    stock: 100, // Default stock
+    isActive: product.status === "Available",
+    tags: [product.category, product.subCategory],
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  };
+
+  // Create sizePrice object if size is selected
+  const sizePrice = selectedSizePrice ? {
+    size: selectedSizePrice.size,
+    price: selectedSizePrice.price,
+  } : undefined;
+
 
   return (
     <motion.div
@@ -115,12 +136,6 @@ const ProductDetails: React.FC = () => {
               <span className="sm:text-lg text-[#4b774a] dark:text-[#6a9e69]">
                 {product.category} - {product.subCategory}
               </span>
-              {/* <div className="flex items-center">
-                <span className="text-[#d79f63] dark:text-[#b58552]">★</span>
-                <span className="ml-1 text-[#48392e] dark:text-[#e0e0e0]">
-                  {product.rating}
-                </span>
-              </div> */}
               <div className="flex items-center">
                 {displayRating < 0 ? (
                   <span className="text-sm text-gray-500 dark:text-gray-400">
@@ -161,13 +176,14 @@ const ProductDetails: React.FC = () => {
                 htmlFor="size-select"
                 className="block font-medium text-[#48392e] dark:text-[#e0e0e0] mb-2"
               >
-                Select Size:
+                Select Size: <span className="text-red-500">*</span>
               </label>
               <select
                 id="size-select"
                 value={selectedSize}
                 onChange={(e) => setSelectedSize(e.target.value)}
-                className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0]"
+                className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0] focus:outline-none focus:ring-2 focus:ring-[#4b774a] dark:focus:ring-[#6a9e69]"
+                required
               >
                 <option value="">Choose a size</option>
                 {product.sizePrices.map((sp) => (
@@ -176,16 +192,14 @@ const ProductDetails: React.FC = () => {
                   </option>
                 ))}
               </select>
+              {!selectedSize && (
+                <p className="text-sm text-red-500 mt-1">Size selection is required</p>
+              )}
             </div>
 
             {selectedSizePrice && (
               <div className="text-xl font-semibold text-[#d79f63] dark:text-[#b58552]">
-                Price:{" "}
-                <CurrencyConverter
-                  amount={selectedSizePrice.price}
-                  from={Currency.MYR}
-                  to={currency}
-                />
+                Price: {formatUserPrice(selectedSizePrice.price)}
               </div>
             )}
 
@@ -215,14 +229,36 @@ const ProductDetails: React.FC = () => {
               {product.description}
             </p>
 
-            <div className="w-3/4 mx-auto ">
-              <button
-                onClick={() => setShowPopup(true)}
-                className="w-full bg-[#4b774a] dark:bg-[#6a9e69] text-white py-2 px-6 rounded-full hover:bg-opacity-80 transition duration-300 disabled:opacity-50 cursor-pointer"
-                disabled={!selectedSize}
+            {/* Quantity Selector */}
+            <div className="w-[80%] xl:w-full">
+              <label
+                htmlFor="quantity-select"
+                className="block font-medium text-[#48392e] dark:text-[#e0e0e0] mb-2"
               >
-                Shop Now
-              </button>
+                Quantity:
+              </label>
+              <select
+                id="quantity-select"
+                value={quantity}
+                onChange={(e) => setQuantity(Number(e.target.value))}
+                className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-[#48392e] dark:text-[#e0e0e0]"
+              >
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
+                  <option key={num} value={num}>
+                    {num}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Add to Cart Button */}
+            <div className="w-3/4 mx-auto">
+              <AddToCartButton
+                product={enhancedProduct}
+                sizePrice={sizePrice}
+                size="lg"
+                showQuantity={false}
+              />
             </div>
           </motion.div>
 
@@ -248,13 +284,6 @@ const ProductDetails: React.FC = () => {
         </div>
       </div>
 
-      {showPopup && (
-        <ProductPopup
-          shopeeLink={product.shopeeLink}
-          carousellLink={product.carousellLink}
-          onClose={() => setShowPopup(false)}
-        />
-      )}
     </motion.div>
   );
 };
