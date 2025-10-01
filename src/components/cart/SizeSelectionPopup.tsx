@@ -27,7 +27,7 @@ const SizeSelectionPopup: React.FC<SizeSelectionPopupProps> = ({
   const isOutOfStock = (product.stock || 100) <= 0;
 
   const handleAddToCart = async () => {
-    if (!isSizeSelected || isOutOfStock || loading || isAdding) return;
+    if (!isSizeSelected || !selectedSizePrice || isOutOfStock || loading || isAdding) return;
 
     try {
       setIsAdding(true);
