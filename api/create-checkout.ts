@@ -2,9 +2,7 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 import Stripe from 'stripe';
 
 // Initialize Stripe with secret key (secure on Vercel backend)
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
-  apiVersion: '2025-09-30.clover',
-});
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '');
 
 /**
  * VERCEL SERVERLESS FUNCTION
