@@ -28,6 +28,9 @@ const ForgotPassword = React.lazy(() => import("./pages/ForgotPassword"))
 const EmailVerification = React.lazy(() => import("./pages/EmailVerification"))
 const UserProfile = React.lazy(() => import("./pages/UserProfile"))
 const Cart = React.lazy(() => import("./pages/Cart"))
+const Checkout = React.lazy(() => import("./pages/Checkout"))
+const PaymentSuccess = React.lazy(() => import("./pages/PaymentSuccess"))
+const PaymentCancel = React.lazy(() => import("./pages/PaymentCancel"))
 const ProductManagement = React.lazy(() => import("./pages/admin/ProductManagement"))
 const AdminDashboard = React.lazy(() => import("./pages/admin/AdminDashboard"))
 const CloudinaryImageManagement = React.lazy(() => import("./pages/admin/CloudinaryImageManagement"))
@@ -66,6 +69,9 @@ function App() {
                       <Route path="/products" element={<Products />} />
                       <Route path="/products/:id" element={<ProductDetails />} />
                       <Route path="/cart" element={<Cart />} />
+                      <Route path="/checkout" element={<Checkout />} />
+                      <Route path="/payment/success" element={<PaymentSuccess />} />
+                      <Route path="/payment/cancel" element={<PaymentCancel />} />
                       <Route path="/contact" element={<Contact />} />
                       <Route path="/blog" element={<Blog />} />
                       <Route path="/blog/:slug" element={<BlogPost />} />

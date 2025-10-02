@@ -1,0 +1,12 @@
+{
+  "name": "roots-to-bloom-api",
+  "version": "1.0.0",
+  "description": "Vercel Serverless API for Stripe payments",
+  "dependencies": {
+    "stripe": "^14.0.0"
+  },
+  "devDependencies": {
+    "@vercel/node": "^3.0.0"
+  }
+}
+
