@@ -4,7 +4,7 @@ import type React from "react"
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
-import { Package, Users, MessageSquare, BarChart3, Settings, Upload, AlertTriangle, Database } from "lucide-react"
+import { Package, Users, MessageSquare, BarChart3, Settings, Upload, AlertTriangle, Database, ShoppingBag } from "lucide-react"
 import { migrateProductsToFirebase } from "../../utils/migrateProducts"
 
 const AdminDashboard: React.FC = () => {
@@ -32,7 +32,13 @@ const AdminDashboard: React.FC = () => {
       link: "/admin/products",
       color: "bg-[#4b774a] dark:bg-[#6a9e69]",
     },
-    
+    {
+      title: "Order Management",
+      description: "View and manage customer orders, update shipping status",
+      icon: ShoppingBag,
+      link: "/admin/orders",
+      color: "bg-indigo-600 dark:bg-indigo-700",
+    },
     {
       title: "Image Migration",
       description: "Migrate existing product images from local storage to Cloudinary",

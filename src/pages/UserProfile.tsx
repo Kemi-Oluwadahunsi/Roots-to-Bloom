@@ -3,7 +3,7 @@
 import type React from "react"
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { User, Mail, Phone, Edit3, Save, X, Lock, CheckCircle, AlertCircle, RefreshCw, Settings } from "lucide-react"
+import { User, Mail, Phone, Edit3, Save, X, Lock, CheckCircle, AlertCircle, RefreshCw, Settings, Package } from "lucide-react"
 import { useAuth } from "../context/AuthContext"
 import { Link } from "react-router-dom"
 import { useForm } from "react-hook-form"
@@ -225,7 +225,7 @@ const UserProfile: React.FC = () => {
                   <p className="text-[#4b774a] dark:text-[#6a9e69]">{currentUser.email}</p>
                 </div>
               </div>
-              <div className="flex space-x-2">
+              <div className="flex flex-wrap gap-2">
                 {!isEditing && (
                   <button
                     onClick={() => setIsEditing(true)}
@@ -235,6 +235,13 @@ const UserProfile: React.FC = () => {
                     Edit Profile
                   </button>
                 )}
+                <Link
+                  to="/orders"
+                  className="flex items-center px-4 py-2 bg-blue-600 dark:bg-blue-700 text-white rounded-md hover:bg-opacity-90 transition duration-300"
+                >
+                  <Package className="w-4 h-4 mr-2" />
+                  My Orders
+                </Link>
                 <Link
                   to="/admin"
                   className="flex items-center px-4 py-2 bg-[#d79f63] dark:bg-[#b58552] text-white rounded-md hover:bg-opacity-90 transition duration-300"

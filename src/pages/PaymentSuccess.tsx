@@ -169,7 +169,7 @@ const PaymentSuccess: React.FC = () => {
             <div className="space-y-3">
               {currentUser && (
                 <button
-                  onClick={() => navigate('/profile?tab=orders')}
+                  onClick={() => navigate('/orders')}
                   className="w-full bg-[#4b774a] dark:bg-[#6a9e69] text-white py-3 rounded-md hover:bg-[#3d5f3c] dark:hover:bg-[#5a8e59] transition-colors flex items-center justify-center space-x-2"
                 >
                   <Package className="w-5 h-5" />

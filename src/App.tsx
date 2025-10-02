@@ -27,11 +27,13 @@ const Register = React.lazy(() => import("./pages/Register"))
 const ForgotPassword = React.lazy(() => import("./pages/ForgotPassword"))
 const EmailVerification = React.lazy(() => import("./pages/EmailVerification"))
 const UserProfile = React.lazy(() => import("./pages/UserProfile"))
+const UserOrders = React.lazy(() => import("./pages/UserOrders"))
 const Cart = React.lazy(() => import("./pages/Cart"))
 const Checkout = React.lazy(() => import("./pages/Checkout"))
 const PaymentSuccess = React.lazy(() => import("./pages/PaymentSuccess"))
 const PaymentCancel = React.lazy(() => import("./pages/PaymentCancel"))
 const ProductManagement = React.lazy(() => import("./pages/admin/ProductManagement"))
+const OrderManagement = React.lazy(() => import("./pages/admin/OrderManagement"))
 const AdminDashboard = React.lazy(() => import("./pages/admin/AdminDashboard"))
 const CloudinaryImageManagement = React.lazy(() => import("./pages/admin/CloudinaryImageManagement"))
 const ImageMigration = React.lazy(() => import("./pages/admin/ImageMigration"))
@@ -88,10 +90,26 @@ function App() {
                         }
                       />
                       <Route
+                        path="/orders"
+                        element={
+                          <ProtectedRoute>
+                            <UserOrders />
+                          </ProtectedRoute>
+                        }
+                      />
+                      <Route
                         path="/admin"
                         element={
                           <ProtectedRoute>
                             <AdminDashboard />
+                          </ProtectedRoute>
+                        }
+                      />
+                      <Route
+                        path="/admin/orders"
+                        element={
+                          <ProtectedRoute>
+                            <OrderManagement />
                           </ProtectedRoute>
                         }
                       />
