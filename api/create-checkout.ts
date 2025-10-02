@@ -90,18 +90,17 @@ export default async function handler(
       });
     }
 
-    // Get base URL for redirects
-    const baseUrl = process.env.VERCEL_URL 
-      ? `https://${process.env.VERCEL_URL}`
-      : req.headers.origin || 'http://localhost:5173';
+    // Get frontend URL for redirects
+    // Use explicit frontend URL from environment or fallback to origin
+    const frontendUrl = process.env.FRONTEND_URL || req.headers.origin || 'https://rtbloom.vercel.app';
 
     // Create Stripe Checkout Session
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'], // Can add 'fpx', 'grabpay' for Malaysia
       line_items: lineItems,
       mode: 'payment',
-      success_url: `${baseUrl}/payment/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${baseUrl}/payment/cancel`,
+      success_url: `${frontendUrl}/payment/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${frontendUrl}/payment/cancel`,
       customer_email: shipping.email,
       metadata: {
         userId: userId || 'guest',
