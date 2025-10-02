@@ -38,7 +38,7 @@ const OrderManagement: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  }, [showError]);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     loadOrders();

@@ -31,7 +31,7 @@ const UserOrders: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  }, [currentUser, showError]);
+  }, [currentUser]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (!currentUser) {
